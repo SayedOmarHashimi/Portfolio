@@ -285,6 +285,22 @@
     align-items: start;
   }
 
+  .about-photo-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .about-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 3px solid var(--gold-dim);
+    box-shadow: 0 0 0 6px rgba(200,169,110,0.1);
+  }
+
   .about-body {
     font-size: 1rem;
     color: var(--text-muted);
@@ -708,6 +724,9 @@
   <div class="section-inner">
     <div class="about-grid">
       <div>
+        <div class="about-photo-wrap">
+          <img src="profile.jpg" alt="Sayed Hashimi at graduation" class="about-photo" />
+        </div>
         <div class="section-eyebrow">About</div>
         <h2>How I work</h2>
         <div class="about-body">
