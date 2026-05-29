@@ -6,7 +6,7 @@
 <title>Sayed Hashimi — Business Analyst & MIS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   :root {
     --navy: #0e1a2b;
@@ -87,25 +87,40 @@
     overflow: hidden;
   }
 
-  .hero::before {
-    content: '';
+  .hero-photo {
     position: absolute;
-    top: -40%;
-    right: -20%;
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(200,169,110,0.07) 0%, transparent 65%);
-    pointer-events: none;
+    top: 0;
+    right: 0;
+    width: 52%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 18%;
+    z-index: 0;
   }
 
-  .hero-grid {
+  .hero-photo-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 62%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(to right, var(--navy) 0%, rgba(14,26,43,0.85) 18%, rgba(14,26,43,0.35) 45%, rgba(14,26,43,0.05) 72%, transparent 100%),
+      linear-gradient(to top, var(--navy) 0%, rgba(14,26,43,0.2) 22%, transparent 45%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
     max-width: 1100px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
     width: 100%;
+  }
+
+  .hero-inner {
+    max-width: 620px;
   }
 
   .hero-eyebrow {
@@ -129,17 +144,47 @@
   }
 
   h1 {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    line-height: 1.08;
+    font-family: var(--font-body);
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
     color: var(--cream);
     margin-bottom: 1.5rem;
-    font-weight: 400;
+    font-weight: 800;
   }
 
-  h1 em {
-    font-style: italic;
-    color: var(--gold);
+  .hero-role {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 460px;
+  }
+
+  .hero-tagline {
+    font-size: 1.35rem;
+    color: var(--cream);
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  .hero-status {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .status-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 0 3px rgba(74,222,128,0.2);
+    flex-shrink: 0;
   }
 
   .hero-sub {
@@ -191,6 +236,25 @@
     border-color: var(--gold);
     color: var(--gold-light);
     transform: translateY(-1px);
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 2.5rem;
+  }
+
+  .hero-chip {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--border);
+    background: rgba(200,169,110,0.06);
+    padding: 0.45rem 0.9rem;
+    border-radius: 4px;
   }
 
   /* STATS CARD */
@@ -659,7 +723,14 @@
     .nav-links { display: none; }
     section { padding: 4rem 1.5rem; }
     .hero { padding: 7rem 1.5rem 4rem; }
-    .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-photo { width: 100%; opacity: 0.28; object-position: 50% 12%; }
+    .hero-photo-overlay {
+      width: 100%;
+      background:
+        linear-gradient(to right, var(--navy) 0%, rgba(14,26,43,0.7) 100%),
+        linear-gradient(to top, var(--navy) 0%, rgba(14,26,43,0.3) 35%, transparent 70%);
+    }
+    h1 { font-size: clamp(3rem, 15vw, 4.5rem); }
     .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
     .exp-header { flex-direction: column; }
@@ -683,37 +754,23 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-grid">
-    <div>
-      <div class="hero-eyebrow">Business Analyst &amp; MIS Graduate</div>
-      <h1>Turning <em>data</em> into decisions that matter.</h1>
-      <p class="hero-sub">
-        4+ years translating complex data into clear, actionable insights — across startups, small business, and academic research. 
-        Sacramento State MIS &apos;26. Available for full-time opportunities.
-      </p>
+  <img src="profile.jpg" alt="Sayed Hashimi" class="hero-photo" />
+  <div class="hero-photo-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Business Analyst &amp; MIS</div>
+      <h1>Sayed<br>Hashimi</h1>
+      <p class="hero-role">Business Analyst · Sacramento State MIS &apos;26 · Salesforce Certified</p>
+      <p class="hero-tagline">Where data meets the decisions that move a business.</p>
       <div class="hero-cta">
         <a href="#experience" class="btn-primary">View My Work</a>
-        <a href="#contact" class="btn-outline">Get in Touch</a>
+        <a href="#contact" class="btn-outline">Contact</a>
       </div>
-    </div>
-    <div class="hero-stats">
-      <div class="stat-row">
-        <div class="stat-item">
-          <div class="stat-number">4+</div>
-          <div class="stat-label">Years of combined BA &amp; data experience</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">5+</div>
-          <div class="stat-label">Competitor platforms analyzed for product decisions</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">15%</div>
-          <div class="stat-label">Improvement in outreach targeting efficiency</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">90%+</div>
-          <div class="stat-label">Client retention through data-driven rate analysis</div>
-        </div>
+      <div class="hero-chips">
+        <span class="hero-chip">3.5 GPA</span>
+        <span class="hero-chip">Salesforce Certified</span>
+        <span class="hero-chip">SQL · Python · Tableau</span>
+        <span class="hero-chip">MIS '26</span>
       </div>
     </div>
   </div>
