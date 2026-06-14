@@ -1,884 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sayed Hashimi — Business Analyst & MIS</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sayed Hashimi — Business Analyst &amp; MIS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  /* ─── ORIGINAL TOKENS ───────────────────────── */
-  :root {
-    --navy: #0e1a2b;
-    --navy-mid: #1a2e47;
-    --navy-light: #243c5a;
-    --cream: #f4f0e8;
-    --cream-dim: #ede9df;
-    --gold: #c8a96e;
-    --gold-light: #e2c990;
-    --gold-dim: #8a6f3f;
-    --white: #ffffff;
-    --text-muted: #7a8fa6;
-    --border: rgba(200, 169, 110, 0.2);
-    --font-display: 'DM Serif Display', Georgia, serif;
-    --font-body: 'DM Sans', system-ui, sans-serif;
-    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--navy);
-    color: var(--cream);
-    font-family: var(--font-body);
-    font-weight: 400;
-    line-height: 1.6;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ─── DOT-GRID TEXTURE ───────────────────────── */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background-image: radial-gradient(rgba(200,169,110,0.07) 1px, transparent 1px);
-    background-size: 28px 28px;
-  }
-
-  /* ─── AMBIENT ORBS ───────────────────────────── */
-  .orb-container {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.3;
-  }
-  .orb-1 {
-    width: 650px; height: 650px;
-    background: radial-gradient(circle, rgba(200,169,110,0.25) 0%, transparent 65%);
-    top: -15%; left: -12%;
-    animation: orb1 24s ease-in-out infinite alternate;
-  }
-  .orb-2 {
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(30,70,170,0.3) 0%, transparent 65%);
-    bottom: 8%; right: -10%;
-    animation: orb2 30s ease-in-out infinite alternate;
-  }
-  .orb-3 {
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(200,169,110,0.12) 0%, transparent 65%);
-    top: 55%; left: 45%;
-    animation: orb3 20s ease-in-out infinite alternate;
-  }
-  @keyframes orb1 { to { transform: translate(80px, 60px) scale(1.1); } }
-  @keyframes orb2 { to { transform: translate(-60px,-80px) scale(1.08); } }
-  @keyframes orb3 { to { transform: translate(-50px, 40px) scale(1.15); } }
-
-  /* ─── PROGRESS BAR ───────────────────────────── */
-  #progress-bar {
-    position: fixed;
-    top: 0; left: 0;
-    height: 2px;
-    width: 0%;
-    background: linear-gradient(to right, var(--gold), var(--gold-light));
-    z-index: 1000;
-    transition: width 0.08s linear;
-  }
-
-  /* ─── CUSTOM CURSOR ──────────────────────────── */
-  #cursor {
-    position: fixed;
-    width: 10px; height: 10px;
-    background: var(--gold);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width 0.28s var(--ease-out), height 0.28s var(--ease-out),
-                opacity 0.28s, background 0.28s;
-    display: none;
-  }
-
-  /* ─── NAV ────────────────────────────────────── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 500;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.2rem 4rem;
-    background: transparent;
-    backdrop-filter: none;
-    border-bottom: 1px solid transparent;
-    transition: background 0.4s, border-color 0.4s, backdrop-filter 0.4s,
-                -webkit-backdrop-filter 0.4s, padding 0.3s;
-  }
-  nav.scrolled {
-    background: rgba(14, 26, 43, 0.92);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-    padding: 0.9rem 4rem;
-  }
-
-  .nav-logo {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    color: var(--gold);
-    letter-spacing: 0.02em;
-    text-decoration: none;
-    position: relative;
-    z-index: 501;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-  .nav-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-    position: relative;
-  }
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -3px; left: 0;
-    width: 0; height: 1px;
-    background: var(--gold);
-    transition: width 0.25s var(--ease-out);
-  }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-links a:hover::after { width: 100%; }
-
-  /* Hamburger */
-  .nav-hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 4px;
-    background: none;
-    border: none;
-    z-index: 501;
-  }
-  .nav-hamburger span {
-    display: block;
-    width: 22px; height: 1.5px;
-    background: var(--cream);
-    transition: transform 0.3s, opacity 0.3s, width 0.3s;
-    transform-origin: right;
-  }
-  .nav-hamburger.open span:nth-child(1) { transform: rotate(-45deg); }
-  .nav-hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
-  .nav-hamburger.open span:nth-child(3) { transform: rotate(45deg); }
-
-  /* Mobile full-screen overlay */
-  .nav-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(14, 26, 43, 0.97);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    z-index: 490;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2.5rem;
-  }
-  .nav-overlay.open { display: flex; }
-  .nav-overlay a {
-    font-family: var(--font-display);
-    font-size: 2.6rem;
-    color: var(--cream);
-    text-decoration: none;
-    opacity: 0;
-    transform: translateY(18px);
-    transition: color 0.2s;
-    animation: none;
-  }
-  .nav-overlay.open a {
-    animation: overlay-in 0.4s var(--ease-out) forwards;
-  }
-  .nav-overlay.open a:nth-child(1) { animation-delay: 0.04s; }
-  .nav-overlay.open a:nth-child(2) { animation-delay: 0.09s; }
-  .nav-overlay.open a:nth-child(3) { animation-delay: 0.14s; }
-  .nav-overlay.open a:nth-child(4) { animation-delay: 0.19s; }
-  .nav-overlay.open a:nth-child(5) { animation-delay: 0.24s; }
-  @keyframes overlay-in {
-    to { opacity: 1; transform: none; }
-  }
-  .nav-overlay a:hover { color: var(--gold); }
-
-  /* ─── HERO ───────────────────────────────────── */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 8rem 4rem 6rem;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-  }
-
-  /* Ken Burns on hero photo */
-  .hero-photo {
-    position: absolute;
-    top: 0; right: 0;
-    width: 52%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 50% 18%;
-    z-index: 0;
-    animation: kenburns 20s ease-in-out infinite alternate;
-    transform-origin: center;
-  }
-  @keyframes kenburns {
-    from { transform: scale(1)    translate(0,     0); }
-    to   { transform: scale(1.07) translate(-1.5%, -1%); }
-  }
-
-  .hero-photo-overlay {
-    position: absolute;
-    top: 0; right: 0;
-    width: 62%;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
-    background:
-      linear-gradient(to right, var(--navy) 0%, rgba(14,26,43,0.85) 18%,
-        rgba(14,26,43,0.35) 45%, rgba(14,26,43,0.05) 72%, transparent 100%),
-      linear-gradient(to top, var(--navy) 0%, rgba(14,26,43,0.2) 22%, transparent 45%);
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 1100px;
-    margin: 0 auto;
-    width: 100%;
-    animation: hero-fade-in 0.9s var(--ease-out) both;
-  }
-  @keyframes hero-fade-in {
-    from { opacity: 0; transform: translateY(22px); }
-    to   { opacity: 1; transform: none; }
-  }
-
-  .hero-inner { max-width: 620px; }
-
-  .hero-eyebrow {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.4rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .hero-eyebrow::before {
-    content: '';
-    display: block;
-    width: 32px; height: 1px;
-    background: var(--gold);
-  }
-
-  h1 {
-    font-family: var(--font-body);
-    font-size: clamp(3.5rem, 8vw, 7rem);
-    line-height: 0.92;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-    color: var(--cream);
-    margin-bottom: 1.5rem;
-    font-weight: 800;
-  }
-
-  .hero-role {
-    font-size: 1.05rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    max-width: 460px;
-  }
-
-  /* Typewriter host — min-height prevents layout jump */
-  .hero-tagline {
-    font-size: 1.35rem;
-    color: var(--cream);
-    font-weight: 600;
-    margin-bottom: 2rem;
-    min-height: 2em;
-  }
-  .tw-cursor {
-    display: inline-block;
-    width: 2px;
-    height: 1em;
-    background: var(--gold);
-    margin-left: 2px;
-    vertical-align: text-bottom;
-    animation: tw-blink 0.75s step-end infinite;
-  }
-  @keyframes tw-blink {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0; }
-  }
-
-  .hero-status {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-    font-size: 0.88rem;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-  }
-  .status-dot {
-    width: 9px; height: 9px;
-    border-radius: 50%;
-    background: #4ade80;
-    box-shadow: 0 0 0 3px rgba(74,222,128,0.2);
-    flex-shrink: 0;
-    animation: status-pulse 2.2s ease-in-out infinite;
-  }
-  @keyframes status-pulse {
-    0%,100% { box-shadow: 0 0 0 3px rgba(74,222,128,0.2); }
-    50%     { box-shadow: 0 0 0 6px rgba(74,222,128,0.06), 0 0 10px rgba(74,222,128,0.35); }
-  }
-
-  .hero-sub {
-    font-size: 1.05rem;
-    color: var(--text-muted);
-    line-height: 1.75;
-    max-width: 440px;
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-cta {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    display: inline-block;
-    padding: 0.75rem 1.75rem;
-    background: var(--gold);
-    color: var(--navy);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
-    border-radius: 3px;
-    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-  }
-  .btn-primary:hover {
-    background: var(--gold-light);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(200,169,110,0.35);
-  }
-
-  .btn-outline {
-    display: inline-block;
-    padding: 0.75rem 1.75rem;
-    border: 1px solid var(--gold-dim);
-    color: var(--gold);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
-    border-radius: 3px;
-    transition: border-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s, background 0.2s;
-  }
-  .btn-outline:hover {
-    border-color: var(--gold);
-    color: var(--gold-light);
-    transform: translateY(-2px);
-    background: rgba(200,169,110,0.06);
-    box-shadow: 0 8px 24px rgba(200,169,110,0.1);
-  }
-
-  .hero-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-top: 2.5rem;
-  }
-  .hero-chip {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid var(--border);
-    background: rgba(200,169,110,0.06);
-    padding: 0.45rem 0.9rem;
-    border-radius: 4px;
-  }
-
-  /* Stats card (unchanged) */
-  .hero-stats {
-    background: var(--navy-mid);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 2.5rem;
-  }
-  .stat-row { display: flex; flex-direction: column; gap: 1.8rem; }
-  .stat-item { border-bottom: 1px solid var(--border); padding-bottom: 1.8rem; }
-  .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .stat-number {
-    font-family: var(--font-display);
-    font-size: 2.6rem;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-  .stat-label {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    font-weight: 500;
-    letter-spacing: 0.04em;
-  }
-
-  /* ─── SECTION COMMON ─────────────────────────── */
-  section { padding: 6rem 4rem; position: relative; z-index: 1; }
-  .section-inner { max-width: 1100px; margin: 0 auto; }
-  .section-eyebrow {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.75rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .section-eyebrow::before {
-    content: '';
-    display: block;
-    width: 24px; height: 1px;
-    background: var(--gold);
-  }
-  h2 {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 3.5vw, 2.8rem);
-    font-weight: 400;
-    line-height: 1.15;
-    color: var(--cream);
-    margin-bottom: 3rem;
-  }
-
-  /* ─── SCROLL REVEAL ──────────────────────────── */
-  [data-reveal] {
-    opacity: 0;
-    transform: translateY(22px);
-    transition: opacity 0.72s var(--ease-out), transform 0.72s var(--ease-out);
-  }
-  [data-reveal].revealed { opacity: 1; transform: none; }
-  [data-reveal][data-delay="1"] { transition-delay: 0.10s; }
-  [data-reveal][data-delay="2"] { transition-delay: 0.20s; }
-  [data-reveal][data-delay="3"] { transition-delay: 0.30s; }
-  [data-reveal][data-delay="4"] { transition-delay: 0.40s; }
-
-  /* ─── ABOUT ──────────────────────────────────── */
-  #about {
-    background: var(--navy-mid);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-  }
-  .about-photo-wrap {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-  }
-  .about-photo {
-    width: 180px; height: 180px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center top;
-    border: 3px solid var(--gold-dim);
-    box-shadow: 0 0 0 6px rgba(200,169,110,0.1);
-  }
-  .about-body { font-size: 1rem; color: var(--text-muted); line-height: 1.8; }
-  .about-body p + p { margin-top: 1.2rem; }
-
-  /* Skill cards — hover glow */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-  .skill-card {
-    background: var(--navy);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 1.1rem 1.25rem;
-    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
-  }
-  .skill-card:hover {
-    border-color: rgba(200,169,110,0.5);
-    box-shadow: 0 0 20px rgba(200,169,110,0.13), 0 4px 16px rgba(0,0,0,0.2);
-    transform: translateY(-2px);
-  }
-  .skill-card-title {
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem;
-  }
-  .skill-card-body { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
-
-  /* ─── EXPERIENCE — TIMELINE ──────────────────── */
-  #experience { border-bottom: 1px solid var(--border); }
-  .exp-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    position: relative;
-    padding-left: 1.75rem;
-  }
-  /* Vertical gold gradient line */
-  .exp-list::before {
-    content: '';
-    position: absolute;
-    left: 5px; top: 0.9rem; bottom: 0.9rem;
-    width: 1px;
-    background: linear-gradient(to bottom, var(--gold), rgba(200,169,110,0.1));
-  }
-  .exp-card {
-    background: var(--navy-mid);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 2rem 2.25rem;
-    transition: border-color 0.25s, box-shadow 0.25s;
-    position: relative;
-    overflow: visible; /* allow dot to escape card boundary */
-  }
-  /* Timeline dot (replaces old left-bar ::before) */
-  .exp-card::before {
-    content: '';
-    position: absolute;
-    left: -2.1rem; top: 1.6rem;
-    width: 12px; height: 12px;
-    border-radius: 50%;
-    background: var(--gold);
-    border: 2px solid var(--navy-mid);
-    box-shadow: 0 0 0 3px rgba(200,169,110,0.25);
-    opacity: 1;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .exp-card:hover { border-color: rgba(200,169,110,0.4); box-shadow: 0 4px 24px rgba(0,0,0,0.2); }
-  .exp-card:hover::before {
-    transform: scale(1.35);
-    box-shadow: 0 0 0 5px rgba(200,169,110,0.18);
-  }
-  .exp-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1.2rem;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .exp-role { font-family: var(--font-display); font-size: 1.25rem; color: var(--cream); font-weight: 400; }
-  .exp-company { font-size: 0.88rem; color: var(--gold); font-weight: 500; margin-top: 0.2rem; }
-  .exp-date { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; white-space: nowrap; padding-top: 0.15rem; }
-  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-  .exp-bullets li {
-    font-size: 0.9rem; color: var(--text-muted);
-    padding-left: 1.2rem; position: relative; line-height: 1.65;
-  }
-  .exp-bullets li::before { content: '·'; position: absolute; left: 0; color: var(--gold-dim); }
-
-  /* ─── PROJECTS — GLASSMORPHISM + SHIMMER ─────── */
-  #projects { background: var(--navy-mid); border-bottom: 1px solid var(--border); }
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-  .project-card {
-    background: rgba(14,26,43,0.65);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.75rem 2rem;
-    display: flex; flex-direction: column; gap: 0.9rem;
-    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-    position: relative;
-    overflow: hidden;
-  }
-  /* Gold shimmer sweep on hover */
-  .project-card::after {
-    content: '';
-    position: absolute;
-    top: 0; left: -110%;
-    width: 60%;
-    height: 100%;
-    background: linear-gradient(
-      105deg,
-      transparent 0%,
-      rgba(200,169,110,0.08) 50%,
-      transparent 100%
-    );
-    transform: skewX(-12deg);
-    transition: left 0.65s ease;
-    pointer-events: none;
-  }
-  .project-card:hover {
-    border-color: rgba(200,169,110,0.4);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 30px rgba(200,169,110,0.07);
-  }
-  .project-card:hover::after { left: 150%; }
-
-  .project-number { font-family: var(--font-display); font-size: 1.8rem; color: rgba(200,169,110,0.18); line-height: 1; }
-  .project-title { font-family: var(--font-display); font-size: 1.15rem; color: var(--cream); font-weight: 400; line-height: 1.3; }
-  .project-body { font-size: 0.87rem; color: var(--text-muted); line-height: 1.7; flex: 1; }
-  .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.4rem; }
-  .tag {
-    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-    color: var(--gold); background: rgba(200,169,110,0.1);
-    border: 1px solid rgba(200,169,110,0.2); padding: 0.25rem 0.65rem; border-radius: 3px;
-  }
-
-  /* ─── CERTIFICATIONS ─────────────────────────── */
-  #certifications { border-bottom: 1px solid var(--border); }
-  .cert-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
-  .cert-item {
-    background: var(--navy-mid);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 1.25rem 1.5rem;
-    display: flex; align-items: flex-start; gap: 1rem;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .cert-item:hover { border-color: rgba(200,169,110,0.4); transform: translateY(-2px); }
-  /* Icon pulse on hover */
-  .cert-icon {
-    width: 36px; height: 36px;
-    background: rgba(200,169,110,0.12);
-    border-radius: 6px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .cert-item:hover .cert-icon {
-    animation: icon-pulse 0.5s var(--ease-out);
-  }
-  @keyframes icon-pulse {
-    0%  { transform: scale(1); }
-    40% { transform: scale(1.22); box-shadow: 0 0 14px rgba(200,169,110,0.35); }
-    100%{ transform: scale(1); }
-  }
-  .cert-icon svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-  .cert-title { font-size: 0.9rem; font-weight: 500; color: var(--cream); margin-bottom: 0.2rem; line-height: 1.4; }
-  .cert-sub { font-size: 0.78rem; color: var(--text-muted); }
-
-  /* ─── EDUCATION ──────────────────────────────── */
-  #education { background: var(--navy-mid); border-bottom: 1px solid var(--border); }
-  .edu-card {
-    background: var(--navy);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.75rem 2rem;
-    display: flex; justify-content: space-between; align-items: center;
-    gap: 2rem; flex-wrap: wrap;
-    transition: border-color 0.25s, box-shadow 0.25s;
-  }
-  .edu-card:hover { border-color: rgba(200,169,110,0.4); box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
-  .edu-card + .edu-card { margin-top: 1rem; }
-  .edu-degree { font-family: var(--font-display); font-size: 1.15rem; color: var(--cream); font-weight: 400; margin-bottom: 0.25rem; }
-  .edu-school { font-size: 0.88rem; color: var(--gold); font-weight: 500; margin-bottom: 0.2rem; }
-  .edu-detail { font-size: 0.82rem; color: var(--text-muted); }
-  .edu-gpa { text-align: right; }
-  .gpa-number { font-family: var(--font-display); font-size: 2rem; color: var(--gold); line-height: 1; }
-  .gpa-label { font-size: 0.72rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
-
-  /* ─── CONTACT ────────────────────────────────── */
-  #contact { text-align: center; }
-  .contact-inner { max-width: 560px; margin: 0 auto; }
-  .contact-body { font-size: 1rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 2.5rem; }
-  .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-  .contact-email {
-    display: block; font-size: 0.9rem; color: var(--gold);
-    text-decoration: none; margin-bottom: 2rem; letter-spacing: 0.02em;
-    transition: color 0.2s;
-  }
-  .contact-email:hover { color: var(--gold-light); }
-
-  /* ─── FOOTER ─────────────────────────────────── */
-  footer {
-    padding: 2rem 4rem;
-    border-top: 1px solid var(--border);
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 1rem;
-    position: relative; z-index: 1;
-  }
-  footer p { font-size: 0.78rem; color: var(--text-muted); }
-
-  /* ─── MOBILE ─────────────────────────────────── */
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    nav.scrolled { padding: 0.85rem 1.5rem; }
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
-
-    section { padding: 4rem 1.5rem; }
-    .hero { padding: 7rem 1.5rem 4rem; }
-    .hero-photo { width: 100%; opacity: 0.28; object-position: 50% 12%; }
-    .hero-photo-overlay {
-      width: 100%;
-      background:
-        linear-gradient(to right, var(--navy) 0%, rgba(14,26,43,0.7) 100%),
-        linear-gradient(to top, var(--navy) 0%, rgba(14,26,43,0.3) 35%, transparent 70%);
-    }
-    h1 { font-size: clamp(3rem, 15vw, 4.5rem); }
-    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
-    .exp-header { flex-direction: column; }
-    .edu-gpa { text-align: left; }
-    .exp-list { padding-left: 1.25rem; }
-    .exp-card::before { left: -1.65rem; }
-  }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    html { overflow-x: hidden; }
+    body { background: #0e1a2b; color: #f4f0e8; font-family: 'DM Sans', system-ui, sans-serif; line-height: 1.6; overflow-x: clip; -webkit-font-smoothing: antialiased; }
+    @keyframes kenburns { from { transform: scale(1) translate(0,0); } to { transform: scale(1.05) translate(-1%,-1%); } }
+    @keyframes statuspulse { 0%,100% { box-shadow: 0 0 0 3px rgba(74,222,128,0.2); } 50% { box-shadow: 0 0 0 6px rgba(74,222,128,0.05), 0 0 10px rgba(74,222,128,0.35); } }
 </style>
 </head>
 <body>
+<!-- dot-grid texture -->
+<div style="position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: radial-gradient(rgba(200,169,110,0.06) 1px, transparent 1px); background-size: 28px 28px;"></div>
 
-<!-- Progress bar -->
-<div id="progress-bar"></div>
+<!-- custom cursor -->
+<div id="cursor" aria-hidden="true" style="position: fixed; left: 0; top: 0; width: 10px; height: 10px; background: #c8a96e; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.28s cubic-bezier(0.22,1,0.36,1), height 0.28s cubic-bezier(0.22,1,0.36,1), opacity 0.28s, background 0.28s, border-color 0.28s; display: none; border: 0px solid #c8a96e; box-sizing: border-box;"></div>
 
-<!-- Custom cursor -->
-<div id="cursor" aria-hidden="true"></div>
-
-<!-- Ambient orbs -->
-<div class="orb-container" aria-hidden="true">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-</div>
+<!-- progress bar -->
+<div id="progress-bar" style="position: fixed; top: 0; left: 0; height: 2px; width: 0%; background: linear-gradient(to right, #c8a96e, #e2c990); z-index: 1000; transition: width 0.08s linear;"></div>
 
 <!-- NAV -->
-<nav id="main-nav">
-  <a href="#" class="nav-logo">Sayed Hashimi</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- Mobile overlay nav -->
-<div class="nav-overlay" id="nav-overlay" aria-hidden="true">
-  <a href="#about"       class="overlay-link">About</a>
-  <a href="#education"   class="overlay-link">Education</a>
-  <a href="#experience"  class="overlay-link">Experience</a>
-  <a href="#projects"    class="overlay-link">Projects</a>
-  <a href="#contact"     class="overlay-link">Contact</a>
+<div id="site-nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 26px 56px; background: transparent; border-bottom: 1px solid transparent; transition: background 0.4s, border-color 0.4s, backdrop-filter 0.4s, padding 0.3s;">
+  <a href="#home" style="font-family: 'DM Serif Display', Georgia, serif; font-size: 20px; color: #c8a96e; letter-spacing: 0.02em; text-decoration: none;">Sayed Hashimi</a>
+  <div style="display: flex; gap: 38px; align-items: center;">
+    <a href="#about" style="font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #7a8fa6; text-decoration: none; transition: color 0.2s;" style-hover="color: #c8a96e;">About</a>
+    <a href="#experience" style="font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #7a8fa6; text-decoration: none; transition: color 0.2s;" style-hover="color: #c8a96e;">Experience</a>
+    <a href="#projects" style="font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #7a8fa6; text-decoration: none; transition: color 0.2s;" style-hover="color: #c8a96e;">Projects</a>
+    <a href="#certifications" style="font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #7a8fa6; text-decoration: none; transition: color 0.2s;" style-hover="color: #c8a96e;">Credentials</a>
+    <a href="#contact" style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #c8a96e; text-decoration: none; border: 1px solid #8a6f3f; padding: 9px 18px; border-radius: 3px; transition: background 0.2s, color 0.2s;" style-hover="background: #c8a96e; color: #0e1a2b;">Contact</a>
+  </div>
 </div>
 
 <!-- HERO -->
-<section class="hero" id="home">
-  <img src="profile.jpg" alt="Sayed Hashimi" class="hero-photo" />
-  <div class="hero-photo-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-inner">
-      <div class="hero-eyebrow">Business Analyst &amp; MIS</div>
-      <h1>Sayed<br>Hashimi</h1>
-      <p class="hero-role">Business Analyst · Sacramento State MIS &apos;26 · Salesforce Certified</p>
-      <p class="hero-tagline" id="hero-tagline">Where data meets the decisions that move a business.</p>
-      <div class="hero-status">
-        <span class="status-dot" aria-hidden="true"></span>
-        Available for opportunities — May 2026
-      </div>
-      <div class="hero-cta">
-        <a href="#experience" class="btn-primary">View My Work</a>
-        <a href="#contact" class="btn-outline">Contact</a>
-      </div>
-      <div class="hero-chips">
-        <span class="hero-chip" data-count="3.5" data-suffix=" GPA">3.5 GPA</span>
-        <span class="hero-chip">Salesforce Certified</span>
-        <span class="hero-chip">SQL · Python · Tableau</span>
-        <span class="hero-chip">MIS '26</span>
-      </div>
+<section id="home" style="position: relative; z-index: 1; min-height: 100vh; display: flex; overflow: hidden;">
+  <div style="flex: 0 0 57%; display: flex; flex-direction: column; justify-content: center; padding: 120px 0 80px 56px;">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 26px;">
+      <span style="display: block; width: 38px; height: 1px; background: #c8a96e;"></span>
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #c8a96e;">Business Analyst &amp; MIS</span>
+    </div>
+    <h1 style="font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(64px, 7vw, 104px); line-height: 0.98; letter-spacing: -0.01em; color: #f4f0e8; font-weight: 400; margin-bottom: 26px;">Sayed<br>Hashimi</h1>
+    <p style="font-size: 17px; color: #aeb9c6; line-height: 1.65; max-width: 440px; margin-bottom: 22px;">I turn messy data into the decisions that move a business — dashboards, market research, and full systems analysis for real clients.</p>
+    <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #7a8fa6; margin-bottom: 34px;">
+      <span style="width: 9px; height: 9px; border-radius: 50%; background: #4ade80; animation: statuspulse 2.4s ease-in-out infinite;"></span>
+      Available for opportunities — May 2026
+    </div>
+    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 40px; flex-wrap: wrap;">
+      <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: #e2c990;">3.5 GPA</span>
+      <span style="width: 4px; height: 4px; border-radius: 50%; background: #8a6f3f;"></span>
+      <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: #e2c990;">Salesforce Certified</span>
+      <span style="width: 4px; height: 4px; border-radius: 50%; background: #8a6f3f;"></span>
+      <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: #e2c990;">SQL · Python · Tableau</span>
+      <span style="width: 4px; height: 4px; border-radius: 50%; background: #8a6f3f;"></span>
+      <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: #e2c990;">MIS '26</span>
+    </div>
+    <div style="display: flex; gap: 14px;">
+      <a href="#experience" style="display: inline-block; padding: 15px 32px; background: #c8a96e; color: #0e1a2b; text-decoration: none; font-weight: 600; font-size: 13px; letter-spacing: 0.06em; border-radius: 3px; white-space: nowrap; transition: background 0.2s, transform 0.2s, box-shadow 0.2s;" style-hover="background: #e2c990; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,169,110,0.35);">View My Work</a>
+      <a href="#contact" style="display: inline-block; padding: 15px 32px; border: 1px solid #8a6f3f; color: #c8a96e; text-decoration: none; font-weight: 500; font-size: 13px; letter-spacing: 0.06em; border-radius: 3px; white-space: nowrap; transition: border-color 0.2s, color 0.2s, transform 0.2s, background 0.2s;" style-hover="border-color: #c8a96e; color: #e2c990; transform: translateY(-2px); background: rgba(200,169,110,0.06);">Contact</a>
+    </div>
+  </div>
+  <!-- arched photo -->
+  <div style="flex: 1; position: relative; padding: 110px 56px 80px 24px; display: flex; align-items: stretch;">
+    <div style="position: relative; flex: 1; border-radius: 240px 240px 16px 16px; overflow: hidden; border: 1px solid rgba(200,169,110,0.35); box-shadow: 0 0 0 6px rgba(200,169,110,0.07), 0 40px 80px -30px rgba(0,0,0,0.6);">
+      <img src="profile.jpg" alt="Sayed Hashimi" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 13%; filter: saturate(0.5) contrast(1.03) brightness(0.92); animation: kenburns 26s ease-in-out infinite alternate;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(14,26,43,0.62) 0%, rgba(14,26,43,0.06) 34%, transparent 62%), linear-gradient(to left, transparent 58%, rgba(14,26,43,0.42) 100%);"></div>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about">
-  <div class="section-inner">
-    <div class="about-grid">
+<section id="about" style="position: relative; z-index: 1; padding: 120px 56px; background: #14223a; border-top: 1px solid rgba(200,169,110,0.2); border-bottom: 1px solid rgba(200,169,110,0.2);">
+  <div style="max-width: 1120px; margin: 0 auto;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
       <div>
-        <div class="about-photo-wrap" data-reveal>
-          <img src="profile.jpg" alt="Sayed Hashimi at graduation" class="about-photo" />
+        <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
+            <span style="display: block; width: 24px; height: 1px; background: #c8a96e;"></span>
+            <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e;">About</span>
+          </div>
+          <h2 style="font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(30px, 3.2vw, 44px); font-weight: 400; line-height: 1.15; color: #f4f0e8; margin-bottom: 28px;">How I work</h2>
         </div>
-        <div class="section-eyebrow" data-reveal data-delay="1">About</div>
-        <h2 data-reveal data-delay="1">How I work</h2>
-        <div class="about-body" data-reveal data-delay="2">
-          <p>
-            I'm a Business Analyst and MIS graduate with hands-on experience turning messy data into sharp recommendations.
-            Whether it's tracking product KPIs at an early-stage startup or analyzing competitor pricing for a growing insurance book,
-            I care about making data useful — not just pretty.
-          </p>
-          <p>
-            I've built dashboards from scratch, run market research cycles, facilitated stakeholder interviews, and delivered
-            full SDLC analyses for real clients. I'm comfortable moving between technical tools and business conversations.
-          </p>
-          <p>
-            Currently wrapping up my B.S. in MIS at Sacramento State (GPA: 3.5, May 2026) and looking for my next challenge in
-            data analysis, business intelligence, or product operations.
-          </p>
+        <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s; font-size: 16px; color: #aeb9c6; line-height: 1.85;">
+          <p>I'm a Business Analyst and MIS graduate with hands-on experience turning messy data into sharp recommendations. Whether it's tracking product KPIs at an early-stage startup or analyzing competitor pricing for a growing insurance book, I care about making data useful — not just pretty.</p>
+          <p style="margin-top: 18px;">I've built dashboards from scratch, run market research cycles, facilitated stakeholder interviews, and delivered full SDLC analyses for real clients. I'm comfortable moving between technical tools and business conversations.</p>
+          <p style="margin-top: 18px;">Currently wrapping up my B.S. in MIS at Sacramento State (GPA 3.5, May 2026) and looking for my next challenge in data analysis, business intelligence, or product operations.</p>
         </div>
       </div>
       <div>
-        <div class="section-eyebrow" style="margin-bottom: 1rem;" data-reveal>Core Skills</div>
-        <div class="skills-grid" data-reveal data-delay="1">
-          <div class="skill-card">
-            <div class="skill-card-title">Data &amp; Analytics</div>
-            <div class="skill-card-body">SQL · Python · Excel · Tableau · Power BI · R · Pandas</div>
+        <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); display: flex; align-items: center; gap: 12px; margin-bottom: 22px;">
+          <span style="display: block; width: 24px; height: 1px; background: #c8a96e;"></span>
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e;">Core Skills</span>
+        </div>
+        <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s; display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div style="background: #0e1a2b; border: 1px solid rgba(200,169,110,0.2); border-radius: 8px; padding: 20px 22px; transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;" style-hover="border-color: rgba(200,169,110,0.5); box-shadow: 0 0 20px rgba(200,169,110,0.12); transform: translateY(-2px);">
+            <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #c8a96e; margin-bottom: 9px;">Data &amp; Analytics</div>
+            <div style="font-size: 13px; color: #aeb9c6; line-height: 1.6;">SQL · Python · Excel · Tableau · Power BI · R · Pandas</div>
           </div>
-          <div class="skill-card">
-            <div class="skill-card-title">Business Analysis</div>
-            <div class="skill-card-body">Requirements gathering · BPMN · Use case modeling · Trend analysis</div>
+          <div style="background: #0e1a2b; border: 1px solid rgba(200,169,110,0.2); border-radius: 8px; padding: 20px 22px; transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;" style-hover="border-color: rgba(200,169,110,0.5); box-shadow: 0 0 20px rgba(200,169,110,0.12); transform: translateY(-2px);">
+            <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #c8a96e; margin-bottom: 9px;">Business Analysis</div>
+            <div style="font-size: 13px; color: #aeb9c6; line-height: 1.6;">Requirements gathering · BPMN · Use case modeling · Trend analysis</div>
           </div>
-          <div class="skill-card">
-            <div class="skill-card-title">Tools &amp; Platforms</div>
-            <div class="skill-card-body">Salesforce (Certified) · CRM systems · Tableau · Power BI</div>
+          <div style="background: #0e1a2b; border: 1px solid rgba(200,169,110,0.2); border-radius: 8px; padding: 20px 22px; transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;" style-hover="border-color: rgba(200,169,110,0.5); box-shadow: 0 0 20px rgba(200,169,110,0.12); transform: translateY(-2px);">
+            <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #c8a96e; margin-bottom: 9px;">Tools &amp; Platforms</div>
+            <div style="font-size: 13px; color: #aeb9c6; line-height: 1.6;">Salesforce (Certified) · CRM systems · Tableau · Power BI</div>
           </div>
-          <div class="skill-card">
-            <div class="skill-card-title">Research &amp; Strategy</div>
-            <div class="skill-card-body">Market research · Competitive analysis · Stakeholder interviews · NPV modeling</div>
+          <div style="background: #0e1a2b; border: 1px solid rgba(200,169,110,0.2); border-radius: 8px; padding: 20px 22px; transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;" style-hover="border-color: rgba(200,169,110,0.5); box-shadow: 0 0 20px rgba(200,169,110,0.12); transform: translateY(-2px);">
+            <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #c8a96e; margin-bottom: 9px;">Research &amp; Strategy</div>
+            <div style="font-size: 13px; color: #aeb9c6; line-height: 1.6;">Market research · Competitive analysis · Stakeholder interviews · NPV modeling</div>
           </div>
         </div>
       </div>
@@ -887,395 +121,341 @@
 </section>
 
 <!-- EDUCATION -->
-<section id="education">
-  <div class="section-inner">
-    <div class="section-eyebrow" data-reveal>Education</div>
-    <h2 data-reveal data-delay="1">Academic record</h2>
-
-    <div class="edu-card" data-reveal data-delay="2">
+<section id="education" style="position: relative; z-index: 1; padding: 120px 56px; border-bottom: 1px solid rgba(200,169,110,0.2);">
+  <div style="max-width: 1120px; margin: 0 auto;">
+    <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+      <span style="display: block; width: 24px; height: 1px; background: #c8a96e;"></span>
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e;">Education</span>
+    </div>
+    <h2 data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s; font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(30px, 3.2vw, 44px); font-weight: 400; line-height: 1.15; color: #f4f0e8; margin-bottom: 44px;">Academic record</h2>
+    <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s; background: #14223a; border: 1px solid rgba(200,169,110,0.2); border-radius: 10px; padding: 32px 36px; display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap; transition: border-color 0.25s, box-shadow 0.25s;" style-hover="border-color: rgba(200,169,110,0.4); box-shadow: 0 4px 24px rgba(0,0,0,0.15);">
       <div>
-        <div class="edu-degree">Bachelor of Science in Management Information Systems</div>
-        <div class="edu-school">California State University, Sacramento</div>
-        <div class="edu-detail">Sacramento, CA · Aug 2024 – May 2026 · Dean's List · Dean's Honor List</div>
+        <div style="font-family: 'DM Serif Display', Georgia, serif; font-size: 22px; color: #f4f0e8; margin-bottom: 7px;">Bachelor of Science in Management Information Systems</div>
+        <div style="font-size: 14px; color: #c8a96e; font-weight: 500; margin-bottom: 6px;">California State University, Sacramento</div>
+        <div style="font-size: 13px; color: #7a8fa6;">Sacramento, CA · Aug 2024 – May 2026 · Dean's List · Dean's Honor List</div>
       </div>
-      <div class="edu-gpa">
-        <div class="gpa-number">May '26</div>
-        <div class="gpa-label">B.S. MIS</div>
+      <div style="text-align: right;">
+        <div style="font-family: 'DM Serif Display', Georgia, serif; font-size: 34px; color: #c8a96e; line-height: 1;">3.5</div>
+        <div style="font-size: 12px; color: #7a8fa6; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px;">GPA · B.S. MIS</div>
       </div>
     </div>
-
   </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-inner">
-    <div class="section-eyebrow" data-reveal>Experience</div>
-    <h2 data-reveal data-delay="1">Where I've worked</h2>
-    <div class="exp-list">
+<section id="experience" style="position: relative; z-index: 1; padding: 120px 56px; border-bottom: 1px solid rgba(200,169,110,0.2);">
+  <div style="max-width: 1120px; margin: 0 auto;">
+    <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+      <span style="display: block; width: 24px; height: 1px; background: #c8a96e;"></span>
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e;">Experience</span>
+    </div>
+    <h2 data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s; font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(30px, 3.2vw, 44px); font-weight: 400; line-height: 1.15; color: #f4f0e8; margin-bottom: 44px;">Where I've worked</h2>
+    <div style="display: flex; flex-direction: column; gap: 24px; position: relative; padding-left: 30px;">
+      <div style="position: absolute; left: 5px; top: 14px; bottom: 14px; width: 1px; background: linear-gradient(to bottom, #c8a96e, rgba(200,169,110,0.1));"></div>
 
-      <div class="exp-card" data-reveal data-delay="2">
-        <div class="exp-header">
+      <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.15s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.15s; position: relative; background: #14223a; border: 1px solid rgba(200,169,110,0.2); border-radius: 10px; padding: 30px 36px; transition: border-color 0.25s, box-shadow 0.25s;" style-hover="border-color: rgba(200,169,110,0.4); box-shadow: 0 4px 24px rgba(0,0,0,0.2);">
+        <span style="position: absolute; left: -30px; top: 30px; width: 12px; height: 12px; border-radius: 50%; background: #c8a96e; border: 2px solid #14223a; box-shadow: 0 0 0 3px rgba(200,169,110,0.25);"></span>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 18px; flex-wrap: wrap;">
           <div>
-            <div class="exp-role">Business Analyst</div>
-            <div class="exp-company">FitLink</div>
+            <div style="font-family: 'DM Serif Display', Georgia, serif; font-size: 21px; color: #f4f0e8;">Business Analyst</div>
+            <div style="font-size: 14px; color: #c8a96e; font-weight: 500; margin-top: 4px;">FitLink</div>
           </div>
-          <div class="exp-date">Dec 2025 – Present</div>
+          <div style="font-size: 13px; color: #7a8fa6; font-weight: 500; white-space: nowrap; padding-top: 4px;">Dec 2025 – June 2026</div>
         </div>
-        <ul class="exp-bullets">
-          <li>Analyzed user feedback and product usage data across 3+ research cycles, surfacing key trends that directly shaped 2 feature prioritization decisions.</li>
-          <li>Built and maintained weekly growth tracking dashboards in Excel, enabling the team to monitor KPIs and iterate on outreach strategy in near real-time.</li>
-          <li>Conducted competitive market research on 5+ comparable platforms, producing synthesis reports used in product planning sessions.</li>
-          <li>Presented data-backed insights in bi-weekly strategy meetings, contributing to a 15% improvement in outreach targeting efficiency.</li>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+          <li style="font-size: 14px; color: #aeb9c6; padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: #8a6f3f;">·</span>Analyzed user feedback and product usage data across 3+ research cycles, surfacing key trends that directly shaped 2 feature prioritization decisions.</li>
+          <li style="font-size: 14px; color: #aeb9c6; padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: #8a6f3f;">·</span>Built and maintained weekly growth tracking dashboards in Excel, enabling the team to monitor KPIs and iterate on outreach strategy in near real-time.</li>
+          <li style="font-size: 14px; color: #aeb9c6; padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: #8a6f3f;">·</span>Conducted competitive market research on 5+ comparable platforms, producing synthesis reports used in product planning sessions.</li>
+          <li style="font-size: 14px; color: #aeb9c6; padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: #8a6f3f;">·</span>Presented data-backed insights in bi-weekly strategy meetings, contributing to a 15% improvement in outreach targeting efficiency.</li>
         </ul>
       </div>
 
-      <div class="exp-card" data-reveal data-delay="3">
-        <div class="exp-header">
+      <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.25s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.25s; position: relative; background: #14223a; border: 1px solid rgba(200,169,110,0.2); border-radius: 10px; padding: 30px 36px; transition: border-color 0.25s, box-shadow 0.25s;" style-hover="border-color: rgba(200,169,110,0.4); box-shadow: 0 4px 24px rgba(0,0,0,0.2);">
+        <span style="position: absolute; left: -30px; top: 30px; width: 12px; height: 12px; border-radius: 50%; background: #c8a96e; border: 2px solid #14223a; box-shadow: 0 0 0 3px rgba(200,169,110,0.25);"></span>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 18px; flex-wrap: wrap;">
           <div>
-            <div class="exp-role">Business Analyst</div>
-            <div class="exp-company">Hashimi Insurance</div>
+            <div style="font-family: 'DM Serif Display', Georgia, serif; font-size: 21px; color: #f4f0e8;">Business Analyst</div>
+            <div style="font-size: 14px; color: #c8a96e; font-weight: 500; margin-top: 4px;">Hashimi Insurance</div>
           </div>
-          <div class="exp-date">Feb 2023 – Dec 2024</div>
+          <div style="font-size: 13px; color: #7a8fa6; font-weight: 500; white-space: nowrap; padding-top: 4px;">Feb 2023 – Dec 2024</div>
         </div>
-        <ul class="exp-bullets">
-          <li>Designed and executed social media campaigns across 3 platforms, growing follower engagement ~30% and contributing to a measurable increase in inbound client inquiries.</li>
-          <li>Analyzed competitor pricing and market trends quarterly, producing reports that informed rate adjustments and helped retain 90%+ of existing client accounts.</li>
-          <li>Produced weekly analytical reports tracking KPIs across sales, client retention, and campaign performance, used directly in leadership operational reviews.</li>
-          <li>Collaborated with third-party agencies to evaluate insurance plan portfolios, reducing average plan cost through negotiated carrier terms.</li>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+          <li style="font-size: 14px; color: #aeb9c6; padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: #8a6f3f;">·</span>Designed and executed social media campaigns across 3 platforms, growing follower engagement ~30% and contributing to a measurable increase in inbound client inquiries.</li>
+          <li style="font-size: 14px; color: #aeb9c6; padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: #8a6f3f;">·</span>Analyzed competitor pricing and market trends quarterly, producing reports that informed rate adjustments and helped retain 90%+ of existing client accounts.</li>
+          <li style="font-size: 14px; color: #aeb9c6; padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: #8a6f3f;">·</span>Produced weekly analytical reports tracking KPIs across sales, client retention, and campaign performance, used directly in leadership operational reviews.</li>
+          <li style="font-size: 14px; color: #aeb9c6; padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: #8a6f3f;">·</span>Collaborated with third-party agencies to evaluate insurance plan portfolios, reducing average plan cost through negotiated carrier terms.</li>
         </ul>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
-  <div class="section-inner">
-    <div class="section-eyebrow" data-reveal>Projects</div>
-    <h2 data-reveal data-delay="1">What I've built</h2>
-    <div class="projects-grid">
-
-      <div class="project-card" data-reveal data-delay="2">
-        <div class="project-number">01</div>
-        <div class="project-title">Hospital Management BI Solution</div>
-        <div class="project-body">
-          Designed and developed an 8-dashboard Tableau BI solution covering billing analytics, appointment efficiency,
-          treatment performance, patient density mapping, and no-show analysis. Built a full ER diagram, relational schema,
-          and ETL pipeline integrating 5 normalized tables.
+<section id="projects" style="position: relative; z-index: 1; padding: 120px 56px; background: #14223a; border-bottom: 1px solid rgba(200,169,110,0.2);">
+  <div style="max-width: 1120px; margin: 0 auto;">
+    <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+      <span style="display: block; width: 24px; height: 1px; background: #c8a96e;"></span>
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e;">Projects</span>
+    </div>
+    <h2 data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s; font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(30px, 3.2vw, 44px); font-weight: 400; line-height: 1.15; color: #f4f0e8; margin-bottom: 44px;">What I've built</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(440px, 1fr)); gap: 22px;">
+      <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.15s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.15s; background: rgba(14,26,43,0.7); border: 1px solid rgba(200,169,110,0.2); border-radius: 10px; position: relative; overflow: hidden; isolation: isolate; padding: 30px 34px; display: flex; flex-direction: column; gap: 14px; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;" style-hover="border-color: rgba(200,169,110,0.45); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.3);">
+        <div data-shimmer="" style="position: absolute; top: 0; left: -110%; width: 60%; height: 100%; background: linear-gradient(105deg, transparent 0%, rgba(200,169,110,0.13) 50%, transparent 100%); transform: skewX(-12deg); transition: left 0.7s ease; pointer-events: none; z-index: -1;"></div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between;">
+          <div style="font-family: 'DM Serif Display', Georgia, serif; font-size: 30px; color: rgba(200,169,110,0.22); line-height: 1;">01</div>
+          <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #8a6f3f;">Business Intelligence</div>
         </div>
-        <div class="project-tags">
-          <span class="tag">Tableau</span>
-          <span class="tag">SQL</span>
-          <span class="tag">ETL</span>
-          <span class="tag">Data Modeling</span>
+        <a href="https://sayedomarhashimi.github.io/hospital-management-systems/" target="_blank" rel="noopener" style="font-family: 'DM Serif Display', Georgia, serif; font-size: 21px; color: #f4f0e8; line-height: 1.3; text-decoration: none; display: inline-flex; align-items: baseline; gap: 8px; transition: color 0.2s;" style-hover="color: #c8a96e;">Hospital Management BI Solution <span style="font-size: 14px;">↗</span></a>
+        <div style="font-size: 14px; color: #aeb9c6; line-height: 1.7; flex: 1;">Designed and developed an 8-dashboard Tableau BI solution covering billing analytics, appointment efficiency, treatment performance, patient density mapping, and no-show analysis. Built a full ER diagram, relational schema, and ETL pipeline integrating 5 normalized tables.</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #c8a96e; background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.2); padding: 5px 11px; border-radius: 3px;">Tableau</span>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #c8a96e; background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.2); padding: 5px 11px; border-radius: 3px;">SQL</span>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #c8a96e; background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.2); padding: 5px 11px; border-radius: 3px;">ETL</span>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #c8a96e; background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.2); padding: 5px 11px; border-radius: 3px;">Data Modeling</span>
+        </div>
+      </div>
+      <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.15s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.15s; background: rgba(14,26,43,0.7); border: 1px solid rgba(200,169,110,0.2); border-radius: 10px; position: relative; overflow: hidden; isolation: isolate; padding: 30px 34px; display: flex; flex-direction: column; gap: 14px; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;" style-hover="border-color: rgba(200,169,110,0.45); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.3);">
+        <div data-shimmer="" style="position: absolute; top: 0; left: -110%; width: 60%; height: 100%; background: linear-gradient(105deg, transparent 0%, rgba(200,169,110,0.13) 50%, transparent 100%); transform: skewX(-12deg); transition: left 0.7s ease; pointer-events: none; z-index: -1;"></div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between;">
+          <div style="font-family: 'DM Serif Display', Georgia, serif; font-size: 30px; color: rgba(200,169,110,0.22); line-height: 1;">02</div>
+          <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #8a6f3f;">Full-Stack Web App · Live</div>
+        </div>
+        <a href="https://united-space-data.vercel.app/" target="_blank" rel="noopener" style="font-family: 'DM Serif Display', Georgia, serif; font-size: 21px; color: #f4f0e8; line-height: 1.3; text-decoration: none; display: inline-flex; align-items: baseline; gap: 8px; transition: color 0.2s;" style-hover="color: #c8a96e;">United Space Data — The World's Space Data Archive <span style="font-size: 14px;">↗</span></a>
+        <div style="font-size: 14px; color: #aeb9c6; line-height: 1.7; flex: 1;">An open-access archive where researchers and space enthusiasts worldwide upload and download datasets, mission files, and research papers — completely free. Real cloud file storage, a searchable, tag-filterable repository, and live contributor stats, wrapped in a minimal tan-and-navy design with smooth scroll animations.</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #c8a96e; background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.2); padding: 5px 11px; border-radius: 3px;">Next.js 14</span>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #c8a96e; background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.2); padding: 5px 11px; border-radius: 3px;">TypeScript</span>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #c8a96e; background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.2); padding: 5px 11px; border-radius: 3px;">Tailwind</span>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #c8a96e; background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.2); padding: 5px 11px; border-radius: 3px;">Supabase</span>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #c8a96e; background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.2); padding: 5px 11px; border-radius: 3px;">Vercel</span>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #c8a96e; background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.2); padding: 5px 11px; border-radius: 3px;">Framer Motion</span>
         </div>
       </div>
 
-      <div class="project-card" data-reveal data-delay="3">
-        <div class="project-number">02</div>
-        <div class="project-title">Defenna Foundation: AI Chatbot Recommendation</div>
-        <div class="project-body">
-          Full SDLC systems analysis for a real nonprofit client, delivering feasibility study, stakeholder interviews,
-          SRS requirements, BPMN and use case diagrams, domain model class diagrams, and a RAG AI chatbot recommendation
-          (Chatbase) with a 5-year NPV model at 8% discount rate ($12,688 NPV).
+      <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.25s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.25s; background: rgba(14,26,43,0.7); border: 1px solid rgba(200,169,110,0.2); border-radius: 10px; position: relative; overflow: hidden; isolation: isolate; padding: 30px 34px; display: flex; flex-direction: column; gap: 14px; transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;" style-hover="border-color: rgba(200,169,110,0.45); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.3);">
+        <div data-shimmer="" style="position: absolute; top: 0; left: -110%; width: 60%; height: 100%; background: linear-gradient(105deg, transparent 0%, rgba(200,169,110,0.13) 50%, transparent 100%); transform: skewX(-12deg); transition: left 0.7s ease; pointer-events: none; z-index: -1;"></div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between;">
+          <div style="font-family: 'DM Serif Display', Georgia, serif; font-size: 30px; color: rgba(200,169,110,0.22); line-height: 1;">03</div>
+          <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #8a6f3f;">Database Systems</div>
         </div>
-        <div class="project-tags">
-          <span class="tag">Systems Analysis</span>
-          <span class="tag">SDLC</span>
-          <span class="tag">BPMN</span>
-          <span class="tag">NPV Modeling</span>
-          <span class="tag">AI</span>
+        <a href="https://sayedomarhashimi.github.io/Property-Database-Management-Systems/" target="_blank" rel="noopener" style="font-family: 'DM Serif Display', Georgia, serif; font-size: 21px; color: #f4f0e8; line-height: 1.3; text-decoration: none; display: inline-flex; align-items: baseline; gap: 8px; transition: color 0.2s;" style-hover="color: #c8a96e;">Property Management Database System <span style="font-size: 14px;">↗</span></a>
+        <div style="font-size: 12px; color: #7a8fa6; margin-top: -6px;">California State University, Sacramento · 5-member team</div>
+        <div style="font-size: 14px; color: #aeb9c6; line-height: 1.7; flex: 1;">A relational MySQL system spanning the full database lifecycle — ER diagrams, a normalized schema of 10+ entities, and a complete data dictionary. Wrote DDL scripts and 10 business queries using JOINs, subqueries, and aggregation, plus triggers that auto-update apartment occupancy and a stored procedure that assigns staff to maintenance requests by workload.</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #c8a96e; background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.2); padding: 5px 11px; border-radius: 3px;">MySQL</span>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #c8a96e; background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.2); padding: 5px 11px; border-radius: 3px;">ER Modeling</span>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #c8a96e; background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.2); padding: 5px 11px; border-radius: 3px;">SQL DDL/DML</span>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #c8a96e; background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.2); padding: 5px 11px; border-radius: 3px;">Triggers</span>
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #c8a96e; background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.2); padding: 5px 11px; border-radius: 3px;">Stored Procedures</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- CERTIFICATIONS -->
-<section id="certifications">
-  <div class="section-inner">
-    <div class="section-eyebrow" data-reveal>Certifications &amp; Eligibilities</div>
-    <h2 data-reveal data-delay="1">Credentials</h2>
-    <div class="cert-list">
-
-      <div class="cert-item" data-reveal data-delay="2">
-        <div class="cert-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+<section id="certifications" style="position: relative; z-index: 1; padding: 120px 56px; border-bottom: 1px solid rgba(200,169,110,0.2);">
+  <div style="max-width: 1120px; margin: 0 auto;">
+    <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+      <span style="display: block; width: 24px; height: 1px; background: #c8a96e;"></span>
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e;">Certifications &amp; Eligibilities</span>
+    </div>
+    <h2 data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s; font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(30px, 3.2vw, 44px); font-weight: 400; line-height: 1.15; color: #f4f0e8; margin-bottom: 44px;">Credentials</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px;">
+      <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s; background: #14223a; border: 1px solid rgba(200,169,110,0.2); border-radius: 8px; padding: 22px 26px; display: flex; align-items: flex-start; gap: 16px; transition: border-color 0.2s, transform 0.2s;" style-hover="border-color: rgba(200,169,110,0.4); transform: translateY(-2px);">
+        <div style="width: 38px; height: 38px; background: rgba(200,169,110,0.12); border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg viewBox="0 0 24 24" style="width: 19px; height: 19px; stroke: #c8a96e; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
         </div>
         <div>
-          <div class="cert-title">Foundations: Data, Data, Everywhere</div>
-          <div class="cert-sub">Google</div>
+          <div style="font-size: 15px; font-weight: 500; color: #f4f0e8; margin-bottom: 4px; line-height: 1.4;">Foundations: Data, Data, Everywhere</div>
+          <div style="font-size: 13px; color: #7a8fa6;">Google</div>
         </div>
       </div>
-
-      <div class="cert-item" data-reveal data-delay="2">
-        <div class="cert-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
+      <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.15s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.15s; background: #14223a; border: 1px solid rgba(200,169,110,0.2); border-radius: 8px; padding: 22px 26px; display: flex; align-items: flex-start; gap: 16px; transition: border-color 0.2s, transform 0.2s;" style-hover="border-color: rgba(200,169,110,0.4); transform: translateY(-2px);">
+        <div style="width: 38px; height: 38px; background: rgba(200,169,110,0.12); border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg viewBox="0 0 24 24" style="width: 19px; height: 19px; stroke: #c8a96e; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M9 12l2 2 4-4"></path></svg>
         </div>
         <div>
-          <div class="cert-title">Salesforce Certified</div>
-          <div class="cert-sub">Salesforce</div>
+          <div style="font-size: 15px; font-weight: 500; color: #f4f0e8; margin-bottom: 4px; line-height: 1.4;">Salesforce Certified</div>
+          <div style="font-size: 13px; color: #7a8fa6;">Salesforce</div>
         </div>
       </div>
-
-      <div class="cert-item" data-reveal data-delay="3">
-        <div class="cert-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s; background: #14223a; border: 1px solid rgba(200,169,110,0.2); border-radius: 8px; padding: 22px 26px; display: flex; align-items: flex-start; gap: 16px; transition: border-color 0.2s, transform 0.2s;" style-hover="border-color: rgba(200,169,110,0.4); transform: translateY(-2px);">
+        <div style="width: 38px; height: 38px; background: rgba(200,169,110,0.12); border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg viewBox="0 0 24 24" style="width: 19px; height: 19px; stroke: #c8a96e; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path><path d="M9 12l2 2 4-4"></path></svg>
         </div>
         <div>
-          <div class="cert-title">Information Technology Associate</div>
-          <div class="cert-sub">State of California, CalCareers · List 18678, Rank 2</div>
+          <div style="font-size: 15px; font-weight: 500; color: #f4f0e8; margin-bottom: 4px; line-height: 1.4;">Information Technology Associate</div>
+          <div style="font-size: 13px; color: #7a8fa6;">State of California, CalCareers · List 18678, Rank 2</div>
         </div>
       </div>
-
-      <div class="cert-item" data-reveal data-delay="3">
-        <div class="cert-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.25s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.25s; background: #14223a; border: 1px solid rgba(200,169,110,0.2); border-radius: 8px; padding: 22px 26px; display: flex; align-items: flex-start; gap: 16px; transition: border-color 0.2s, transform 0.2s;" style-hover="border-color: rgba(200,169,110,0.4); transform: translateY(-2px);">
+        <div style="width: 38px; height: 38px; background: rgba(200,169,110,0.12); border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg viewBox="0 0 24 24" style="width: 19px; height: 19px; stroke: #c8a96e; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path><path d="M9 12l2 2 4-4"></path></svg>
         </div>
         <div>
-          <div class="cert-title">Analyst I, Active Eligibility</div>
-          <div class="cert-sub">State of California, CalCareers · List 19089</div>
+          <div style="font-size: 15px; font-weight: 500; color: #f4f0e8; margin-bottom: 4px; line-height: 1.4;">Analyst I, Active Eligibility</div>
+          <div style="font-size: 13px; color: #7a8fa6;">State of California, CalCareers · List 19089</div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-  <div class="section-inner">
-    <div class="contact-inner">
-      <div class="section-eyebrow" style="justify-content: center;" data-reveal>Let's connect</div>
-      <h2 style="margin-bottom: 1.25rem;" data-reveal data-delay="1">Open to full-time opportunities</h2>
-      <p class="contact-body" data-reveal data-delay="2">
-        Available for business analyst, data analyst, and product operations roles starting May 2026.
-        I work well across startup and enterprise environments — let's talk.
-      </p>
-      <a href="mailto:omarhashimi12@gmail.com" class="contact-email" data-reveal data-delay="3">omarhashimi12@gmail.com</a>
-      <div class="contact-links" data-reveal data-delay="4">
-        <a href="https://www.linkedin.com/in/sayedhashimi12/" target="_blank" rel="noopener" class="btn-primary">LinkedIn</a>
-        <a href="https://github.com/SayedOmarHashimi" target="_blank" rel="noopener" class="btn-outline">GitHub</a>
-      </div>
+<section id="contact" style="position: relative; z-index: 1; padding: 130px 56px; text-align: center;">
+  <div style="max-width: 580px; margin: 0 auto;">
+    <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 18px;">
+      <span style="display: block; width: 24px; height: 1px; background: #c8a96e;"></span>
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #c8a96e;">Let's connect</span>
+    </div>
+    <h2 data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.1s; font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(30px, 3.2vw, 44px); font-weight: 400; line-height: 1.15; color: #f4f0e8; margin-bottom: 20px;">Open to full-time opportunities</h2>
+    <p data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s; font-size: 16px; color: #aeb9c6; line-height: 1.75; margin-bottom: 30px;">Available for business analyst, data analyst, and product operations roles starting May 2026. I work well across startup and enterprise environments — let's talk.</p>
+    <a id="contact-email" href="#" data-user="omarhashimi12" data-domain="gmail.com" data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.3s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.3s; display: block; font-size: 15px; color: #c8a96e; text-decoration: none; margin-bottom: 30px; letter-spacing: 0.02em;" style-hover="color: #e2c990;">omarhashimi12 [at] gmail.com</a>
+    <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1) 0.4s, transform 0.7s cubic-bezier(0.22,1,0.36,1) 0.4s; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+      <a href="https://www.linkedin.com/in/sayedhashimi12/" target="_blank" rel="noopener" style="display: inline-block; padding: 14px 30px; background: #c8a96e; color: #0e1a2b; text-decoration: none; font-weight: 600; font-size: 13px; letter-spacing: 0.06em; border-radius: 3px; transition: background 0.2s, transform 0.2s, box-shadow 0.2s;" style-hover="background: #e2c990; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,169,110,0.35);">LinkedIn</a>
+      <a href="https://github.com/SayedOmarHashimi" target="_blank" rel="noopener" style="display: inline-block; padding: 14px 30px; border: 1px solid #8a6f3f; color: #c8a96e; text-decoration: none; font-weight: 500; font-size: 13px; letter-spacing: 0.06em; border-radius: 3px; transition: border-color 0.2s, color 0.2s, transform 0.2s, background 0.2s;" style-hover="border-color: #c8a96e; color: #e2c990; transform: translateY(-2px); background: rgba(200,169,110,0.06);">GitHub</a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <p>Sayed Hashimi · Sacramento / San Francisco, CA</p>
-  <p>© 2026</p>
+<footer style="position: relative; z-index: 1; padding: 30px 56px; border-top: 1px solid rgba(200,169,110,0.2); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+  <p style="font-size: 13px; color: #7a8fa6;">Sayed Hashimi · Sacramento / San Francisco, CA</p>
+  <p style="font-size: 13px; color: #7a8fa6;">© 2026</p>
 </footer>
 
 <script>
-/* ═══════════════════════════════════════════
-   1. READING PROGRESS BAR
-═══════════════════════════════════════════ */
-const pbar = document.getElementById('progress-bar');
-window.addEventListener('scroll', () => {
-  const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
-  pbar.style.width = Math.min(pct, 100) + '%';
-}, { passive: true });
+document.addEventListener('DOMContentLoaded', function () {
+  var _onScroll, _io, _onMove, _raf;
 
-/* ═══════════════════════════════════════════
-   2. NAV: transparent → scrolled glassmorphism
-═══════════════════════════════════════════ */
-const nav = document.getElementById('main-nav');
-function updateNav() {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-}
-window.addEventListener('scroll', updateNav, { passive: true });
-updateNav(); // run once on load
+    const nav = document.getElementById('site-nav');
+    const pbar = document.getElementById('progress-bar');
 
-/* ═══════════════════════════════════════════
-   3. MOBILE NAV OVERLAY
-═══════════════════════════════════════════ */
-const hamburger = document.getElementById('hamburger');
-const overlay   = document.getElementById('nav-overlay');
-const overlayLinks = overlay.querySelectorAll('.overlay-link');
-
-function openMenu() {
-  hamburger.classList.add('open');
-  overlay.classList.add('open');
-  overlay.setAttribute('aria-hidden', 'false');
-  hamburger.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
-function closeMenu() {
-  hamburger.classList.remove('open');
-  overlay.classList.remove('open');
-  overlay.setAttribute('aria-hidden', 'true');
-  hamburger.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
-hamburger.addEventListener('click', () => {
-  overlay.classList.contains('open') ? closeMenu() : openMenu();
-});
-overlayLinks.forEach(l => l.addEventListener('click', closeMenu));
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-
-/* ═══════════════════════════════════════════
-   4. CUSTOM CURSOR (desktop / fine pointer only)
-═══════════════════════════════════════════ */
-if (window.matchMedia('(pointer: fine) and (hover: hover)').matches) {
-  const cur = document.getElementById('cursor');
-  cur.style.display = 'block';
-  document.body.style.cursor = 'none';
-
-  let mx = 0, my = 0, cx = 0, cy = 0;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
-
-  (function loop() {
-    cx += (mx - cx) * 0.13;
-    cy += (my - cy) * 0.13;
-    cur.style.left = cx + 'px';
-    cur.style.top  = cy + 'px';
-    requestAnimationFrame(loop);
-  })();
-
-  const hoverEls = document.querySelectorAll(
-    'a, button, .project-card, .skill-card, .cert-item, .exp-card, .edu-card'
-  );
-  hoverEls.forEach(el => {
-    el.style.cursor = 'none';
-    el.addEventListener('mouseenter', () => {
-      cur.style.width   = '34px';
-      cur.style.height  = '34px';
-      cur.style.opacity = '0.4';
-    });
-    el.addEventListener('mouseleave', () => {
-      cur.style.width   = '10px';
-      cur.style.height  = '10px';
-      cur.style.opacity = '1';
-    });
-  });
-}
-
-/* ═══════════════════════════════════════════
-   5. HERO PHOTO PARALLAX  (desktop only)
-      Ken Burns runs in CSS on .hero-photo.
-      Parallax runs on a JS-injected wrapper
-      so the two transforms don't conflict.
-═══════════════════════════════════════════ */
-(function() {
-  if (window.innerWidth <= 768) return;
-  const photo = document.querySelector('.hero-photo');
-  if (!photo) return;
-
-  // Wrap photo so parallax and Ken Burns live on separate elements
-  const wrap = document.createElement('div');
-  wrap.id = 'hero-parallax-wrap';
-  Object.assign(wrap.style, {
-    position: 'absolute', top: '0', right: '0',
-    width: '52%', height: '105%',   // extra 5% so bottom edge stays hidden on drift
-    overflow: 'hidden', zIndex: '0', pointerEvents: 'none'
-  });
-  photo.parentNode.insertBefore(wrap, photo);
-  wrap.appendChild(photo);
-
-  // Reset photo to fill wrapper
-  Object.assign(photo.style, {
-    position: 'relative', top: 'auto', right: 'auto',
-    width: '100%', height: '100%',
-    objectFit: 'cover', objectPosition: '50% 18%'
-  });
-
-  const heroEl = document.querySelector('.hero');
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    if (y < heroEl.offsetHeight * 1.3) {
-      wrap.style.transform = 'translateY(' + (y * 0.14) + 'px)';
-    }
-  }, { passive: true });
-})();
-
-/* ═══════════════════════════════════════════
-   6. TYPEWRITER EFFECT on hero tagline
-═══════════════════════════════════════════ */
-(function() {
-  const el = document.getElementById('hero-tagline');
-  if (!el) return;
-
-  const fullText = el.textContent.trim();
-  el.textContent = '';
-
-  const cursor = document.createElement('span');
-  cursor.className = 'tw-cursor';
-  cursor.setAttribute('aria-hidden', 'true');
-  el.appendChild(cursor);
-
-  let i = 0;
-  const avgSpeed = 38; // ms per char
-
-  function typeNext() {
-    if (i < fullText.length) {
-      el.insertBefore(document.createTextNode(fullText[i]), cursor);
-      i++;
-      setTimeout(typeNext, avgSpeed + Math.random() * 18 - 9);
-    } else {
-      // Blink cursor for 2 s then fade it out
-      setTimeout(() => {
-        cursor.style.transition = 'opacity 0.4s';
-        cursor.style.opacity = '0';
-      }, 2000);
-    }
-  }
-
-  // Start after initial hero fade-in completes (~900 ms)
-  setTimeout(typeNext, 950);
-})();
-
-/* ═══════════════════════════════════════════
-   7. COUNTER ANIMATION on hero chips
-      Chips with data-count attr animate
-      their numeric value when they enter view.
-═══════════════════════════════════════════ */
-(function() {
-  const chips = document.querySelectorAll('.hero-chip[data-count]');
-  chips.forEach(chip => {
-    const target  = parseFloat(chip.dataset.count);
-    const suffix  = chip.dataset.suffix || '';
-    const decimal = chip.dataset.count.includes('.');
-    const dur     = 1400; // ms
-
-    // Initialise display to zero
-    chip.textContent = (decimal ? '0.0' : '0') + suffix;
-
-    const io = new IntersectionObserver(entries => {
-      if (!entries[0].isIntersecting) return;
-      io.disconnect();
-      const t0 = performance.now();
-      (function tick(now) {
-        const p = Math.min((now - t0) / dur, 1);
-        const e = 1 - Math.pow(1 - p, 3); // ease-out cubic
-        chip.textContent = (decimal ? (e * target).toFixed(1) : Math.floor(e * target)) + suffix;
-        if (p < 1) requestAnimationFrame(tick);
-      })(performance.now());
-    }, { threshold: 0.6 });
-
-    io.observe(chip);
-  });
-})();
-
-/* ═══════════════════════════════════════════
-   8. SCROLL-REVEAL  (staggered fade+slide-up)
-═══════════════════════════════════════════ */
-(function() {
-  const els = document.querySelectorAll('[data-reveal]');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        io.unobserve(entry.target);
+    _onScroll = () => {
+      const s = window.scrollY;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (pbar) pbar.style.width = Math.min(max > 0 ? (s / max) * 100 : 0, 100) + '%';
+      if (nav) {
+        if (s > 60) {
+          nav.style.background = 'rgba(14,26,43,0.92)';
+          nav.style.backdropFilter = 'blur(16px)';
+          nav.style.webkitBackdropFilter = 'blur(16px)';
+          nav.style.borderBottom = '1px solid rgba(200,169,110,0.2)';
+          nav.style.paddingTop = '16px';
+          nav.style.paddingBottom = '16px';
+        } else {
+          nav.style.background = 'transparent';
+          nav.style.backdropFilter = 'none';
+          nav.style.webkitBackdropFilter = 'none';
+          nav.style.borderBottom = '1px solid transparent';
+          nav.style.paddingTop = '26px';
+          nav.style.paddingBottom = '26px';
+        }
       }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+    };
+    window.addEventListener('scroll', _onScroll, { passive: true });
+    _onScroll();
 
-  els.forEach(el => io.observe(el));
-})();
+    // custom cursor (desktop / fine pointer only)
+    if (window.matchMedia('(pointer: fine) and (hover: hover)').matches) {
+      const cur = document.getElementById('cursor');
+      if (cur) {
+        cur.style.display = 'block';
+        document.body.style.cursor = 'none';
+        let mx = 0, my = 0, cx = 0, cy = 0;
+        _onMove = (e) => { mx = e.clientX; my = e.clientY; };
+        document.addEventListener('mousemove', _onMove, { passive: true });
+        const loop = () => {
+          cx += (mx - cx) * 0.13;
+          cy += (my - cy) * 0.13;
+          cur.style.left = cx + 'px';
+          cur.style.top = cy + 'px';
+          _raf = requestAnimationFrame(loop);
+        };
+        loop();
+        const setDot = () => { cur.style.width = '10px'; cur.style.height = '10px'; cur.style.opacity = '1'; cur.style.background = '#c8a96e'; cur.style.borderWidth = '0px'; };
+        const linkHover = () => { cur.style.width = '36px'; cur.style.height = '36px'; cur.style.opacity = '0.35'; cur.style.background = '#c8a96e'; cur.style.borderWidth = '0px'; };
+        const cardHover = () => { cur.style.width = '54px'; cur.style.height = '54px'; cur.style.opacity = '1'; cur.style.background = 'transparent'; cur.style.borderWidth = '1.5px'; };
+        document.querySelectorAll('a, button').forEach((el) => {
+          el.style.cursor = 'none';
+          el.addEventListener('mouseenter', linkHover);
+          el.addEventListener('mouseleave', setDot);
+        });
+        document.querySelectorAll('div[style*="border-color"]').forEach((el) => {
+          if (el.id === 'site-nav') return;
+          el.style.cursor = 'none';
+          el.addEventListener('mouseenter', cardHover);
+          el.addEventListener('mouseleave', setDot);
+        });
+      }
+    }
+
+    // gold shimmer sweep across every card on hover
+    (() => {
+      const cards = [...document.querySelectorAll('div[style*="border-color"]')].filter((d) => d.id !== 'site-nav');
+      cards.forEach((card) => {
+        // clear any pre-existing shimmer so we inject uniformly
+        card.querySelectorAll(':scope > [data-shimmerwrap], :scope > [data-shimmer]').forEach((n) => n.remove());
+        if (getComputedStyle(card).position === 'static') card.style.position = 'relative';
+        card.style.isolation = 'isolate';
+        const wrap = document.createElement('div');
+        wrap.setAttribute('data-shimmerwrap', '');
+        wrap.style.cssText = 'position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1;border-radius:inherit;';
+        const sh = document.createElement('div');
+        sh.setAttribute('data-shimmer', '');
+        sh.style.cssText = 'position:absolute;top:0;left:-110%;width:60%;height:100%;background:linear-gradient(105deg, transparent 0%, rgba(200,169,110,0.13) 50%, transparent 100%);transform:skewX(-12deg);transition:left 0.7s ease;';
+        wrap.appendChild(sh);
+        card.insertBefore(wrap, card.firstChild);
+        card.addEventListener('mouseenter', () => {
+          sh.style.transition = 'none';
+          sh.style.left = '-110%';
+          void sh.offsetWidth;
+          sh.style.transition = 'left 0.7s ease';
+          sh.style.left = '150%';
+        });
+      });
+    })();
+
+    // assemble the email at runtime so spam scanners (Cloudflare et al.) can't rewrite it to "[email protected]"
+    const em = document.getElementById('contact-email');
+    if (em) {
+      const addr = (em.dataset.user || '') + '@' + (em.dataset.domain || '');
+      em.setAttribute('href', 'mailto:' + addr);
+      em.textContent = addr;
+    }
+
+    // ensure external links open reliably (preview sandboxes can swallow target=_blank)
+    document.querySelectorAll('a[target="_blank"]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.open(a.href, '_blank', 'noopener');
+      });
+    });
+
+    _io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'none';
+          _io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach((el) => _io.observe(el));
+
+  // generic hover handler: applies [style-hover] styles, restores on leave
+  document.querySelectorAll('[style-hover]').forEach(function (el) {
+    var hov = el.getAttribute('style-hover') || '';
+    el.addEventListener('mouseenter', function () {
+      if (el.__base == null) el.__base = el.getAttribute('style') || '';
+      el.setAttribute('style', el.__base + ';' + hov);
+    });
+    el.addEventListener('mouseleave', function () {
+      if (el.__base != null) el.setAttribute('style', el.__base);
+    });
+  });
+});
 </script>
 </body>
 </html>
