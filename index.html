@@ -25,18 +25,21 @@
 
 <nav class="nav" style="position: sticky; top: 0; z-index: 500; background: var(--color-bg);">
   <span class="nav-brand">Sayed Hashimi</span>
-  <a href="#about">About</a>
-  <a href="#experience">Experience</a>
-  <a href="#projects">Projects</a>
-  <a href="#recommendations">Recommendations</a>
-  <a href="#credentials">Credentials</a>
-  <button type="button" class="btn btn-primary" onclick="scrollToContact()">Contact</button>
+  <button type="button" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+  <div class="nav-menu" id="nav-menu">
+    <a href="#about" onclick="closeNav()">About</a>
+    <a href="#experience" onclick="closeNav()">Experience</a>
+    <a href="#projects" onclick="closeNav()">Projects</a>
+    <a href="#recommendations" onclick="closeNav()">Recommendations</a>
+    <a href="#credentials" onclick="closeNav()">Credentials</a>
+    <button type="button" class="btn btn-primary" onclick="scrollToContact(); closeNav();">Contact</button>
+  </div>
 </nav>
 
 <div class="wrap">
 
   <!-- HERO -->
-  <section id="home" style="position: relative; padding: 80px 0 96px; display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,0.85fr); gap: 48px; align-items: center;">
+  <section id="home" class="hero-grid" style="position: relative; padding: 80px 0 96px; display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,0.85fr); gap: 48px; align-items: center;">
     <div style="position: absolute; right: -140px; top: -120px; width: 340px; height: 340px; border-radius: 50%; background: var(--color-accent-2-200); z-index: -1; pointer-events: none;"></div>
     <div>
       <span class="tag tag-accent" style="margin-bottom: 20px; display: inline-block;">Business Analyst &amp; MIS</span>
@@ -51,13 +54,13 @@
         <button type="button" class="btn btn-secondary" onclick="scrollToContact()">Contact</button>
       </div>
     </div>
-    <figure class="washed" style="margin: 0; border-radius: 999px; overflow: hidden; aspect-ratio: 1; box-shadow: var(--shadow-lg);">
+    <figure class="washed hero-photo" style="margin: 0; border-radius: 999px; overflow: hidden; aspect-ratio: 1; box-shadow: var(--shadow-lg);">
       <img src="profile.jpg" alt="Sayed Hashimi" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 13%;"/>
     </figure>
   </section>
 
   <!-- ABOUT -->
-  <section id="about" style="padding: 40px 0 96px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;">
+  <section id="about" class="about-grid" style="padding: 40px 0 96px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;">
     <div>
       <div class="kicker">About</div>
       <h2 class="h2" style="margin-bottom: 28px;">How I work</h2>
@@ -94,7 +97,7 @@
   <section id="education" style="padding: 0 0 96px;">
     <div class="kicker">Education</div>
     <h2 class="h2">Academic record</h2>
-    <div class="card elev-sm" style="display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 48px; padding: 36px 40px;">
+    <div class="card elev-sm edu-grid" style="display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 48px; padding: 36px 40px;">
       <div>
         <div class="card-title" style="font-size: 22px;">Bachelor of Science in Management Information Systems</div>
         <div style="font-size: 14px; color: var(--color-accent-700); font-weight: 600; margin: 8px 0 6px;">California State University, Sacramento</div>
@@ -170,7 +173,7 @@
   <section id="projects" style="padding: 0 0 96px;">
     <div class="kicker">Projects</div>
     <h2 class="h2">What I've built</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 22px;">
+    <div class="proj-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 22px;">
       <article class="card elev-sm" style="display: flex; flex-direction: column; gap: 14px;">
         <div style="display: flex; align-items: baseline; justify-content: space-between;">
           <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; color: var(--color-accent-500); line-height: 1;">01</div>
@@ -342,6 +345,18 @@
 
 
 <script>
+function toggleNav(btn){
+  var menu = document.getElementById('nav-menu');
+  if (!menu) return;
+  var open = menu.classList.toggle('open');
+  if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+function closeNav(){
+  var menu = document.getElementById('nav-menu');
+  if (menu) menu.classList.remove('open');
+  var btn = document.querySelector('.nav-toggle');
+  if (btn) btn.setAttribute('aria-expanded', 'false');
+}
 function scrollToWork(){ document.getElementById('experience')?.scrollIntoView({behavior:'smooth'}); }
 function scrollToContact(){ document.getElementById('contact')?.scrollIntoView({behavior:'smooth'}); }
 function openLetter(src, name){
