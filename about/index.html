@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About · Sayed Hashimi</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; overflow-x: clip; text-wrap: pretty; }
+  a { color: var(--color-accent-700); }
+  a:hover { color: var(--color-accent-900); }
+  @media (pointer: fine) and (hover: hover) {
+    body, a, button { cursor: none; }
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 72px); }
+  .kicker { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 18px; }
+  .kicker::before { content: ""; width: 22px; height: 3px; border-radius: 2px; background: var(--color-accent); display: block; }
+  .h2 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(32px, 3.6vw, 48px); line-height: 1.1; margin: 0 0 40px; }
+</style>
+</head>
+<body>
+<div style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: 1.65;">
+<div data-cursor-dot="" aria-hidden="true" style="position: fixed; left: 0; top: 0; width: 10px; height: 10px; background: var(--color-accent); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.25s cubic-bezier(0.22,1,0.36,1), height 0.25s cubic-bezier(0.22,1,0.36,1), opacity 0.25s, background 0.25s; display: none;"></div>
+
+<nav class="nav" style="position: sticky; top: 0; z-index: 500; background: var(--color-bg);">
+  <a class="nav-brand" href="../" style="color: inherit; text-decoration: none;">Sayed Hashimi</a>
+  <button type="button" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+  <div class="nav-menu" id="nav-menu">
+    <a href="../about/" aria-current="page" onclick="closeNav()">About</a>
+    <a href="../experience/" onclick="closeNav()">Experience</a>
+    <a href="../projects/" onclick="closeNav()">Projects</a>
+    <a href="../recommendations/" onclick="closeNav()">Recommendations</a>
+    <a href="../credentials/" onclick="closeNav()">Credentials</a>
+    <a class="btn btn-primary" href="../contact/" onclick="closeNav()">Contact</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- ABOUT -->
+  <section id="about" class="about-grid" style="padding: 64px 0 96px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;">
+    <div>
+      <div class="kicker">About</div>
+      <h2 class="h2" style="margin-bottom: 28px;">How I work</h2>
+      <div style="font-size: 16.5px; line-height: 1.85; color: color-mix(in srgb, var(--color-text) 85%, transparent);">
+        <p style="margin: 0;">I'm a Business Analyst and MIS graduate with hands-on experience turning messy data into sharp recommendations. Whether it's tracking product KPIs at an early-stage startup or analyzing competitor pricing for a growing insurance book, I care about making data useful, not just pretty.</p>
+        <p style="margin: 18px 0 0;">I've built dashboards from scratch, run market research cycles, facilitated stakeholder interviews, and delivered full SDLC analyses for real clients. I'm comfortable moving between technical tools and business conversations.</p>
+        <p style="margin: 18px 0 0;">Currently wrapping up my B.S. in MIS at Sacramento State (GPA 3.5, May 2026) and looking for my next challenge in data analysis, business intelligence, or product operations.</p>
+      </div>
+    </div>
+    <div>
+      <div class="kicker">Core skills</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+        <div class="card elev-sm">
+          <div class="card-title" style="font-size: 15px;">Data &amp; Analytics</div>
+          <div class="card-body" style="font-size: 13.5px;">SQL · Python · Excel · Tableau · Power BI · R · Pandas</div>
+        </div>
+        <div class="card elev-sm">
+          <div class="card-title" style="font-size: 15px;">Business Analysis</div>
+          <div class="card-body" style="font-size: 13.5px;">Requirements gathering · BPMN · Use case modeling · Trend analysis</div>
+        </div>
+        <div class="card elev-sm">
+          <div class="card-title" style="font-size: 15px;">Tools &amp; Platforms</div>
+          <div class="card-body" style="font-size: 13.5px;">Salesforce (Certified) · CRM systems · Tableau · Power BI</div>
+        </div>
+        <div class="card elev-sm">
+          <div class="card-title" style="font-size: 15px;">Research &amp; Strategy</div>
+          <div class="card-body" style="font-size: 13.5px;">Market research · Competitive analysis · Stakeholder interviews · NPV modeling</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" style="padding: 0 0 96px;">
+    <div class="kicker">Education</div>
+    <h2 class="h2">Academic record</h2>
+    <div class="card elev-sm edu-grid" style="display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 48px; padding: 36px 40px;">
+      <div>
+        <div class="card-title" style="font-size: 22px;">Bachelor of Science in Management Information Systems</div>
+        <div style="font-size: 14px; color: var(--color-accent-700); font-weight: 600; margin: 8px 0 6px;">California State University, Sacramento</div>
+        <div style="font-size: 13px; color: var(--color-neutral-700);">Sacramento, CA · Aug 2024 – May 2026 · Dean's List · Dean's Honor List</div>
+      </div>
+      <div style="text-align: center; border-left: 1px solid var(--color-neutral-300); padding-left: 40px;">
+        <div style="font-size: 12px; color: var(--color-neutral-700); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap;">GPA</div>
+        <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 40px; color: var(--color-accent-700); line-height: 1; margin-top: 6px;">3.5</div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding: 26px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--color-neutral-700);">
+    <span>Sayed Hashimi · Sacramento / San Francisco, CA</span>
+    <span>© 2026</span>
+  </footer>
+</div>
+</div>
+
+<script>
+function toggleNav(btn){
+  var menu = document.getElementById('nav-menu');
+  if (!menu) return;
+  var open = menu.classList.toggle('open');
+  if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+function closeNav(){
+  var menu = document.getElementById('nav-menu');
+  if (menu) menu.classList.remove('open');
+  var btn = document.querySelector('.nav-toggle');
+  if (btn) btn.setAttribute('aria-expanded', 'false');
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  if (!window.matchMedia('(pointer: fine) and (hover: hover)').matches) return;
+  const cur = document.querySelector('[data-cursor-dot]');
+  if (!cur) return;
+  cur.style.display = 'block';
+  let mx = 0, my = 0, cx = 0, cy = 0;
+  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; }, { passive: true });
+  function loop(){
+    cx += (mx - cx) * 0.16;
+    cy += (my - cy) * 0.16;
+    cur.style.left = cx + 'px';
+    cur.style.top = cy + 'px';
+    requestAnimationFrame(loop);
+  }
+  loop();
+  const grow = () => { cur.style.width = '36px'; cur.style.height = '36px'; cur.style.opacity = '0.5'; };
+  const shrink = () => { cur.style.width = '10px'; cur.style.height = '10px'; cur.style.opacity = '1'; };
+  document.querySelectorAll('a, button').forEach((el) => {
+    el.addEventListener('mouseenter', grow);
+    el.addEventListener('mouseleave', shrink);
+  });
+});
+</script>
+</body>
+</html>

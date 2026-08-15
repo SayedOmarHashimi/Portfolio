@@ -218,6 +218,12 @@ textarea.input { min-height: 90px; resize: vertical; }
 }
 .nav a { color: inherit; text-decoration: none; font-size: 14px; }
 .nav a:hover, .nav a[aria-current='page'] { color: var(--color-accent); }
+/* active page marker — bolder than a plain hover so the current page reads clearly */
+.nav a[aria-current='page'] { font-weight: 700; }
+/* the brand is now a link home; keep its heading size despite the .nav a rule */
+.nav a.nav-brand { font-size: 18px; }
+/* the Contact link is a filled button; keep its light-on-accent text in all states */
+.nav a.btn-primary, .nav a.btn-primary:hover { color: var(--color-bg); }
 
 /* — tables — */
 .table { width: 100%; border-collapse: collapse; font-size: 14px; }

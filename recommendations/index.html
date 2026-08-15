@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recommendations · Sayed Hashimi</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; overflow-x: clip; text-wrap: pretty; }
+  a { color: var(--color-accent-700); }
+  a:hover { color: var(--color-accent-900); }
+  @media (pointer: fine) and (hover: hover) {
+    body, a, button { cursor: none; }
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 72px); }
+  .kicker { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 18px; }
+  .kicker::before { content: ""; width: 22px; height: 3px; border-radius: 2px; background: var(--color-accent); display: block; }
+  .h2 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(32px, 3.6vw, 48px); line-height: 1.1; margin: 0 0 40px; }
+</style>
+</head>
+<body>
+<div style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: 1.65;">
+<div data-cursor-dot="" aria-hidden="true" style="position: fixed; left: 0; top: 0; width: 10px; height: 10px; background: var(--color-accent); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.25s cubic-bezier(0.22,1,0.36,1), height 0.25s cubic-bezier(0.22,1,0.36,1), opacity 0.25s, background 0.25s; display: none;"></div>
+
+<nav class="nav" style="position: sticky; top: 0; z-index: 500; background: var(--color-bg);">
+  <a class="nav-brand" href="../" style="color: inherit; text-decoration: none;">Sayed Hashimi</a>
+  <button type="button" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+  <div class="nav-menu" id="nav-menu">
+    <a href="../about/" onclick="closeNav()">About</a>
+    <a href="../experience/" onclick="closeNav()">Experience</a>
+    <a href="../projects/" onclick="closeNav()">Projects</a>
+    <a href="../recommendations/" aria-current="page" onclick="closeNav()">Recommendations</a>
+    <a href="../credentials/" onclick="closeNav()">Credentials</a>
+    <a class="btn btn-primary" href="../contact/" onclick="closeNav()">Contact</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- RECOMMENDATIONS -->
+  <section id="recommendations" style="padding: 64px 0 96px;">
+    <div class="kicker">Recommendations</div>
+    <h2 class="h2" style="margin-bottom: 16px;">What faculty say</h2>
+    <p style="font-size: 16.5px; line-height: 1.75; max-width: 560px; margin: 0 0 40px; color: color-mix(in srgb, var(--color-text) 82%, transparent);">Three letters of recommendation from Sacramento State faculty across project management, information security, and IT implementation. Click any letter to read the full page.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px;">
+      <figure class="card elev-sm washed" style="margin: 0; padding: 0; overflow: hidden; cursor: pointer;" onclick="openLetter('../assets/recommendations/daly.png','Deanna Daly, MBA, PMP')">
+        <div style="position: relative; aspect-ratio: 4/3; background: #fff; overflow: hidden;">
+          <img src="../assets/recommendations/daly.png" alt="Letter of recommendation from Deanna Daly" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 0;"/>
+          <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 55%, rgba(32,30,29,0.75) 100%);"></div>
+          <span style="position: absolute; bottom: 12px; right: 14px; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-900); background: var(--color-accent); padding: 8px 14px; border-radius: 999px;">View letter <span style="font-size: 13px;">↗</span></span>
+        </div>
+        <figcaption style="padding: 20px 22px;">
+          <div class="card-title" style="font-size: 17px;">Deanna Daly, MBA, PMP</div>
+          <div style="font-size: 13px; color: var(--color-accent-700); font-weight: 600; margin-top: 5px;">Faculty, College of Business Administration</div>
+          <div style="font-size: 12px; color: var(--color-neutral-700); margin-top: 3px;">BUS 162, Project Management · Sacramento State</div>
+        </figcaption>
+      </figure>
+      <figure class="card elev-sm washed" style="margin: 0; padding: 0; overflow: hidden; cursor: pointer;" onclick="openLetter('../assets/recommendations/aivazpour.png','Zahra Aivazpour, Ph.D.')">
+        <div style="position: relative; aspect-ratio: 4/3; background: #fff; overflow: hidden;">
+          <img src="../assets/recommendations/aivazpour.png" alt="Letter of recommendation from Zahra Aivazpour" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 0;"/>
+          <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 55%, rgba(32,30,29,0.75) 100%);"></div>
+          <span style="position: absolute; bottom: 12px; right: 14px; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-900); background: var(--color-accent); padding: 8px 14px; border-radius: 999px;">View letter <span style="font-size: 13px;">↗</span></span>
+        </div>
+        <figcaption style="padding: 20px 22px;">
+          <div class="card-title" style="font-size: 17px;">Zahra Aivazpour, Ph.D.</div>
+          <div style="font-size: 13px; color: var(--color-accent-700); font-weight: 600; margin-top: 5px;">Assistant Professor, MIS &amp; Business Analytics</div>
+          <div style="font-size: 12px; color: var(--color-neutral-700); margin-top: 3px;">MIS 170, Information Systems Security · Sacramento State</div>
+        </figcaption>
+      </figure>
+      <figure class="card elev-sm washed" style="margin: 0; padding: 0; overflow: hidden; cursor: pointer;" onclick="openLetter('../assets/recommendations/velianitis.png','Spiros Velianitis')">
+        <div style="position: relative; aspect-ratio: 4/3; background: #fff; overflow: hidden;">
+          <img src="../assets/recommendations/velianitis.png" alt="Letter of recommendation from Spiros Velianitis" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 0;"/>
+          <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 55%, rgba(32,30,29,0.75) 100%);"></div>
+          <span style="position: absolute; bottom: 12px; right: 14px; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-neutral-900); background: var(--color-accent); padding: 8px 14px; border-radius: 999px;">View letter <span style="font-size: 13px;">↗</span></span>
+        </div>
+        <figcaption style="padding: 20px 22px;">
+          <div class="card-title" style="font-size: 17px;">Spiros Velianitis</div>
+          <div style="font-size: 13px; color: var(--color-accent-700); font-weight: 600; margin-top: 5px;">Lecturer, MIS &amp; Decision Science</div>
+          <div style="font-size: 12px; color: var(--color-neutral-700); margin-top: 3px;">IT Implementation Project · Sacramento State</div>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <footer style="padding: 26px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--color-neutral-700);">
+    <span>Sayed Hashimi · Sacramento / San Francisco, CA</span>
+    <span>© 2026</span>
+  </footer>
+</div>
+
+<div id="lightbox-overlay" style="display:none; position: fixed; inset: 0; z-index: 2000; align-items: center; justify-content: center; padding: 40px 24px; background: color-mix(in srgb, var(--color-neutral-900) 80%, transparent); backdrop-filter: blur(8px);" onclick="closeLetter()">
+    <button class="btn-icon" style="position: absolute; top: 22px; right: 26px; background: var(--color-bg);" onclick="closeLetter(); event.stopPropagation();">&times;</button>
+    <figure style="margin: 0; max-width: 860px; width: 100%; max-height: 100%; display: flex; flex-direction: column; align-items: center;" onclick="event.stopPropagation();">
+      <img id="lightbox-img" src="" alt="" style="max-width: 100%; max-height: calc(100vh - 150px); object-fit: contain; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); background: #fff;"/>
+      <figcaption id="lightbox-caption" style="margin-top: 18px; font-size: 13px; color: var(--color-bg); text-align: center;"></figcaption>
+    </figure>
+  </div>
+</div>
+
+<script>
+function toggleNav(btn){
+  var menu = document.getElementById('nav-menu');
+  if (!menu) return;
+  var open = menu.classList.toggle('open');
+  if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+function closeNav(){
+  var menu = document.getElementById('nav-menu');
+  if (menu) menu.classList.remove('open');
+  var btn = document.querySelector('.nav-toggle');
+  if (btn) btn.setAttribute('aria-expanded', 'false');
+}
+function openLetter(src, name){
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-img').alt = name;
+  document.getElementById('lightbox-caption').textContent = name;
+  document.getElementById('lightbox-overlay').style.display = 'flex';
+}
+function closeLetter(){ document.getElementById('lightbox-overlay').style.display = 'none'; }
+
+document.addEventListener('DOMContentLoaded', function(){
+  if (!window.matchMedia('(pointer: fine) and (hover: hover)').matches) return;
+  const cur = document.querySelector('[data-cursor-dot]');
+  if (!cur) return;
+  cur.style.display = 'block';
+  let mx = 0, my = 0, cx = 0, cy = 0;
+  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; }, { passive: true });
+  function loop(){
+    cx += (mx - cx) * 0.16;
+    cy += (my - cy) * 0.16;
+    cur.style.left = cx + 'px';
+    cur.style.top = cy + 'px';
+    requestAnimationFrame(loop);
+  }
+  loop();
+  const grow = () => { cur.style.width = '36px'; cur.style.height = '36px'; cur.style.opacity = '0.5'; };
+  const shrink = () => { cur.style.width = '10px'; cur.style.height = '10px'; cur.style.opacity = '1'; };
+  document.querySelectorAll('a, button').forEach((el) => {
+    el.addEventListener('mouseenter', grow);
+    el.addEventListener('mouseleave', shrink);
+  });
+});
+</script>
+</body>
+</html>
