@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sayed Hashimi, Business Analyst &amp; MIS</title>
-<link rel="stylesheet" href="styles.css">
+<title>Contact · Sayed Hashimi</title>
+<link rel="stylesheet" href="../styles.css">
 <style>
   html { scroll-behavior: smooth; }
   body { margin: 0; overflow-x: clip; text-wrap: pretty; }
@@ -24,39 +24,32 @@
 <div data-cursor-dot="" aria-hidden="true" style="position: fixed; left: 0; top: 0; width: 10px; height: 10px; background: var(--color-accent); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.25s cubic-bezier(0.22,1,0.36,1), height 0.25s cubic-bezier(0.22,1,0.36,1), opacity 0.25s, background 0.25s; display: none;"></div>
 
 <nav class="nav" style="position: sticky; top: 0; z-index: 500; background: var(--color-bg);">
-  <a class="nav-brand" href="./" style="color: inherit; text-decoration: none;">Sayed Hashimi</a>
+  <a class="nav-brand" href="../" style="color: inherit; text-decoration: none;">Sayed Hashimi</a>
   <button type="button" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
   <div class="nav-menu" id="nav-menu">
-    <a href="about/" onclick="closeNav()">About</a>
-    <a href="experience/" onclick="closeNav()">Experience</a>
-    <a href="projects/" onclick="closeNav()">Projects</a>
-    <a href="recommendations/" onclick="closeNav()">Recommendations</a>
-    <a href="credentials/" onclick="closeNav()">Credentials</a>
-    <a class="btn btn-primary" href="contact/" onclick="closeNav()">Contact</a>
+    <a href="../about/" onclick="closeNav()">About</a>
+    <a href="../experience/" onclick="closeNav()">Experience</a>
+    <a href="../projects/" onclick="closeNav()">Projects</a>
+    <a href="../recommendations/" onclick="closeNav()">Recommendations</a>
+    <a href="../credentials/" onclick="closeNav()">Credentials</a>
+    <a class="btn btn-primary" href="../contact/" aria-current="page" onclick="closeNav()">Contact</a>
   </div>
 </nav>
 
 <div class="wrap">
 
-  <!-- HERO -->
-  <section id="home" class="hero-grid" style="position: relative; padding: 80px 0 96px; display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,0.85fr); gap: 48px; align-items: center;">
-    <div style="position: absolute; right: -140px; top: -120px; width: 340px; height: 340px; border-radius: 50%; background: var(--color-accent-2-200); z-index: -1; pointer-events: none;"></div>
-    <div>
-      <span class="tag tag-accent" style="margin-bottom: 20px; display: inline-block;">Business Analyst &amp; MIS</span>
-      <h1 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(48px, 6vw, 84px); line-height: 1.02; margin: 0 0 24px;">Sayed<br/>Hashimi</h1>
-      <p style="font-size: 19px; line-height: 1.7; max-width: 480px; margin: 0 0 22px; color: color-mix(in srgb, var(--color-text) 82%, transparent);">I turn messy data into the decisions that move a business, dashboards, market research, and full systems analysis for real clients.</p>
-      <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--color-neutral-700); margin-bottom: 26px;">
-        <span style="width: 9px; height: 9px; border-radius: 50%; background: var(--color-accent-2-600);"></span>
-        Available for opportunities
-      </div>
-      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-        <a class="btn btn-primary" href="experience/">View my work</a>
-        <a class="btn btn-secondary" href="contact/">Contact</a>
+  <!-- CONTACT -->
+  <section id="contact" style="padding: 64px 0 80px;">
+    <div class="patch" style="background: var(--color-accent-100); border-radius: calc(2 * var(--radius-lg)); padding: 64px clamp(28px, 6vw, 80px); text-align: center;">
+      <div class="kicker" style="justify-content: center;">Let's connect</div>
+      <h2 class="h2" style="margin-bottom: 18px;">Open to full-time opportunities</h2>
+      <p style="font-size: 16.5px; line-height: 1.75; max-width: 560px; margin: 0 auto 28px; color: color-mix(in srgb, var(--color-text) 82%, transparent);">Available for business analyst, data analyst, and product operations roles starting May 2026. I work well across startup and enterprise environments, let's talk.</p>
+      <a href="mailto:omarhashimi12@gmail.com" style="display: block; font-size: 15px; text-decoration: none; margin-bottom: 26px; font-weight: 600;">omarhashimi12@gmail.com</a>
+      <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+        <a href="https://www.linkedin.com/in/sayedhashimi12/" target="_blank" rel="noopener" class="btn btn-primary">LinkedIn</a>
+        <a href="https://github.com/SayedOmarHashimi" target="_blank" rel="noopener" class="btn btn-secondary">GitHub</a>
       </div>
     </div>
-    <figure class="washed hero-photo" style="margin: 0; border-radius: 999px; overflow: hidden; aspect-ratio: 1; box-shadow: var(--shadow-lg);">
-      <img src="profile.jpg" alt="Sayed Hashimi" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 13%;"/>
-    </figure>
   </section>
 
   <footer style="padding: 26px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--color-neutral-700);">

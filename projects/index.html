@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects · Sayed Hashimi</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; overflow-x: clip; text-wrap: pretty; }
+  a { color: var(--color-accent-700); }
+  a:hover { color: var(--color-accent-900); }
+  @media (pointer: fine) and (hover: hover) {
+    body, a, button { cursor: none; }
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 72px); }
+  .kicker { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 18px; }
+  .kicker::before { content: ""; width: 22px; height: 3px; border-radius: 2px; background: var(--color-accent); display: block; }
+  .h2 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(32px, 3.6vw, 48px); line-height: 1.1; margin: 0 0 40px; }
+</style>
+</head>
+<body>
+<div style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: 1.65;">
+<div data-cursor-dot="" aria-hidden="true" style="position: fixed; left: 0; top: 0; width: 10px; height: 10px; background: var(--color-accent); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.25s cubic-bezier(0.22,1,0.36,1), height 0.25s cubic-bezier(0.22,1,0.36,1), opacity 0.25s, background 0.25s; display: none;"></div>
+
+<nav class="nav" style="position: sticky; top: 0; z-index: 500; background: var(--color-bg);">
+  <a class="nav-brand" href="../" style="color: inherit; text-decoration: none;">Sayed Hashimi</a>
+  <button type="button" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+  <div class="nav-menu" id="nav-menu">
+    <a href="../about/" onclick="closeNav()">About</a>
+    <a href="../experience/" onclick="closeNav()">Experience</a>
+    <a href="../projects/" aria-current="page" onclick="closeNav()">Projects</a>
+    <a href="../recommendations/" onclick="closeNav()">Recommendations</a>
+    <a href="../credentials/" onclick="closeNav()">Credentials</a>
+    <a class="btn btn-primary" href="../contact/" onclick="closeNav()">Contact</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- PROJECTS -->
+  <section id="projects" style="padding: 64px 0 96px;">
+    <div class="kicker">Projects</div>
+    <h2 class="h2">What I've built</h2>
+    <div class="proj-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 22px;">
+      <article class="card elev-sm" style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between;">
+          <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; color: var(--color-accent-500); line-height: 1;">01</div>
+          <span class="tag tag-accent-2">Data Engineering · Live</span>
+        </div>
+        <div class="card-title" style="font-size: 20px;">DONKI Space Weather Dashboard</div>
+        <div class="card-body" style="flex: 1;">An end-to-end, fully automated data pipeline that tracks solar activity — solar flares, coronal mass ejections, and geomagnetic storms — from NASA DONKI and NOAA SWPC APIs. Extracts with Python, transforms through a DuckDB warehouse with dbt, and publishes a daily-refreshed public dashboard featuring an aurora visibility forecast and live Kp-index conditions, orchestrated entirely on free cloud infrastructure.</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
+          <span class="tag tag-outline">Python</span>
+          <span class="tag tag-outline">dbt</span>
+          <span class="tag tag-outline">DuckDB</span>
+          <span class="tag tag-outline">GitHub Actions</span>
+          <span class="tag tag-outline">Data Pipeline</span>
+        </div>
+        <a href="https://sayedomarhashimi.github.io/donki-space-weather/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 8px; align-self: flex-start;">View project <span style="font-size: 14px;">↗</span></a>
+      </article>
+      <article class="card elev-sm" style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between;">
+          <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; color: var(--color-accent-500); line-height: 1;">02</div>
+          <span class="tag tag-accent-2">Business Intelligence</span>
+        </div>
+        <div class="card-title" style="font-size: 20px;">Hospital Management BI Solution</div>
+        <div class="card-body" style="flex: 1;">Designed and developed an 8-dashboard Tableau BI solution covering billing analytics, appointment efficiency, treatment performance, patient density mapping, and no-show analysis. Built a full ER diagram, relational schema, and ETL pipeline integrating 5 normalized tables.</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
+          <span class="tag tag-outline">Tableau</span>
+          <span class="tag tag-outline">SQL</span>
+          <span class="tag tag-outline">ETL</span>
+          <span class="tag tag-outline">Data Modeling</span>
+        </div>
+        <a href="https://sayedomarhashimi.github.io/hospital-management-systems/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 8px; align-self: flex-start;">View project <span style="font-size: 14px;">↗</span></a>
+      </article>
+      <article class="card elev-sm" style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between;">
+          <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; color: var(--color-accent-500); line-height: 1;">03</div>
+          <span class="tag tag-accent-2">Full-Stack Web App · Live</span>
+        </div>
+        <div class="card-title" style="font-size: 20px;">United Space Data, The World's Space Data Archive</div>
+        <div class="card-body" style="flex: 1;">An open-access archive where researchers and space enthusiasts worldwide upload and download datasets, mission files, and research papers, completely free. Real cloud file storage, a searchable, tag-filterable repository, and live contributor stats.</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
+          <span class="tag tag-outline">Next.js 14</span>
+          <span class="tag tag-outline">TypeScript</span>
+          <span class="tag tag-outline">Tailwind</span>
+          <span class="tag tag-outline">Supabase</span>
+          <span class="tag tag-outline">Vercel</span>
+        </div>
+        <a href="https://united-space-data.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 8px; align-self: flex-start;">View project <span style="font-size: 14px;">↗</span></a>
+      </article>
+      <article class="card elev-sm" style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between;">
+          <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; color: var(--color-accent-500); line-height: 1;">04</div>
+          <span class="tag tag-accent-2">Database Systems</span>
+        </div>
+        <div class="card-title" style="font-size: 20px;">Property Management Database System</div>
+        <div style="font-size: 12px; color: var(--color-neutral-700); margin-top: -6px;">California State University, Sacramento · 5-member team</div>
+        <div class="card-body" style="flex: 1;">A relational MySQL system spanning the full database lifecycle, ER diagrams, a normalized schema of 10+ entities, and a complete data dictionary. Includes triggers that auto-update apartment occupancy and a stored procedure that assigns staff by workload.</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
+          <span class="tag tag-outline">MySQL</span>
+          <span class="tag tag-outline">ER Modeling</span>
+          <span class="tag tag-outline">SQL DDL/DML</span>
+          <span class="tag tag-outline">Triggers</span>
+          <span class="tag tag-outline">Stored Procedures</span>
+        </div>
+        <a href="https://sayedomarhashimi.github.io/Property-Database-Management-Systems/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 8px; align-self: flex-start;">View project <span style="font-size: 14px;">↗</span></a>
+      </article>
+    </div>
+  </section>
+
+  <footer style="padding: 26px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--color-neutral-700);">
+    <span>Sayed Hashimi · Sacramento / San Francisco, CA</span>
+    <span>© 2026</span>
+  </footer>
+</div>
+</div>
+
+<script>
+function toggleNav(btn){
+  var menu = document.getElementById('nav-menu');
+  if (!menu) return;
+  var open = menu.classList.toggle('open');
+  if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+function closeNav(){
+  var menu = document.getElementById('nav-menu');
+  if (menu) menu.classList.remove('open');
+  var btn = document.querySelector('.nav-toggle');
+  if (btn) btn.setAttribute('aria-expanded', 'false');
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  if (!window.matchMedia('(pointer: fine) and (hover: hover)').matches) return;
+  const cur = document.querySelector('[data-cursor-dot]');
+  if (!cur) return;
+  cur.style.display = 'block';
+  let mx = 0, my = 0, cx = 0, cy = 0;
+  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; }, { passive: true });
+  function loop(){
+    cx += (mx - cx) * 0.16;
+    cy += (my - cy) * 0.16;
+    cur.style.left = cx + 'px';
+    cur.style.top = cy + 'px';
+    requestAnimationFrame(loop);
+  }
+  loop();
+  const grow = () => { cur.style.width = '36px'; cur.style.height = '36px'; cur.style.opacity = '0.5'; };
+  const shrink = () => { cur.style.width = '10px'; cur.style.height = '10px'; cur.style.opacity = '1'; };
+  document.querySelectorAll('a, button').forEach((el) => {
+    el.addEventListener('mouseenter', grow);
+    el.addEventListener('mouseleave', shrink);
+  });
+});
+</script>
+</body>
+</html>
