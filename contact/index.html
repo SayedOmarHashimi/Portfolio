@@ -24,7 +24,9 @@
   .form-field { margin-bottom: 20px; text-align: left; }
   .form-field > label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 7px; color: color-mix(in srgb, var(--color-text) 75%, transparent); }
   .form-field .input { font-size: 15px; }
-  .form-field textarea.input { min-height: 140px; }
+  /* The global .input pill radius (999px) clips text in a tall multi-line box;
+     use a gentle rounded rectangle with room so words never sit under the curve. */
+  .form-field textarea.input { min-height: 140px; border-radius: var(--radius-lg); padding: 12px 18px; line-height: 1.6; }
   .input.invalid { border-color: #b23a2e; }
   .field-error { display: none; margin: 6px 2px 0; font-size: 12.5px; color: #b23a2e; }
   .field-error.show { display: block; }
