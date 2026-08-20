@@ -62,6 +62,23 @@
       <article class="card elev-sm" style="display: flex; flex-direction: column; gap: 14px;">
         <div style="display: flex; align-items: baseline; justify-content: space-between;">
           <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; color: var(--color-accent-500); line-height: 1;">02</div>
+          <span class="tag tag-accent-2">Data Platform · Live</span>
+        </div>
+        <div class="card-title" style="font-size: 20px;">Nuclide Explorer</div>
+        <div class="card-body" style="flex: 1;">An interactive chart of every known nuclide — 3,386 of them — built on the IAEA Livechart API over ENSDF. Protons up, neutrons across, coloured by decay mode or half-life; click any nuclide to walk its decay chain to stability. A Python ingestion pipeline and layered dbt models on Neon Postgres reconcile the quirks of the source data — half-lives published as bounds, units that mix time with energy, wide decay columns that the graph needs tall — into a typed schema, verified against IAEA's own values to a relative tolerance of 1e-6. Rendered on Canvas 2D with d3-zoom and served through a Zod-validated, rate-limited public JSON API.</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
+          <span class="tag tag-outline">Next.js 16</span>
+          <span class="tag tag-outline">React 19</span>
+          <span class="tag tag-outline">Python</span>
+          <span class="tag tag-outline">dbt</span>
+          <span class="tag tag-outline">Postgres</span>
+          <span class="tag tag-outline">Canvas / d3</span>
+        </div>
+        <a href="https://nuclide-explorer.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 8px; align-self: flex-start;">View project <span style="font-size: 14px;">↗</span></a>
+      </article>
+      <article class="card elev-sm" style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between;">
+          <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; color: var(--color-accent-500); line-height: 1;">03</div>
           <span class="tag tag-accent-2">Business Intelligence</span>
         </div>
         <div class="card-title" style="font-size: 20px;">Hospital Management BI Solution</div>
@@ -76,7 +93,7 @@
       </article>
       <article class="card elev-sm" style="display: flex; flex-direction: column; gap: 14px;">
         <div style="display: flex; align-items: baseline; justify-content: space-between;">
-          <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; color: var(--color-accent-500); line-height: 1;">03</div>
+          <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; color: var(--color-accent-500); line-height: 1;">04</div>
           <span class="tag tag-accent-2">Full-Stack Web App · Live</span>
         </div>
         <div class="card-title" style="font-size: 20px;">United Space Data, The World's Space Data Archive</div>
@@ -92,7 +109,7 @@
       </article>
       <article class="card elev-sm" style="display: flex; flex-direction: column; gap: 14px;">
         <div style="display: flex; align-items: baseline; justify-content: space-between;">
-          <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; color: var(--color-accent-500); line-height: 1;">04</div>
+          <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; color: var(--color-accent-500); line-height: 1;">05</div>
           <span class="tag tag-accent-2">Database Systems</span>
         </div>
         <div class="card-title" style="font-size: 20px;">Property Management Database System</div>
