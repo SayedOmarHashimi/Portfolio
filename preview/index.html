@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PREVIEW — Sayed Hashimi, single-page layout</title>
+<meta name="robots" content="noindex">
+<!-- Reuses the EXISTING design system unchanged. Nothing outside preview/ is modified. -->
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="preview.css">
+</head>
+<body>
+
+<div class="preview-banner">
+  Layout preview — nothing in your live portfolio has been changed.
+  <button type="button" id="theme-btn" class="preview-theme-btn">Night mode</button>
+</div>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="scroll-progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+<nav class="nav sitenav">
+  <a class="nav-brand" href="#home">Sayed Hashimi</a>
+  <button type="button" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
+  <div class="nav-menu" id="nav-menu">
+    <a data-nav href="#about" onclick="closeNav()">About</a>
+    <a data-nav href="#projects" onclick="closeNav()">Projects</a>
+    <a data-nav href="#experience" onclick="closeNav()">Experience</a>
+    <a data-nav href="#credentials" onclick="closeNav()">Credentials</a>
+    <a data-nav href="#recommendations" onclick="closeNav()">Letters</a>
+    <a class="btn btn-primary" data-nav href="#contact" onclick="closeNav()">Contact</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ══ HERO ══ -->
+<section id="home" class="band band-hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="status-pill reveal"><span class="status-dot"></span> Available for opportunities</div>
+      <div class="kicker reveal" style="margin-top:22px;">Sacramento / San Francisco, CA</div>
+      <h1 class="hero-name reveal">Sayed<br>Hashimi</h1>
+      <p class="hero-role reveal">Business Analyst &amp; MIS</p>
+      <p class="hero-lede reveal">I turn messy data into the decisions that move a business — dashboards, market research, and full systems analysis for real clients.</p>
+      <div class="chip-row reveal">
+        <span class="tag tag-outline">SQL</span>
+        <span class="tag tag-outline">Python</span>
+        <span class="tag tag-outline">Tableau</span>
+        <span class="tag tag-outline">Power BI</span>
+        <span class="tag tag-outline">Salesforce Certified</span>
+      </div>
+      <div class="cta-row reveal">
+        <a class="btn btn-primary" href="#projects">View my work <span aria-hidden="true">→</span></a>
+        <a class="btn btn-secondary" href="mailto:omarhashimi12@gmail.com">Email me</a>
+      </div>
+      <div class="social-row reveal">
+        <a href="https://github.com/SayedOmarHashimi" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/sayedhashimi12/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="mailto:omarhashimi12@gmail.com">omarhashimi12@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="hero-media reveal">
+      <div class="photo-ring">
+        <img src="../profile.jpg" alt="Sayed Hashimi" class="washed">
+      </div>
+      <div class="float-card elev-md">
+        <span class="status-dot"></span>
+        <span><b>Focus:</b> Analytics, BI &amp; Systems Analysis</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="stat-strip reveal">
+      <div><strong>6</strong><span>Shipped projects</span></div>
+      <div><strong>3.5</strong><span>GPA · B.S. MIS</span></div>
+      <div><strong>3</strong><span>Analyst roles</span></div>
+      <div><strong>4</strong><span>Credentials</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section id="about" class="band band-alt">
+  <div class="wrap">
+    <div class="kicker reveal">About</div>
+    <h2 class="h2 reveal">How I work</h2>
+    <div class="about-grid">
+      <div class="prose reveal">
+        <p>I'm a Business Analyst and MIS graduate with hands-on experience turning messy data into sharp recommendations. Whether it's tracking product KPIs at an early-stage startup or analyzing competitor pricing for a growing insurance book, I care about making data useful, not just pretty.</p>
+        <p>I've built dashboards from scratch, run market research cycles, facilitated stakeholder interviews, and delivered full SDLC analyses for real clients. I'm comfortable moving between technical tools and business conversations.</p>
+        <p>Currently wrapping up my B.S. in MIS at Sacramento State (GPA 3.5, May 2026) and looking for my next challenge in data analysis, business intelligence, or product operations.</p>
+      </div>
+      <div class="skill-grid stagger">
+        <div class="card elev-sm lift reveal">
+          <div class="skill-icon" aria-hidden="true">01</div>
+          <div class="card-title">Data &amp; Analytics</div>
+          <div class="card-body">SQL · Python · Excel · Tableau · Power BI · R · Pandas</div>
+        </div>
+        <div class="card elev-sm lift reveal">
+          <div class="skill-icon" aria-hidden="true">02</div>
+          <div class="card-title">Business Analysis</div>
+          <div class="card-body">Requirements gathering · BPMN · Use case modeling · Trend analysis</div>
+        </div>
+        <div class="card elev-sm lift reveal">
+          <div class="skill-icon" aria-hidden="true">03</div>
+          <div class="card-title">Tools &amp; Platforms</div>
+          <div class="card-body">Salesforce (Certified) · CRM systems · Tableau · Power BI</div>
+        </div>
+        <div class="card elev-sm lift reveal">
+          <div class="skill-icon" aria-hidden="true">04</div>
+          <div class="card-title">Research &amp; Strategy</div>
+          <div class="card-body">Market research · Competitive analysis · Stakeholder interviews · NPV modeling</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJECTS ══ -->
+<section id="projects" class="band">
+  <div class="wrap">
+    <div class="kicker reveal">Projects</div>
+    <h2 class="h2 reveal">What I've built</h2>
+
+    <div class="filter-row reveal" role="group" aria-label="Filter projects">
+      <button type="button" class="filter is-active" data-filter="all">All work</button>
+      <button type="button" class="filter" data-filter="data-eng">Data Engineering</button>
+      <button type="button" class="filter" data-filter="ml">Machine Learning</button>
+      <button type="button" class="filter" data-filter="bi">BI &amp; Dashboards</button>
+      <button type="button" class="filter" data-filter="fullstack">Full-Stack</button>
+      <button type="button" class="filter" data-filter="db">Databases</button>
+    </div>
+
+    <div class="proj-grid stagger" id="proj-grid">
+
+      <article class="card elev-sm lift reveal proj" data-cat="data-eng bi">
+        <div class="proj-head"><span class="proj-num">01</span><span class="tag tag-accent-2">Data Engineering · Live</span></div>
+        <div class="card-title">DONKI Space Weather Dashboard</div>
+        <div class="card-body">An end-to-end, fully automated data pipeline tracking solar flares, coronal mass ejections, and geomagnetic storms from NASA DONKI and NOAA SWPC. Python extraction, a DuckDB warehouse transformed with dbt, and a daily-refreshed public dashboard with aurora visibility forecast and live Kp-index — orchestrated entirely on free cloud infrastructure.</div>
+        <div class="tag-row"><span class="tag tag-outline">Python</span><span class="tag tag-outline">dbt</span><span class="tag tag-outline">DuckDB</span><span class="tag tag-outline">GitHub Actions</span></div>
+        <div class="proj-links"><a class="btn btn-primary" href="https://sayedomarhashimi.github.io/donki-space-weather/" target="_blank" rel="noopener">View project ↗</a></div>
+      </article>
+
+      <article class="card elev-sm lift reveal proj" data-cat="ml data-eng">
+        <div class="proj-head"><span class="proj-num">02</span><span class="tag tag-accent-2">Geospatial ML · Live</span></div>
+        <div class="card-title">California Wildfire Risk &amp; Spread Simulation</div>
+        <div class="proj-note">Butte County, CA · Unofficial portfolio project — modelled demonstrations, not a source of real fire information</div>
+        <div class="card-body">A machine-learning ignition-risk model over a 1 km grid, a cellular-automaton spread simulation calibrated against the 2018 Camp Fire, and a live NASA FIRMS thermal layer refreshed every 15 minutes. PR-AUC 0.226 under spatially blocked CV against a 0.048 baseline; spread IoU 0.595 with 11.1 h arrival-time error.</div>
+        <div class="tag-row"><span class="tag tag-outline">Python</span><span class="tag tag-outline">scikit-learn</span><span class="tag tag-outline">geopandas</span><span class="tag tag-outline">Streamlit</span></div>
+        <div class="proj-links"><a class="btn btn-primary" href="https://california-wildfire-risk.streamlit.app/" target="_blank" rel="noopener">View project ↗</a><a class="proj-source" href="https://github.com/SayedOmarHashimi/california-wildfire-risk" target="_blank" rel="noopener">Source ↗</a></div>
+      </article>
+
+      <article class="card elev-sm lift reveal proj" data-cat="data-eng fullstack">
+        <div class="proj-head"><span class="proj-num">03</span><span class="tag tag-accent-2">Data Platform · Live</span></div>
+        <div class="card-title">Nuclide Explorer</div>
+        <div class="card-body">An interactive chart of every known nuclide — 3,386 of them — built on the IAEA Livechart API over ENSDF. A Python ingestion pipeline and layered dbt models on Neon Postgres reconcile the source data's quirks into a typed schema, verified to a relative tolerance of 1e-6. Rendered on Canvas 2D with d3-zoom behind a Zod-validated public JSON API.</div>
+        <div class="tag-row"><span class="tag tag-outline">Next.js 16</span><span class="tag tag-outline">React 19</span><span class="tag tag-outline">dbt</span><span class="tag tag-outline">Postgres</span></div>
+        <div class="proj-links"><a class="btn btn-primary" href="https://nuclide-explorer.vercel.app/" target="_blank" rel="noopener">View project ↗</a></div>
+      </article>
+
+      <article class="card elev-sm lift reveal proj" data-cat="bi db">
+        <div class="proj-head"><span class="proj-num">04</span><span class="tag tag-accent-2">Business Intelligence</span></div>
+        <div class="card-title">Hospital Management BI Solution</div>
+        <div class="card-body">An 8-dashboard Tableau BI solution covering billing analytics, appointment efficiency, treatment performance, patient density mapping, and no-show analysis. Built on a full ER diagram, relational schema, and ETL pipeline integrating 5 normalized tables.</div>
+        <div class="tag-row"><span class="tag tag-outline">Tableau</span><span class="tag tag-outline">SQL</span><span class="tag tag-outline">ETL</span><span class="tag tag-outline">Data Modeling</span></div>
+        <div class="proj-links"><a class="btn btn-primary" href="https://sayedomarhashimi.github.io/hospital-management-systems/" target="_blank" rel="noopener">View project ↗</a></div>
+      </article>
+
+      <article class="card elev-sm lift reveal proj" data-cat="fullstack">
+        <div class="proj-head"><span class="proj-num">05</span><span class="tag tag-accent-2">Full-Stack Web App · Live</span></div>
+        <div class="card-title">United Space Data</div>
+        <div class="card-body">An open-access archive where researchers and space enthusiasts worldwide upload and download datasets, mission files, and research papers, completely free. Real cloud file storage, a searchable tag-filterable repository, and live contributor stats.</div>
+        <div class="tag-row"><span class="tag tag-outline">Next.js 14</span><span class="tag tag-outline">TypeScript</span><span class="tag tag-outline">Supabase</span><span class="tag tag-outline">Vercel</span></div>
+        <div class="proj-links"><a class="btn btn-primary" href="https://united-space-data.vercel.app/" target="_blank" rel="noopener">View project ↗</a></div>
+      </article>
+
+      <article class="card elev-sm lift reveal proj" data-cat="db">
+        <div class="proj-head"><span class="proj-num">06</span><span class="tag tag-accent-2">Database Systems</span></div>
+        <div class="card-title">Property Management Database System</div>
+        <div class="proj-note">California State University, Sacramento · 5-member team</div>
+        <div class="card-body">A relational MySQL system spanning the full database lifecycle — ER diagrams, a normalized schema of 10+ entities, and a complete data dictionary. Includes triggers that auto-update apartment occupancy and a stored procedure that assigns staff by workload.</div>
+        <div class="tag-row"><span class="tag tag-outline">MySQL</span><span class="tag tag-outline">ER Modeling</span><span class="tag tag-outline">Triggers</span><span class="tag tag-outline">Stored Procedures</span></div>
+        <div class="proj-links"><a class="btn btn-primary" href="https://sayedomarhashimi.github.io/Property-Database-Management-Systems/" target="_blank" rel="noopener">View project ↗</a></div>
+      </article>
+
+    </div>
+    <p class="filter-empty" id="filter-empty" hidden>No projects in that category yet.</p>
+  </div>
+</section>
+
+<!-- ══ EXPERIENCE ══ -->
+<section id="experience" class="band band-alt">
+  <div class="wrap">
+    <div class="kicker reveal">Experience &amp; Education</div>
+    <h2 class="h2 reveal">Where I've worked</h2>
+
+    <div class="exp-layout">
+      <div class="timeline stagger">
+        <span class="timeline-line" aria-hidden="true"></span>
+
+        <article class="timeline-item reveal">
+          <span class="timeline-dot" aria-hidden="true"></span>
+          <div class="card elev-sm lift">
+            <div class="exp-head">
+              <div>
+                <div class="card-title">Operations Associate</div>
+                <div class="exp-org">State of California, Government Operations Agency</div>
+              </div>
+              <div class="exp-date">June 2026 – Aug 2026</div>
+            </div>
+            <ul class="exp-list">
+              <li>Provide analytical, technical, and administrative support in the Secretary's Office, participating in policy team meetings and interagency discussions on statewide operational priorities.</li>
+              <li>Review, gather, compile, and analyze data to support policy documents, guidance materials, and operational summaries.</li>
+              <li>Conduct supervised research on statewide operations and statutory requirements, contributing recommendations and potential solutions.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <span class="timeline-dot" aria-hidden="true"></span>
+          <div class="card elev-sm lift">
+            <div class="exp-head">
+              <div>
+                <div class="card-title">Business Analyst</div>
+                <div class="exp-org">FitLink</div>
+              </div>
+              <div class="exp-date">Dec 2025 – May 2026</div>
+            </div>
+            <ul class="exp-list">
+              <li>Built and maintained weekly growth-tracking dashboards in Excel, auditing and reconciling KPIs to inform outreach strategy in near real time.</li>
+              <li>Conducted competitive market research on comparable platforms, compiling findings into synthesis reports supporting product recommendations.</li>
+              <li>Presented data-based insights during bi-weekly strategy discussions, improving targeting efficiency and supporting management decisions.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <span class="timeline-dot" aria-hidden="true"></span>
+          <div class="card elev-sm lift">
+            <div class="exp-head">
+              <div>
+                <div class="card-title">Insurance Analyst</div>
+                <div class="exp-org">Hashimi Insurance</div>
+              </div>
+              <div class="exp-date">Feb 2023 – Dec 2024</div>
+            </div>
+            <ul class="exp-list">
+              <li>Gathered, calculated, and interpreted data to support program evaluation and operational decision-making across the client book.</li>
+              <li>Analyzed competitor pricing and market trends quarterly, informing rate adjustments that helped retain a significant portion of client accounts.</li>
+              <li>Collaborated with external agencies to evaluate insurance plan portfolios, negotiating more competitive carrier terms.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <aside class="edu-rail reveal">
+        <div class="kicker">Education</div>
+        <div class="card elev-sm edu-card">
+          <div class="card-title">B.S. Management Information Systems</div>
+          <div class="exp-org">California State University, Sacramento</div>
+          <div class="exp-date-block">Sacramento, CA · Aug 2024 – May 2026</div>
+          <div class="gpa-block"><span>GPA</span><strong>3.5</strong></div>
+          <div class="tag-row"><span class="tag tag-accent">Dean's List</span><span class="tag tag-accent">Dean's Honor List</span></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CREDENTIALS ══ -->
+<section id="credentials" class="band">
+  <div class="wrap">
+    <div class="kicker reveal">Certifications &amp; eligibilities</div>
+    <h2 class="h2 reveal">Credentials</h2>
+    <div class="cred-grid stagger">
+      <div class="card elev-sm lift reveal cred">
+        <div class="cred-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+        </div>
+        <div><div class="cred-name">Foundations: Data, Data, Everywhere</div><div class="cred-org">Google</div></div>
+      </div>
+      <div class="card elev-sm lift reveal cred">
+        <div class="cred-icon alt" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"></rect><path d="M9 12l2 2 4-4"></path></svg>
+        </div>
+        <div><div class="cred-name">Salesforce Certified</div><div class="cred-org">Salesforce</div></div>
+      </div>
+      <div class="card elev-sm lift reveal cred">
+        <div class="cred-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg>
+        </div>
+        <div><div class="cred-name">Information Technology Associate</div><div class="cred-org">State of California, CalCareers · List 18678, Rank 2</div></div>
+      </div>
+      <div class="card elev-sm lift reveal cred">
+        <div class="cred-icon alt" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="19" height="19" stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9 12l2 2 4-4"></path></svg>
+        </div>
+        <div><div class="cred-name">Analyst I, Active Eligibility</div><div class="cred-org">State of California, CalCareers · List 19089</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RECOMMENDATIONS ══ -->
+<section id="recommendations" class="band band-alt">
+  <div class="wrap">
+    <div class="kicker reveal">Recommendations</div>
+    <h2 class="h2 reveal">What faculty say</h2>
+    <p class="section-lede reveal">Three letters from Sacramento State faculty across project management, information security, and IT implementation. Click any letter to read the full page.</p>
+    <div class="letter-grid stagger">
+      <figure class="card elev-sm lift reveal letter washed" onclick="openLetter('../assets/recommendations/daly.png','Deanna Daly, MBA, PMP')">
+        <div class="letter-thumb"><img src="../assets/recommendations/daly.png" alt="Letter of recommendation from Deanna Daly" loading="lazy"><span class="letter-cta">View letter ↗</span></div>
+        <figcaption>
+          <div class="card-title">Deanna Daly, MBA, PMP</div>
+          <div class="exp-org">Faculty, College of Business Administration</div>
+          <div class="exp-date-block">BUS 162, Project Management</div>
+        </figcaption>
+      </figure>
+      <figure class="card elev-sm lift reveal letter washed" onclick="openLetter('../assets/recommendations/aivazpour.png','Zahra Aivazpour, Ph.D.')">
+        <div class="letter-thumb"><img src="../assets/recommendations/aivazpour.png" alt="Letter of recommendation from Zahra Aivazpour" loading="lazy"><span class="letter-cta">View letter ↗</span></div>
+        <figcaption>
+          <div class="card-title">Zahra Aivazpour, Ph.D.</div>
+          <div class="exp-org">Assistant Professor, MIS &amp; Business Analytics</div>
+          <div class="exp-date-block">MIS 170, Information Systems Security</div>
+        </figcaption>
+      </figure>
+      <figure class="card elev-sm lift reveal letter washed" onclick="openLetter('../assets/recommendations/velianitis.png','Spiros Velianitis')">
+        <div class="letter-thumb"><img src="../assets/recommendations/velianitis.png" alt="Letter of recommendation from Spiros Velianitis" loading="lazy"><span class="letter-cta">View letter ↗</span></div>
+        <figcaption>
+          <div class="card-title">Spiros Velianitis</div>
+          <div class="exp-org">Lecturer, MIS &amp; Decision Science</div>
+          <div class="exp-date-block">IT Implementation Project</div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact" class="band">
+  <div class="wrap">
+    <div class="kicker reveal">Let's connect</div>
+    <h2 class="h2 reveal">Open to full-time opportunities</h2>
+    <div class="contact-grid">
+      <div class="reveal">
+        <p class="section-lede">Data analysis, business intelligence, or product operations — in Sacramento, the Bay Area, or remote. The fastest way to reach me is email.</p>
+        <div class="contact-links">
+          <a class="card elev-sm lift" href="mailto:omarhashimi12@gmail.com"><span class="contact-label">Email</span><span class="contact-value">omarhashimi12@gmail.com</span></a>
+          <a class="card elev-sm lift" href="https://www.linkedin.com/in/sayedhashimi12/" target="_blank" rel="noopener"><span class="contact-label">LinkedIn</span><span class="contact-value">sayedhashimi12 ↗</span></a>
+          <a class="card elev-sm lift" href="https://github.com/SayedOmarHashimi" target="_blank" rel="noopener"><span class="contact-label">GitHub</span><span class="contact-value">SayedOmarHashimi ↗</span></a>
+        </div>
+      </div>
+      <form class="card elev-md contact-form reveal" onsubmit="event.preventDefault(); alert('Preview only — the live form wiring is unchanged.');">
+        <div class="field"><label for="p-name">Full name</label><input class="input" id="p-name" type="text" required></div>
+        <div class="field"><label for="p-email">Email</label><input class="input" id="p-email" type="email" required></div>
+        <div class="field"><label for="p-msg">Message</label><textarea class="input" id="p-msg" rows="4" required></textarea></div>
+        <button class="btn btn-primary btn-block" type="submit">Send message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>Sayed Hashimi · Sacramento / San Francisco, CA</span>
+    <span class="footer-social">
+      <a href="https://github.com/SayedOmarHashimi" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/sayedhashimi12/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:omarhashimi12@gmail.com">Email</a>
+    </span>
+    <span>© 2026</span>
+  </div>
+</footer>
+
+<div id="lightbox" class="lightbox" onclick="closeLetter()">
+  <button class="btn btn-icon lightbox-close" onclick="closeLetter(); event.stopPropagation();" aria-label="Close">&times;</button>
+  <figure onclick="event.stopPropagation();">
+    <img id="lightbox-img" src="" alt="">
+    <figcaption id="lightbox-cap"></figcaption>
+  </figure>
+</div>
+
+<a href="#home" class="to-top" id="to-top" aria-label="Back to top">↑</a>
+
+<script src="preview.js"></script>
+</body>
+</html>
