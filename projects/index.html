@@ -2,194 +2,136 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Projects · Sayed Hashimi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Projects &middot; Sayed Hashimi</title>
+<meta name="description" content="Six shipped projects across data engineering, machine learning, business intelligence, and full-stack development.">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-title" content="Sayed Hashimi">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap">
 <link rel="stylesheet" href="../styles.css">
-<style>
-  html { scroll-behavior: smooth; }
-  body { margin: 0; overflow-x: clip; text-wrap: pretty; }
-  a { color: var(--color-accent-700); }
-  a:hover { color: var(--color-accent-900); }
-  @media (pointer: fine) and (hover: hover) {
-    body, a, button { cursor: none; }
-  }
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 72px); }
-  .kicker { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 18px; }
-  .kicker::before { content: ""; width: 22px; height: 3px; border-radius: 2px; background: var(--color-accent); display: block; }
-  .h2 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(32px, 3.6vw, 48px); line-height: 1.1; margin: 0 0 40px; }
-</style>
+<script>/* apply the saved accent before first paint so panes never flash */
+try{var h=localStorage.getItem('hue');if(h)document.documentElement.setAttribute('data-hue',h);}catch(e){}</script>
 </head>
 <body>
-<div style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: 1.65;">
-<div data-cursor-dot="" aria-hidden="true" style="position: fixed; left: 0; top: 0; width: 10px; height: 10px; background: var(--color-accent); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.25s cubic-bezier(0.22,1,0.36,1), height 0.25s cubic-bezier(0.22,1,0.36,1), opacity 0.25s, background 0.25s; display: none;"></div>
-
-<nav class="nav" style="position: sticky; top: 0; z-index: 500; background: var(--color-bg);">
-  <a class="nav-brand" href="../" style="color: inherit; text-decoration: none;">Sayed Hashimi</a>
-  <button type="button" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
-  <div class="nav-menu" id="nav-menu">
-    <a href="../about/" onclick="closeNav()">About</a>
-    <a href="../experience/" onclick="closeNav()">Experience</a>
-    <a href="../projects/" aria-current="page" onclick="closeNav()">Projects</a>
-    <a href="../recommendations/" onclick="closeNav()">Recommendations</a>
-    <a href="../credentials/" onclick="closeNav()">Credentials</a>
-    <a class="btn btn-primary" href="../contact/" onclick="closeNav()">Contact</a>
+<a class="skip" href="#main">Skip to main content</a>
+<nav class="topnav" id="topnav">
+  <a class="brand" href="../">
+    <span class="brand-mark" aria-hidden="true"><span>S</span><span>H</span></span>
+    <span class="brand-copy"><span class="brand-name">Sayed Hashimi</span><span class="brand-role">Business Analyst &amp; MIS</span></span>
+  </a>
+  <button type="button" class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
+  <div class="navlinks" id="navlinks">
+    <a href="../">Home</a>
+    <a href="../about/">About</a>
+    <a href="../projects/" aria-current="page">Projects</a>
+    <a href="../experience/">Experience</a>
+    <a href="../credentials/">Credentials</a>
+    <a href="../recommendations/">Recommendations</a>
+    <a href="../resume/">Resume</a>
+    <a class="nav-cta" href="../contact/">Contact</a>
   </div>
 </nav>
 
-<div class="wrap">
+<div class="hue-rail" role="group" aria-label="Accent colour">
+  <button type="button" class="hue" data-hue="orange" style="--sw:#f97316" aria-label="Orange accent" aria-pressed="false"></button>
+  <button type="button" class="hue" data-hue="terracotta" style="--sw:#c67139" aria-label="Terracotta accent" aria-pressed="false"></button>
+  <button type="button" class="hue" data-hue="red" style="--sw:#ef4444" aria-label="Red accent" aria-pressed="false"></button>
+  <button type="button" class="hue" data-hue="green" style="--sw:#16a34a" aria-label="Green accent" aria-pressed="false"></button>
+  <button type="button" class="hue" data-hue="blue" style="--sw:#2563eb" aria-label="Blue accent" aria-pressed="false"></button>
+  <button type="button" class="hue" data-hue="indigo" style="--sw:#4f46e5" aria-label="Indigo accent" aria-pressed="false"></button>
+  <button type="button" class="hue" data-hue="violet" style="--sw:#9333ea" aria-label="Violet accent" aria-pressed="false"></button>
+</div>
 
-  <!-- PROJECTS -->
-  <section id="projects" style="padding: 64px 0 96px;">
-    <div class="kicker">Projects</div>
-    <h2 class="h2">What I've built</h2>
-    <div class="proj-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 22px;">
-      <article class="card elev-sm" style="display: flex; flex-direction: column; gap: 14px;">
-        <div style="display: flex; align-items: baseline; justify-content: space-between;">
-          <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; color: var(--color-accent-500); line-height: 1;">01</div>
-          <span class="tag tag-accent-2">Data Engineering · Live</span>
-        </div>
-        <div class="card-title" style="font-size: 20px;">DONKI Space Weather Dashboard</div>
-        <div class="card-body" style="flex: 1;">An end-to-end, fully automated data pipeline that tracks solar activity — solar flares, coronal mass ejections, and geomagnetic storms — from NASA DONKI and NOAA SWPC APIs. Extracts with Python, transforms through a DuckDB warehouse with dbt, and publishes a daily-refreshed public dashboard featuring an aurora visibility forecast and live Kp-index conditions, orchestrated entirely on free cloud infrastructure.</div>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
-          <span class="tag tag-outline">Python</span>
-          <span class="tag tag-outline">dbt</span>
-          <span class="tag tag-outline">DuckDB</span>
-          <span class="tag tag-outline">GitHub Actions</span>
-          <span class="tag tag-outline">Data Pipeline</span>
-        </div>
-        <a href="https://sayedomarhashimi.github.io/donki-space-weather/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 8px; align-self: flex-start;">View project <span style="font-size: 14px;">↗</span></a>
+<main id="main">
+
+<section class="sec">
+  <div class="shell">
+    <p class="eyebrow reveal">Recent work</p>
+    <h1 class="sec-title reveal">My Recent <em>Works</em></h1>
+    <p class="sec-desc reveal">Six shipped projects across data engineering, machine learning, business intelligence, and full-stack development.</p>
+    <div class="filters reveal" role="group" aria-label="Filter projects">
+      <button type="button" class="filt is-on" data-f="all" aria-pressed="true">All work</button>
+      <button type="button" class="filt" data-f="data-eng" aria-pressed="false">Data Engineering</button>
+      <button type="button" class="filt" data-f="ml" aria-pressed="false">Machine Learning</button>
+      <button type="button" class="filt" data-f="bi" aria-pressed="false">BI &amp; Dashboards</button>
+      <button type="button" class="filt" data-f="fullstack" aria-pressed="false">Full-Stack</button>
+      <button type="button" class="filt" data-f="db" aria-pressed="false">Databases</button>
+    </div>
+    <div class="proj-grid stagger" id="grid">
+      <article class="glass proj reveal" data-cat="data-eng bi">
+        <div class="proj-top"><span class="proj-ico" aria-hidden="true">&#9672;</span><span class="chip chip-live">Live</span></div>
+        <h2>DONKI Space Weather Dashboard</h2>
+        <p class="proj-focus">Data engineering &middot; Automated pipeline</p>
+        <p class="proj-text">An end-to-end, fully automated pipeline tracking solar flares, coronal mass ejections, and geomagnetic storms from NASA DONKI and NOAA SWPC. Python extraction, a DuckDB warehouse transformed with dbt, and a daily-refreshed public dashboard with aurora forecast and live Kp-index &mdash; all on free cloud infrastructure.</p>
+        <div class="tags"><span class="t">Python</span><span class="t">dbt</span><span class="t">DuckDB</span><span class="t">GitHub Actions</span></div>
+        <div class="proj-links"><a class="cta-primary sm" href="https://sayedomarhashimi.github.io/donki-space-weather/" target="_blank" rel="noopener">View project &#8599;</a></div>
       </article>
-      <article class="card elev-sm" style="display: flex; flex-direction: column; gap: 14px;">
-        <div style="display: flex; align-items: baseline; justify-content: space-between;">
-          <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; color: var(--color-accent-500); line-height: 1;">02</div>
-          <span class="tag tag-accent-2">Geospatial ML · Live</span>
-        </div>
-        <div class="card-title" style="font-size: 20px;">California Wildfire Risk &amp; Spread Simulation</div>
-        <div style="font-size: 12px; color: var(--color-neutral-700); margin-top: -6px;">Butte County, CA · Unofficial portfolio project — modelled demonstrations, not a source of real fire information</div>
-        <div class="card-body" style="flex: 1;">An end-to-end geospatial data science project: a machine-learning ignition-risk model over a 1 km grid of Butte County, a cellular-automaton spread simulation calibrated against the 2018 Camp Fire, and a live NASA FIRMS thermal-detection layer refreshed every 15 minutes by GitHub Actions. Ignition risk scores a PR-AUC of 0.226 under spatially blocked cross-validation against a 0.048 baseline; the spread model reaches an IoU of 0.595 against the observed Camp Fire extent with 11.1 h arrival-time error. Ingests TIGER, FRAP, FPA-FOD, LANDFIRE, gridMET, HRRR, and FIRMS, with circular variables — wind, aspect, season — stored as vectors so every aggregation is correct by construction. Free infrastructure throughout.</div>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
-          <span class="tag tag-outline">Python</span>
-          <span class="tag tag-outline">scikit-learn</span>
-          <span class="tag tag-outline">geopandas</span>
-          <span class="tag tag-outline">Streamlit</span>
-          <span class="tag tag-outline">GitHub Actions</span>
-        </div>
-        <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 8px;">
-          <a href="https://california-wildfire-risk.streamlit.app/" target="_blank" rel="noopener" class="btn btn-primary">View project <span style="font-size: 14px;">↗</span></a>
-          <a href="https://github.com/SayedOmarHashimi/california-wildfire-risk" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Source <span style="font-size: 12px;">↗</span></a>
-        </div>
+      <article class="glass proj reveal" data-cat="ml data-eng">
+        <div class="proj-top"><span class="proj-ico" aria-hidden="true">&#9670;</span><span class="chip chip-live">Live</span></div>
+        <h2>California Wildfire Risk &amp; Spread Simulation</h2>
+        <p class="proj-focus">Geospatial ML &middot; Butte County, CA</p>
+        <p class="proj-text">A machine-learning ignition-risk model over a 1&nbsp;km grid, a cellular-automaton spread simulation calibrated against the 2018 Camp Fire, and a live NASA FIRMS thermal layer refreshed every 15 minutes. PR-AUC 0.226 under spatially blocked CV against a 0.048 baseline; spread IoU 0.595 with 11.1&nbsp;h arrival-time error.</p>
+        <p class="proj-note">Unofficial portfolio project &mdash; modelled demonstrations, not a source of real fire information.</p>
+        <div class="tags"><span class="t">Python</span><span class="t">scikit-learn</span><span class="t">geopandas</span><span class="t">Streamlit</span></div>
+        <div class="proj-links"><a class="cta-primary sm" href="https://california-wildfire-risk.streamlit.app/" target="_blank" rel="noopener">View project &#8599;</a><a class="src" href="https://github.com/SayedOmarHashimi/california-wildfire-risk" target="_blank" rel="noopener">Source &#8599;</a></div>
       </article>
-      <article class="card elev-sm" style="display: flex; flex-direction: column; gap: 14px;">
-        <div style="display: flex; align-items: baseline; justify-content: space-between;">
-          <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; color: var(--color-accent-500); line-height: 1;">03</div>
-          <span class="tag tag-accent-2">Data Platform · Live</span>
-        </div>
-        <div class="card-title" style="font-size: 20px;">Nuclide Explorer</div>
-        <div class="card-body" style="flex: 1;">An interactive chart of every known nuclide — 3,386 of them — built on the IAEA Livechart API over ENSDF. Protons up, neutrons across, coloured by decay mode or half-life; click any nuclide to walk its decay chain to stability. A Python ingestion pipeline and layered dbt models on Neon Postgres reconcile the quirks of the source data — half-lives published as bounds, units that mix time with energy, wide decay columns that the graph needs tall — into a typed schema, verified against IAEA's own values to a relative tolerance of 1e-6. Rendered on Canvas 2D with d3-zoom and served through a Zod-validated, rate-limited public JSON API.</div>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
-          <span class="tag tag-outline">Next.js 16</span>
-          <span class="tag tag-outline">React 19</span>
-          <span class="tag tag-outline">Python</span>
-          <span class="tag tag-outline">dbt</span>
-          <span class="tag tag-outline">Postgres</span>
-          <span class="tag tag-outline">Canvas / d3</span>
-        </div>
-        <a href="https://nuclide-explorer.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 8px; align-self: flex-start;">View project <span style="font-size: 14px;">↗</span></a>
+      <article class="glass proj reveal" data-cat="data-eng fullstack">
+        <div class="proj-top"><span class="proj-ico" aria-hidden="true">&#9673;</span><span class="chip chip-live">Live</span></div>
+        <h2>Nuclide Explorer</h2>
+        <p class="proj-focus">Data platform &middot; 3,386 nuclides</p>
+        <p class="proj-text">An interactive chart of every known nuclide, built on the IAEA Livechart API over ENSDF. A Python ingestion pipeline and layered dbt models on Neon Postgres reconcile the source data&rsquo;s quirks into a typed schema, verified to a relative tolerance of 1e-6. Rendered on Canvas 2D with d3-zoom behind a Zod-validated public JSON API.</p>
+        <div class="tags"><span class="t">Next.js 16</span><span class="t">React 19</span><span class="t">dbt</span><span class="t">Postgres</span></div>
+        <div class="proj-links"><a class="cta-primary sm" href="https://nuclide-explorer.vercel.app/" target="_blank" rel="noopener">View project &#8599;</a></div>
       </article>
-      <article class="card elev-sm" style="display: flex; flex-direction: column; gap: 14px;">
-        <div style="display: flex; align-items: baseline; justify-content: space-between;">
-          <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; color: var(--color-accent-500); line-height: 1;">04</div>
-          <span class="tag tag-accent-2">Business Intelligence</span>
-        </div>
-        <div class="card-title" style="font-size: 20px;">Hospital Management BI Solution</div>
-        <div class="card-body" style="flex: 1;">Designed and developed an 8-dashboard Tableau BI solution covering billing analytics, appointment efficiency, treatment performance, patient density mapping, and no-show analysis. Built a full ER diagram, relational schema, and ETL pipeline integrating 5 normalized tables.</div>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
-          <span class="tag tag-outline">Tableau</span>
-          <span class="tag tag-outline">SQL</span>
-          <span class="tag tag-outline">ETL</span>
-          <span class="tag tag-outline">Data Modeling</span>
-        </div>
-        <a href="https://sayedomarhashimi.github.io/hospital-management-systems/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 8px; align-self: flex-start;">View project <span style="font-size: 14px;">↗</span></a>
+      <article class="glass proj reveal" data-cat="bi db">
+        <div class="proj-top"><span class="proj-ico" aria-hidden="true">&#9636;</span><span class="chip ">Coursework</span></div>
+        <h2>Hospital Management BI Solution</h2>
+        <p class="proj-focus">Business intelligence &middot; 8 dashboards</p>
+        <p class="proj-text">A Tableau BI solution covering billing analytics, appointment efficiency, treatment performance, patient density mapping, and no-show analysis. Built on a full ER diagram, relational schema, and ETL pipeline integrating 5 normalized tables.</p>
+        <div class="tags"><span class="t">Tableau</span><span class="t">SQL</span><span class="t">ETL</span><span class="t">Data Modeling</span></div>
+        <div class="proj-links"><a class="cta-primary sm" href="https://sayedomarhashimi.github.io/hospital-management-systems/" target="_blank" rel="noopener">View project &#8599;</a></div>
       </article>
-      <article class="card elev-sm" style="display: flex; flex-direction: column; gap: 14px;">
-        <div style="display: flex; align-items: baseline; justify-content: space-between;">
-          <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; color: var(--color-accent-500); line-height: 1;">05</div>
-          <span class="tag tag-accent-2">Full-Stack Web App · Live</span>
-        </div>
-        <div class="card-title" style="font-size: 20px;">United Space Data, The World's Space Data Archive</div>
-        <div class="card-body" style="flex: 1;">An open-access archive where researchers and space enthusiasts worldwide upload and download datasets, mission files, and research papers, completely free. Real cloud file storage, a searchable, tag-filterable repository, and live contributor stats.</div>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
-          <span class="tag tag-outline">Next.js 14</span>
-          <span class="tag tag-outline">TypeScript</span>
-          <span class="tag tag-outline">Tailwind</span>
-          <span class="tag tag-outline">Supabase</span>
-          <span class="tag tag-outline">Vercel</span>
-        </div>
-        <a href="https://united-space-data.vercel.app/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 8px; align-self: flex-start;">View project <span style="font-size: 14px;">↗</span></a>
+      <article class="glass proj reveal" data-cat="fullstack">
+        <div class="proj-top"><span class="proj-ico" aria-hidden="true">&#9678;</span><span class="chip chip-live">Live</span></div>
+        <h2>United Space Data</h2>
+        <p class="proj-focus">Full-stack &middot; Open archive</p>
+        <p class="proj-text">An open-access archive where researchers and space enthusiasts worldwide upload and download datasets, mission files, and research papers, completely free. Real cloud file storage, a searchable tag-filterable repository, and live contributor stats.</p>
+        <div class="tags"><span class="t">Next.js 14</span><span class="t">TypeScript</span><span class="t">Supabase</span><span class="t">Vercel</span></div>
+        <div class="proj-links"><a class="cta-primary sm" href="https://united-space-data.vercel.app/" target="_blank" rel="noopener">View project &#8599;</a></div>
       </article>
-      <article class="card elev-sm" style="display: flex; flex-direction: column; gap: 14px;">
-        <div style="display: flex; align-items: baseline; justify-content: space-between;">
-          <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; color: var(--color-accent-500); line-height: 1;">06</div>
-          <span class="tag tag-accent-2">Database Systems</span>
-        </div>
-        <div class="card-title" style="font-size: 20px;">Property Management Database System</div>
-        <div style="font-size: 12px; color: var(--color-neutral-700); margin-top: -6px;">California State University, Sacramento · 5-member team</div>
-        <div class="card-body" style="flex: 1;">A relational MySQL system spanning the full database lifecycle, ER diagrams, a normalized schema of 10+ entities, and a complete data dictionary. Includes triggers that auto-update apartment occupancy and a stored procedure that assigns staff by workload.</div>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
-          <span class="tag tag-outline">MySQL</span>
-          <span class="tag tag-outline">ER Modeling</span>
-          <span class="tag tag-outline">SQL DDL/DML</span>
-          <span class="tag tag-outline">Triggers</span>
-          <span class="tag tag-outline">Stored Procedures</span>
-        </div>
-        <a href="https://sayedomarhashimi.github.io/Property-Database-Management-Systems/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 8px; align-self: flex-start;">View project <span style="font-size: 14px;">↗</span></a>
+      <article class="glass proj reveal" data-cat="db">
+        <div class="proj-top"><span class="proj-ico" aria-hidden="true">&#9638;</span><span class="chip ">Team project</span></div>
+        <h2>Property Management Database System</h2>
+        <p class="proj-focus">Database systems &middot; 5-member team</p>
+        <p class="proj-text">A relational MySQL system spanning the full database lifecycle &mdash; ER diagrams, a normalized schema of 10+ entities, and a complete data dictionary. Includes triggers that auto-update apartment occupancy and a stored procedure that assigns staff by workload.</p>
+        <div class="tags"><span class="t">MySQL</span><span class="t">ER Modeling</span><span class="t">Triggers</span><span class="t">Stored Procedures</span></div>
+        <div class="proj-links"><a class="cta-primary sm" href="https://sayedomarhashimi.github.io/Property-Database-Management-Systems/" target="_blank" rel="noopener">View project &#8599;</a></div>
       </article>
     </div>
-  </section>
+    <p class="empty" id="empty" hidden>No projects in that category yet.</p>
+  </div>
+</section>
 
-  <footer style="padding: 26px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--color-neutral-700);">
-    <span>Sayed Hashimi · Sacramento / San Francisco, CA</span>
-    <span>© 2026</span>
-  </footer>
-</div>
-</div>
+</main>
 
-<script>
-function toggleNav(btn){
-  var menu = document.getElementById('nav-menu');
-  if (!menu) return;
-  var open = menu.classList.toggle('open');
-  if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-}
-function closeNav(){
-  var menu = document.getElementById('nav-menu');
-  if (menu) menu.classList.remove('open');
-  var btn = document.querySelector('.nav-toggle');
-  if (btn) btn.setAttribute('aria-expanded', 'false');
-}
+<footer class="foot">
+  <div class="shell foot-in">
+    <span>Designed and developed by Sayed Hashimi</span>
+    <span class="footer-social">
+      <a href="https://github.com/SayedOmarHashimi" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/sayedhashimi12/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:omarhashimi12@gmail.com">Email</a>
+    </span>
+    <span>&copy; 2026</span>
+  </div>
+</footer>
 
-document.addEventListener('DOMContentLoaded', function(){
-  if (!window.matchMedia('(pointer: fine) and (hover: hover)').matches) return;
-  const cur = document.querySelector('[data-cursor-dot]');
-  if (!cur) return;
-  cur.style.display = 'block';
-  let mx = 0, my = 0, cx = 0, cy = 0;
-  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; }, { passive: true });
-  function loop(){
-    cx += (mx - cx) * 0.16;
-    cy += (my - cy) * 0.16;
-    cur.style.left = cx + 'px';
-    cur.style.top = cy + 'px';
-    requestAnimationFrame(loop);
-  }
-  loop();
-  const grow = () => { cur.style.width = '36px'; cur.style.height = '36px'; cur.style.opacity = '0.5'; };
-  const shrink = () => { cur.style.width = '10px'; cur.style.height = '10px'; cur.style.opacity = '1'; };
-  document.querySelectorAll('a, button').forEach((el) => {
-    el.addEventListener('mouseenter', grow);
-    el.addEventListener('mouseleave', shrink);
-  });
-});
-</script>
+<a href="#main" class="totop" id="totop" aria-label="Back to top">&#8593;</a>
+<script src="../assets/site.js" defer></script>
 </body>
 </html>

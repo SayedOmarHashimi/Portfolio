@@ -2,136 +2,88 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About · Sayed Hashimi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About &middot; Sayed Hashimi</title>
+<meta name="description" content="About Sayed Hashimi: Business Analyst and MIS graduate, and the skills behind the work.">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-title" content="Sayed Hashimi">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap">
 <link rel="stylesheet" href="../styles.css">
-<style>
-  html { scroll-behavior: smooth; }
-  body { margin: 0; overflow-x: clip; text-wrap: pretty; }
-  a { color: var(--color-accent-700); }
-  a:hover { color: var(--color-accent-900); }
-  @media (pointer: fine) and (hover: hover) {
-    body, a, button { cursor: none; }
-  }
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 72px); }
-  .kicker { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 18px; }
-  .kicker::before { content: ""; width: 22px; height: 3px; border-radius: 2px; background: var(--color-accent); display: block; }
-  .h2 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(32px, 3.6vw, 48px); line-height: 1.1; margin: 0 0 40px; }
-</style>
+<script>/* apply the saved accent before first paint so panes never flash */
+try{var h=localStorage.getItem('hue');if(h)document.documentElement.setAttribute('data-hue',h);}catch(e){}</script>
 </head>
 <body>
-<div style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: 1.65;">
-<div data-cursor-dot="" aria-hidden="true" style="position: fixed; left: 0; top: 0; width: 10px; height: 10px; background: var(--color-accent); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.25s cubic-bezier(0.22,1,0.36,1), height 0.25s cubic-bezier(0.22,1,0.36,1), opacity 0.25s, background 0.25s; display: none;"></div>
-
-<nav class="nav" style="position: sticky; top: 0; z-index: 500; background: var(--color-bg);">
-  <a class="nav-brand" href="../" style="color: inherit; text-decoration: none;">Sayed Hashimi</a>
-  <button type="button" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
-  <div class="nav-menu" id="nav-menu">
-    <a href="../about/" aria-current="page" onclick="closeNav()">About</a>
-    <a href="../experience/" onclick="closeNav()">Experience</a>
-    <a href="../projects/" onclick="closeNav()">Projects</a>
-    <a href="../recommendations/" onclick="closeNav()">Recommendations</a>
-    <a href="../credentials/" onclick="closeNav()">Credentials</a>
-    <a class="btn btn-primary" href="../contact/" onclick="closeNav()">Contact</a>
+<a class="skip" href="#main">Skip to main content</a>
+<nav class="topnav" id="topnav">
+  <a class="brand" href="../">
+    <span class="brand-mark" aria-hidden="true"><span>S</span><span>H</span></span>
+    <span class="brand-copy"><span class="brand-name">Sayed Hashimi</span><span class="brand-role">Business Analyst &amp; MIS</span></span>
+  </a>
+  <button type="button" class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
+  <div class="navlinks" id="navlinks">
+    <a href="../">Home</a>
+    <a href="../about/" aria-current="page">About</a>
+    <a href="../projects/">Projects</a>
+    <a href="../experience/">Experience</a>
+    <a href="../credentials/">Credentials</a>
+    <a href="../recommendations/">Recommendations</a>
+    <a href="../resume/">Resume</a>
+    <a class="nav-cta" href="../contact/">Contact</a>
   </div>
 </nav>
 
-<div class="wrap">
-
-  <!-- ABOUT -->
-  <section id="about" class="about-grid" style="padding: 64px 0 96px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;">
-    <div>
-      <div class="kicker">About</div>
-      <h2 class="h2" style="margin-bottom: 28px;">How I work</h2>
-      <div style="font-size: 16.5px; line-height: 1.85; color: color-mix(in srgb, var(--color-text) 85%, transparent);">
-        <p style="margin: 0;">I'm a Business Analyst and MIS graduate with hands-on experience turning messy data into sharp recommendations. Whether it's tracking product KPIs at an early-stage startup or analyzing competitor pricing for a growing insurance book, I care about making data useful, not just pretty.</p>
-        <p style="margin: 18px 0 0;">I've built dashboards from scratch, run market research cycles, facilitated stakeholder interviews, and delivered full SDLC analyses for real clients. I'm comfortable moving between technical tools and business conversations.</p>
-        <p style="margin: 18px 0 0;">Currently wrapping up my B.S. in MIS at Sacramento State (GPA 3.5, May 2026) and looking for my next challenge in data analysis, business intelligence, or product operations.</p>
-      </div>
-    </div>
-    <div>
-      <div class="kicker">Core skills</div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-        <div class="card elev-sm">
-          <div class="card-title" style="font-size: 15px;">Data &amp; Analytics</div>
-          <div class="card-body" style="font-size: 13.5px;">SQL · Python · Excel · Tableau · Power BI · R · Pandas</div>
-        </div>
-        <div class="card elev-sm">
-          <div class="card-title" style="font-size: 15px;">Business Analysis</div>
-          <div class="card-body" style="font-size: 13.5px;">Requirements gathering · BPMN · Use case modeling · Trend analysis</div>
-        </div>
-        <div class="card elev-sm">
-          <div class="card-title" style="font-size: 15px;">Tools &amp; Platforms</div>
-          <div class="card-body" style="font-size: 13.5px;">Salesforce (Certified) · CRM systems · Tableau · Power BI</div>
-        </div>
-        <div class="card elev-sm">
-          <div class="card-title" style="font-size: 15px;">Research &amp; Strategy</div>
-          <div class="card-body" style="font-size: 13.5px;">Market research · Competitive analysis · Stakeholder interviews · NPV modeling</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education" style="padding: 0 0 96px;">
-    <div class="kicker">Education</div>
-    <h2 class="h2">Academic record</h2>
-    <div class="card elev-sm edu-grid" style="display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 48px; padding: 36px 40px;">
-      <div>
-        <div class="card-title" style="font-size: 22px;">Bachelor of Science in Management Information Systems</div>
-        <div style="font-size: 14px; color: var(--color-accent-700); font-weight: 600; margin: 8px 0 6px;">California State University, Sacramento</div>
-        <div style="font-size: 13px; color: var(--color-neutral-700);">Sacramento, CA · Aug 2024 – May 2026 · Dean's List · Dean's Honor List</div>
-      </div>
-      <div style="text-align: center; border-left: 1px solid var(--color-neutral-300); padding-left: 40px;">
-        <div style="font-size: 12px; color: var(--color-neutral-700); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap;">GPA</div>
-        <div style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 40px; color: var(--color-accent-700); line-height: 1; margin-top: 6px;">3.5</div>
-      </div>
-    </div>
-  </section>
-
-  <footer style="padding: 26px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--color-neutral-700);">
-    <span>Sayed Hashimi · Sacramento / San Francisco, CA</span>
-    <span>© 2026</span>
-  </footer>
-</div>
+<div class="hue-rail" role="group" aria-label="Accent colour">
+  <button type="button" class="hue" data-hue="orange" style="--sw:#f97316" aria-label="Orange accent" aria-pressed="false"></button>
+  <button type="button" class="hue" data-hue="terracotta" style="--sw:#c67139" aria-label="Terracotta accent" aria-pressed="false"></button>
+  <button type="button" class="hue" data-hue="red" style="--sw:#ef4444" aria-label="Red accent" aria-pressed="false"></button>
+  <button type="button" class="hue" data-hue="green" style="--sw:#16a34a" aria-label="Green accent" aria-pressed="false"></button>
+  <button type="button" class="hue" data-hue="blue" style="--sw:#2563eb" aria-label="Blue accent" aria-pressed="false"></button>
+  <button type="button" class="hue" data-hue="indigo" style="--sw:#4f46e5" aria-label="Indigo accent" aria-pressed="false"></button>
+  <button type="button" class="hue" data-hue="violet" style="--sw:#9333ea" aria-label="Violet accent" aria-pressed="false"></button>
 </div>
 
-<script>
-function toggleNav(btn){
-  var menu = document.getElementById('nav-menu');
-  if (!menu) return;
-  var open = menu.classList.toggle('open');
-  if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-}
-function closeNav(){
-  var menu = document.getElementById('nav-menu');
-  if (menu) menu.classList.remove('open');
-  var btn = document.querySelector('.nav-toggle');
-  if (btn) btn.setAttribute('aria-expanded', 'false');
-}
+<main id="main">
 
-document.addEventListener('DOMContentLoaded', function(){
-  if (!window.matchMedia('(pointer: fine) and (hover: hover)').matches) return;
-  const cur = document.querySelector('[data-cursor-dot]');
-  if (!cur) return;
-  cur.style.display = 'block';
-  let mx = 0, my = 0, cx = 0, cy = 0;
-  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; }, { passive: true });
-  function loop(){
-    cx += (mx - cx) * 0.16;
-    cy += (my - cy) * 0.16;
-    cur.style.left = cx + 'px';
-    cur.style.top = cy + 'px';
-    requestAnimationFrame(loop);
-  }
-  loop();
-  const grow = () => { cur.style.width = '36px'; cur.style.height = '36px'; cur.style.opacity = '0.5'; };
-  const shrink = () => { cur.style.width = '10px'; cur.style.height = '10px'; cur.style.opacity = '1'; };
-  document.querySelectorAll('a, button').forEach((el) => {
-    el.addEventListener('mouseenter', grow);
-    el.addEventListener('mouseleave', shrink);
-  });
-});
-</script>
+<section class="sec">
+  <div class="shell">
+    <p class="eyebrow reveal">Who I am</p>
+    <h1 class="sec-title reveal">About <em>&amp; Skills</em></h1>
+    <div class="about-wrap">
+      <div class="glass about-card reveal">
+        <p>I&rsquo;m a Business Analyst and MIS graduate with hands-on experience turning messy data into sharp recommendations. Whether it&rsquo;s tracking product KPIs at an early-stage startup or analyzing competitor pricing for a growing insurance book, I care about making data useful, not just pretty.</p>
+        <p>I&rsquo;ve built dashboards from scratch, run market research cycles, facilitated stakeholder interviews, and delivered full SDLC analyses for real clients. I&rsquo;m comfortable moving between technical tools and business conversations.</p>
+        <p>Currently wrapping up my B.S. in MIS at Sacramento State (GPA 3.5, May 2026) and looking for my next challenge in data analysis, business intelligence, or product operations.</p>
+      </div>
+      <div class="skills stagger">
+        <div class="glass skill reveal"><span class="skill-ico">SQL</span><h2>Data &amp; Analytics</h2><p>SQL &middot; Python &middot; Excel &middot; Tableau &middot; Power BI &middot; R &middot; Pandas</p></div>
+        <div class="glass skill reveal"><span class="skill-ico">BA</span><h2>Business Analysis</h2><p>Requirements gathering &middot; BPMN &middot; Use case modeling &middot; Trend analysis</p></div>
+        <div class="glass skill reveal"><span class="skill-ico">CRM</span><h2>Tools &amp; Platforms</h2><p>Salesforce (Certified) &middot; CRM systems &middot; Tableau &middot; Power BI</p></div>
+        <div class="glass skill reveal"><span class="skill-ico">RES</span><h2>Research &amp; Strategy</h2><p>Market research &middot; Competitive analysis &middot; Stakeholder interviews &middot; NPV modeling</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot-in">
+    <span>Designed and developed by Sayed Hashimi</span>
+    <span class="footer-social">
+      <a href="https://github.com/SayedOmarHashimi" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/sayedhashimi12/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:omarhashimi12@gmail.com">Email</a>
+    </span>
+    <span>&copy; 2026</span>
+  </div>
+</footer>
+
+<a href="#main" class="totop" id="totop" aria-label="Back to top">&#8593;</a>
+<script src="../assets/site.js" defer></script>
 </body>
 </html>
