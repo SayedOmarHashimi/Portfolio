@@ -2,144 +2,120 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Experience · Sayed Hashimi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Experience &middot; Sayed Hashimi</title>
+<meta name="description" content="Analyst roles at the California Government Operations Agency, FitLink, and Hashimi Insurance.">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-title" content="Sayed Hashimi">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap">
 <link rel="stylesheet" href="../styles.css">
-<style>
-  html { scroll-behavior: smooth; }
-  body { margin: 0; overflow-x: clip; text-wrap: pretty; }
-  a { color: var(--color-accent-700); }
-  a:hover { color: var(--color-accent-900); }
-  @media (pointer: fine) and (hover: hover) {
-    body, a, button { cursor: none; }
-  }
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 72px); }
-  .kicker { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 18px; }
-  .kicker::before { content: ""; width: 22px; height: 3px; border-radius: 2px; background: var(--color-accent); display: block; }
-  .h2 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(32px, 3.6vw, 48px); line-height: 1.1; margin: 0 0 40px; }
-</style>
+<script>/* apply the saved accent before first paint so panes never flash */
+try{var h=localStorage.getItem('hue');if(h)document.documentElement.setAttribute('data-hue',h);}catch(e){}</script>
 </head>
 <body>
-<div style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: 1.65;">
-<div data-cursor-dot="" aria-hidden="true" style="position: fixed; left: 0; top: 0; width: 10px; height: 10px; background: var(--color-accent); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.25s cubic-bezier(0.22,1,0.36,1), height 0.25s cubic-bezier(0.22,1,0.36,1), opacity 0.25s, background 0.25s; display: none;"></div>
-
-<nav class="nav" style="position: sticky; top: 0; z-index: 500; background: var(--color-bg);">
-  <a class="nav-brand" href="../" style="color: inherit; text-decoration: none;">Sayed Hashimi</a>
-  <button type="button" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
-  <div class="nav-menu" id="nav-menu">
-    <a href="../about/" onclick="closeNav()">About</a>
-    <a href="../experience/" aria-current="page" onclick="closeNav()">Experience</a>
-    <a href="../projects/" onclick="closeNav()">Projects</a>
-    <a href="../recommendations/" onclick="closeNav()">Recommendations</a>
-    <a href="../credentials/" onclick="closeNav()">Credentials</a>
-    <a class="btn btn-primary" href="../contact/" onclick="closeNav()">Contact</a>
+<a class="skip" href="#main">Skip to main content</a>
+<nav class="topnav" id="topnav">
+  <a class="brand" href="../">
+    <span class="brand-mark" aria-hidden="true"><span>S</span><span>H</span></span>
+    <span class="brand-copy"><span class="brand-name">Sayed Hashimi</span><span class="brand-role">Business Analyst &amp; MIS</span></span>
+  </a>
+  <button type="button" class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
+  <div class="navlinks" id="navlinks">
+    <a href="../">Home</a>
+    <a href="../about/">About</a>
+    <a href="../projects/">Projects</a>
+    <a href="../experience/" aria-current="page">Experience</a>
+    <a href="../credentials/">Credentials</a>
+    <a href="../recommendations/">Recommendations</a>
+    <a href="../resume/">Resume</a>
+    <a class="nav-cta" href="../contact/">Contact</a>
   </div>
 </nav>
 
-<div class="wrap">
+<div class="hue-rail" role="group" aria-label="Accent colour">
+  <button type="button" class="hue" data-hue="orange" style="--sw:#f97316" aria-label="Orange accent" aria-pressed="false"></button>
+  <button type="button" class="hue" data-hue="terracotta" style="--sw:#c67139" aria-label="Terracotta accent" aria-pressed="false"></button>
+  <button type="button" class="hue" data-hue="red" style="--sw:#ef4444" aria-label="Red accent" aria-pressed="false"></button>
+  <button type="button" class="hue" data-hue="green" style="--sw:#16a34a" aria-label="Green accent" aria-pressed="false"></button>
+  <button type="button" class="hue" data-hue="blue" style="--sw:#2563eb" aria-label="Blue accent" aria-pressed="false"></button>
+  <button type="button" class="hue" data-hue="indigo" style="--sw:#4f46e5" aria-label="Indigo accent" aria-pressed="false"></button>
+  <button type="button" class="hue" data-hue="violet" style="--sw:#9333ea" aria-label="Violet accent" aria-pressed="false"></button>
+</div>
 
-  <!-- EXPERIENCE -->
-  <section id="experience" style="padding: 64px 0 96px;">
-    <div class="kicker">Experience</div>
-    <h2 class="h2">Where I've worked</h2>
-    <div style="display: flex; flex-direction: column; gap: 22px;">
+<main id="main">
 
-      <article class="card elev-sm" style="position: relative; padding: 30px 36px 30px 46px;">
-        <span style="position: absolute; left: 20px; top: 34px; width: 12px; height: 12px; border-radius: 50%; background: var(--color-accent);"></span>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 16px; flex-wrap: wrap;">
-          <div>
-            <div class="card-title" style="font-size: 20px;">Operations Associate</div>
-            <div style="font-size: 14px; color: var(--color-accent-700); font-weight: 600; margin-top: 4px;">State of California, Government Operations Agency</div>
+<section class="sec">
+  <div class="shell">
+    <p class="eyebrow reveal">Where I&rsquo;ve worked</p>
+    <h1 class="sec-title reveal">Experience <em>&amp; Education</em></h1>
+    <div class="exp-wrap">
+      <div class="tl stagger">
+        <span class="tl-line" aria-hidden="true"></span>
+        <article class="tl-item reveal">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="glass exp">
+            <div class="exp-head">
+              <div><h2>Operations Associate</h2><p class="exp-org">State of California, Government Operations Agency</p></div>
+              <span class="exp-date">Jun 2026 &ndash; Aug 2026</span>
+            </div>
+            <ul><li>Provide analytical, technical, and administrative support in the Secretary&rsquo;s Office, participating in policy team meetings, cross-department working sessions, and interagency discussions on statewide operational priorities.</li><li>Review, gather, compile, and analyze data and materials to support the development of policy documents, guidance materials, and operational summaries.</li><li>Prepare and organize materials for meetings and ongoing initiatives, documenting discussions on operational issues, policy proposals, and coordination between GovOps and partner departments.</li><li>Conduct supervised research on statewide operations, statutory and regulatory requirements, and process-improvement efforts, contributing recommendations and potential solutions.</li></ul>
           </div>
-          <div style="font-size: 13px; color: var(--color-neutral-700); font-weight: 600; white-space: nowrap;">June 2026 – Aug 2026</div>
-        </div>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0;">
-          <li style="font-size: 14.5px; color: color-mix(in srgb, var(--color-text) 82%, transparent); padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: var(--color-accent-600);">·</span>Provide analytical, technical, and administrative support in the Secretary's Office, participating in policy team meetings, cross-department working sessions, and interagency discussions on statewide operational priorities and policy implementation.</li>
-          <li style="font-size: 14.5px; color: color-mix(in srgb, var(--color-text) 82%, transparent); padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: var(--color-accent-600);">·</span>Review, gather, compile, and analyze data and materials to support the development of policy documents, guidance materials, and operational summaries, incorporating staff feedback and recommendations.</li>
-          <li style="font-size: 14.5px; color: color-mix(in srgb, var(--color-text) 82%, transparent); padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: var(--color-accent-600);">·</span>Prepare and organize materials for meetings and ongoing initiatives, documenting discussions with detailed notes on operational issues, policy proposals, and coordination between GovOps and partner departments.</li>
-          <li style="font-size: 14.5px; color: color-mix(in srgb, var(--color-text) 82%, transparent); padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: var(--color-accent-600);">·</span>Conduct supervised research on statewide operations, statutory and regulatory requirements, and process-improvement efforts, applying analytical reasoning and judgment to contribute recommendations and potential solutions.</li>
-        </ul>
-      </article>
-
-      <article class="card elev-sm" style="position: relative; padding: 30px 36px 30px 46px;">
-        <span style="position: absolute; left: 20px; top: 34px; width: 12px; height: 12px; border-radius: 50%; background: var(--color-accent);"></span>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 16px; flex-wrap: wrap;">
-          <div>
-            <div class="card-title" style="font-size: 20px;">Business Analyst</div>
-            <div style="font-size: 14px; color: var(--color-accent-700); font-weight: 600; margin-top: 4px;">FitLink</div>
+        </article>
+        <article class="tl-item reveal">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="glass exp">
+            <div class="exp-head">
+              <div><h2>Business Analyst</h2><p class="exp-org">FitLink</p></div>
+              <span class="exp-date">Dec 2025 &ndash; May 2026</span>
+            </div>
+            <ul><li>Built and maintained weekly growth-tracking dashboards in Excel, auditing and reconciling key performance indicators to monitor trends and inform outreach strategy in near real time.</li><li>Conducted competitive market research on comparable platforms, compiling and analyzing findings into synthesis reports that supported product and outreach recommendations.</li><li>Presented data-based insights during bi-weekly strategy discussions, contributing to improved targeting efficiency and supporting management decision-making.</li><li>Forecasted engagement patterns to help plan, monitor, and evaluate outreach initiatives, coordinating with stakeholders to ensure data accuracy across work products.</li></ul>
           </div>
-          <div style="font-size: 13px; color: var(--color-neutral-700); font-weight: 600; white-space: nowrap;">Dec 2025 – May 2026</div>
-        </div>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0;">
-          <li style="font-size: 14.5px; color: color-mix(in srgb, var(--color-text) 82%, transparent); padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: var(--color-accent-600);">·</span>Built and maintained weekly growth-tracking dashboards in Excel, auditing and reconciling key performance indicators to monitor trends and inform outreach strategy in near real time.</li>
-          <li style="font-size: 14.5px; color: color-mix(in srgb, var(--color-text) 82%, transparent); padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: var(--color-accent-600);">·</span>Conducted competitive market research on comparable platforms, compiling and analyzing findings into synthesis reports that supported product and outreach recommendations.</li>
-          <li style="font-size: 14.5px; color: color-mix(in srgb, var(--color-text) 82%, transparent); padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: var(--color-accent-600);">·</span>Presented data-based insights during bi-weekly strategy discussions, contributing to improved targeting efficiency and supporting management decision-making.</li>
-          <li style="font-size: 14.5px; color: color-mix(in srgb, var(--color-text) 82%, transparent); padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: var(--color-accent-600);">·</span>Forecasted engagement patterns to help plan, monitor, and evaluate outreach initiatives, coordinating with stakeholders to ensure data accuracy and consistency across work products.</li>
-        </ul>
-      </article>
-
-      <article class="card elev-sm" style="position: relative; padding: 30px 36px 30px 46px;">
-        <span style="position: absolute; left: 20px; top: 34px; width: 12px; height: 12px; border-radius: 50%; background: var(--color-accent);"></span>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 16px; flex-wrap: wrap;">
-          <div>
-            <div class="card-title" style="font-size: 20px;">Insurance Analyst</div>
-            <div style="font-size: 14px; color: var(--color-accent-700); font-weight: 600; margin-top: 4px;">Hashimi Insurance</div>
+        </article>
+        <article class="tl-item reveal">
+          <span class="tl-dot" aria-hidden="true"></span>
+          <div class="glass exp">
+            <div class="exp-head">
+              <div><h2>Insurance Analyst</h2><p class="exp-org">Hashimi Insurance</p></div>
+              <span class="exp-date">Feb 2023 &ndash; Dec 2024</span>
+            </div>
+            <ul><li>Gathered, calculated, compiled, and interpreted data to support program evaluation and operational decision-making across the client book.</li><li>Analyzed competitor pricing and market trends quarterly, auditing and reconciling data into reports that informed rate adjustments and helped retain a significant portion of existing client accounts.</li><li>Prepared weekly analytical reports tracking KPIs across sales, client retention, and campaign outcomes, tabulating data used in leadership operational reviews.</li><li>Collaborated with external agencies and stakeholders to evaluate insurance plan portfolios, negotiating more competitive carrier terms and contributing to procedural improvements that reduced average plan costs.</li></ul>
           </div>
-          <div style="font-size: 13px; color: var(--color-neutral-700); font-weight: 600; white-space: nowrap;">Feb 2023 – Dec 2024</div>
+        </article>
+      </div>
+      <aside class="edu reveal">
+        <p class="eyebrow">Academic journey</p>
+        <div class="glass edu-card">
+          <h2>B.S. Management Information Systems</h2>
+          <p class="exp-org">California State University, Sacramento</p>
+          <p class="exp-date-b">Sacramento, CA &middot; Aug 2024 &ndash; May 2026</p>
+          <div class="gpa"><span>GPA</span><strong>3.5</strong></div>
+          <div class="tags"><span class="t">Dean&rsquo;s List</span><span class="t">Dean&rsquo;s Honor List</span></div>
         </div>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0;">
-          <li style="font-size: 14.5px; color: color-mix(in srgb, var(--color-text) 82%, transparent); padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: var(--color-accent-600);">·</span>Gathered, calculated, compiled, and interpreted data to support program evaluation and operational decision-making across the client book.</li>
-          <li style="font-size: 14.5px; color: color-mix(in srgb, var(--color-text) 82%, transparent); padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: var(--color-accent-600);">·</span>Analyzed competitor pricing and market trends quarterly, auditing and reconciling data into reports that informed rate adjustments and helped retain a significant portion of existing client accounts.</li>
-          <li style="font-size: 14.5px; color: color-mix(in srgb, var(--color-text) 82%, transparent); padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: var(--color-accent-600);">·</span>Prepared weekly analytical reports tracking KPIs across sales, client retention, and campaign outcomes, tabulating data used in leadership operational reviews.</li>
-          <li style="font-size: 14.5px; color: color-mix(in srgb, var(--color-text) 82%, transparent); padding-left: 18px; position: relative; line-height: 1.65;"><span style="position: absolute; left: 0; color: var(--color-accent-600);">·</span>Collaborated with external agencies and stakeholders to evaluate insurance plan portfolios, negotiating more competitive carrier terms and contributing to procedural improvements that reduced average plan costs.</li>
-        </ul>
-      </article>
+      </aside>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer style="padding: 26px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--color-neutral-700);">
-    <span>Sayed Hashimi · Sacramento / San Francisco, CA</span>
-    <span>© 2026</span>
-  </footer>
-</div>
-</div>
+</main>
 
-<script>
-function toggleNav(btn){
-  var menu = document.getElementById('nav-menu');
-  if (!menu) return;
-  var open = menu.classList.toggle('open');
-  if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-}
-function closeNav(){
-  var menu = document.getElementById('nav-menu');
-  if (menu) menu.classList.remove('open');
-  var btn = document.querySelector('.nav-toggle');
-  if (btn) btn.setAttribute('aria-expanded', 'false');
-}
+<footer class="foot">
+  <div class="shell foot-in">
+    <span>Designed and developed by Sayed Hashimi</span>
+    <span class="footer-social">
+      <a href="https://github.com/SayedOmarHashimi" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/sayedhashimi12/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:omarhashimi12@gmail.com">Email</a>
+    </span>
+    <span>&copy; 2026</span>
+  </div>
+</footer>
 
-document.addEventListener('DOMContentLoaded', function(){
-  if (!window.matchMedia('(pointer: fine) and (hover: hover)').matches) return;
-  const cur = document.querySelector('[data-cursor-dot]');
-  if (!cur) return;
-  cur.style.display = 'block';
-  let mx = 0, my = 0, cx = 0, cy = 0;
-  document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; }, { passive: true });
-  function loop(){
-    cx += (mx - cx) * 0.16;
-    cy += (my - cy) * 0.16;
-    cur.style.left = cx + 'px';
-    cur.style.top = cy + 'px';
-    requestAnimationFrame(loop);
-  }
-  loop();
-  const grow = () => { cur.style.width = '36px'; cur.style.height = '36px'; cur.style.opacity = '0.5'; };
-  const shrink = () => { cur.style.width = '10px'; cur.style.height = '10px'; cur.style.opacity = '1'; };
-  document.querySelectorAll('a, button').forEach((el) => {
-    el.addEventListener('mouseenter', grow);
-    el.addEventListener('mouseleave', shrink);
-  });
-});
-</script>
+<a href="#main" class="totop" id="totop" aria-label="Back to top">&#8593;</a>
+<script src="../assets/site.js" defer></script>
 </body>
 </html>
