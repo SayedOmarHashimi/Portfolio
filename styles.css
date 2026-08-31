@@ -139,7 +139,14 @@ a { color: var(--rainbow); }
   width: 42px; height: 42px; cursor: pointer; border-radius: 11px;
   background: rgba(255,255,255,.7); border: 1px solid var(--hairline);
 }
-.burger span { display: block; width: 18px; height: 2px; border-radius: 2px; background: #1c2636; }
+.burger span {
+  display: block; width: 18px; height: 2px; border-radius: 2px; background: #1c2636;
+  transition: transform 220ms var(--ease-out), opacity 160ms var(--ease-out);
+}
+/* Bars fold into an X, so the control states whether the menu is open. */
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(.4); }
+.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
 /* ── Sections ───────────────────────────────────────────────────── */
 .sec { padding: 92px 0; position: relative; }
@@ -385,8 +392,27 @@ a { color: var(--rainbow); }
 .totop:hover { transform: translateY(-3px); }
 
 /* ── Lightbox ───────────────────────────────────────────────────── */
-.lb { display: none; position: fixed; inset: 0; z-index: 2000; padding: 40px 24px; align-items: center; justify-content: center; background: rgba(23,32,51,.78); backdrop-filter: blur(8px); }
-.lb.on { display: flex; }
+.lb {
+  position: fixed; inset: 0; z-index: 2000; padding: 40px 24px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(23,32,51,.78); backdrop-filter: blur(8px);
+  /* display:none cannot transition. visibility can, and it still removes the
+     overlay from the tab order and from pointer events while closed. */
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity 160ms var(--ease-out), visibility 0s linear 160ms;
+}
+.lb.on {
+  opacity: 1; visibility: visible; pointer-events: auto;
+  transition: opacity 200ms var(--ease-out), visibility 0s;
+}
+/* The figure scales from the thumbnail that opened it, so the letter reads as
+   growing out of the card rather than arriving from nowhere. */
+.lb figure {
+  transform: scale(.94); opacity: 0;
+  transform-origin: var(--lb-origin, center);
+  transition: transform 160ms var(--ease-out), opacity 160ms var(--ease-out);
+}
+.lb.on figure { transform: none; opacity: 1; transition: transform 260ms var(--ease-out), opacity 200ms var(--ease-out); }
 .lb figure { margin: 0; display: flex; flex-direction: column; align-items: center; max-width: 860px; width: 100%; }
 .lb img { max-width: 100%; max-height: calc(100vh - 150px); object-fit: contain; background: #fff; border-radius: 14px; box-shadow: 0 30px 70px rgba(0,0,0,.4); }
 .lb figcaption { margin-top: 15px; color: #fff; font-size: 14px; }
@@ -431,7 +457,14 @@ a { color: var(--rainbow); }
   from { opacity: 0; transform: translateY(10px) scale(.98); }
   to   { opacity: 1; transform: none; }
 }
-@media (prefers-reduced-motion: reduce) { .refilt { animation: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .refilt { animation: none; }
+  .lb figure, .lb.on figure { transform: none; }
+  .navlinks, .navlinks.open { transform: none; }
+  .burger span { transition: opacity 160ms var(--ease-out); }
+  .form-status.on { animation: none; }
+  .form-field.show-error .field-error { animation: none; }
+}
 
 /* ── Press feedback ─────────────────────────────────────────────────
    Fourteen hover rules and not one press state: every control looked
@@ -495,7 +528,18 @@ a { color: var(--rainbow); }
     background: rgba(255,255,255,.96); backdrop-filter: blur(24px);
     border: 1px solid var(--glass-line); border-radius: 16px; box-shadow: 0 20px 46px rgba(69,48,91,.16);
   }
-  .navlinks.open { display: flex; }
+  /* Kept in flow while closed so the panel can transition; visibility keeps
+     it out of the tab order until it opens. */
+  .navlinks {
+    display: flex; opacity: 0; visibility: hidden; pointer-events: none;
+    transform: translateY(-8px) scale(.98); transform-origin: top right;
+    transition: opacity 160ms var(--ease-out), transform 160ms var(--ease-out),
+                visibility 0s linear 160ms;
+  }
+  .navlinks.open {
+    opacity: 1; visibility: visible; pointer-events: auto; transform: none;
+    transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out), visibility 0s;
+  }
   .navlinks a { padding: 12px 15px; }
   .navlinks a.nav-cta { margin-left: 0; margin-top: 5px; text-align: center; }
   .hue-rail {
@@ -559,7 +603,14 @@ textarea.fin { resize: vertical; min-height: 110px; }
 .fin.invalid:focus { box-shadow: 0 0 0 3px rgba(220,38,38,.14); }
 
 .field-error { display: none; font-size: 12.5px; color: #dc2626; }
-.form-field.show-error .field-error { display: block; }
+.form-field.show-error .field-error {
+  display: block;
+  animation: err-in 160ms var(--ease-out) both;
+}
+@keyframes err-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: none; }
+}
 
 /* honeypot: off-screen for bots, never shown or focusable for people */
 .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
@@ -571,8 +622,17 @@ textarea.fin { resize: vertical; min-height: 110px; }
   border: 2px solid rgba(255,255,255,.45); border-top-color: #fff; border-radius: 50%;
   animation: spin 700ms linear infinite;
 }
-.form-status { display: none; margin-top: 14px; padding: 12px 15px; border-radius: 11px; font-size: 14px; }
-.form-status.on { display: block; }
+.form-status {
+  display: none; margin-top: 14px; padding: 12px 15px; border-radius: 11px; font-size: 14px;
+}
+.form-status.on {
+  display: block;
+  animation: status-in 260ms var(--ease-out) both;
+}
+@keyframes status-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: none; }
+}
 .form-status.ok { color: #14602f; background: #f0fdf4; border: 1px solid #bbf7d0; }
 .form-status.bad { color: #9f1239; background: #fff1f2; border: 1px solid #fecdd3; }
 

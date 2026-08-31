@@ -141,8 +141,20 @@
     var lbImg = document.getElementById('lb-img');
     var lbCap = document.getElementById('lb-cap');
     var lastFocus = null;
+    /* Point the overlay's transform-origin at the thumbnail that opened it, so
+       the letter grows out of that card instead of out of the screen centre.
+       Viewport percentages are a close enough proxy for the figure's own box
+       and stay correct before the full-size image has loaded. */
+    function setOrigin(fig) {
+      var r = fig.getBoundingClientRect();
+      var x = ((r.left + r.width / 2) / window.innerWidth) * 100;
+      var y = ((r.top + r.height / 2) / window.innerHeight) * 100;
+      lb.style.setProperty('--lb-origin', x.toFixed(1) + '% ' + y.toFixed(1) + '%');
+    }
+
     function openLetter(fig) {
       lastFocus = fig;
+      setOrigin(fig);
       lbImg.src = fig.dataset.src;
       lbImg.alt = fig.dataset.name;
       lbCap.textContent = fig.dataset.name;
