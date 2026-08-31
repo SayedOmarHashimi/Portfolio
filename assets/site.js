@@ -65,7 +65,7 @@
   /* ── Reveal on scroll ──────────────────────────────────────────── */
   var items = [].slice.call(document.querySelectorAll('.reveal'));
   document.querySelectorAll('.stagger').forEach(function (g) {
-    g.querySelectorAll('.reveal').forEach(function (n, i) { n.dataset.d = Math.min(i * 70, 420); });
+    g.querySelectorAll('.reveal').forEach(function (n, i) { n.dataset.d = Math.min(i * 45, 240); });
   });
   if (reduced || !('IntersectionObserver' in window)) {
     items.forEach(function (n) { n.classList.add('in'); });
@@ -118,7 +118,17 @@
         cards.forEach(function (c) {
           var hit = want === 'all' || c.dataset.cat.split(' ').indexOf(want) !== -1;
           c.hidden = !hit;
-          if (hit) shown++;
+          c.classList.remove('refilt');
+          if (hit) {
+            if (!reduced) {
+              /* reflow between the removal and the re-add, so the class
+                 restarts the animation instead of being coalesced away */
+              void c.offsetWidth;
+              c.style.animationDelay = Math.min(shown * 45, 240) + 'ms';
+              c.classList.add('refilt');
+            }
+            shown++;
+          }
         });
         if (empty) empty.hidden = shown !== 0;
       });

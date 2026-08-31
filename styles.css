@@ -15,6 +15,13 @@
   --glass: rgba(255, 255, 255, 0.86);
   --glass-line: rgba(255, 255, 255, 0.82);
   --hairline: rgba(23, 32, 51, 0.10);
+
+  /* Motion. Built-in CSS easings lack punch, so every curve here is explicit.
+     ease-in is deliberately absent: it delays the first frame, which is the
+     one the user is watching most closely. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --press: 120ms ease-out;
 }
 :root[data-hue="terracotta"] { --rainbow: #c67139; --rainbow-soft: #f0cdb0; --rainbow-wash: #fdf5ee; }
 :root[data-hue="red"]    { --rainbow: #ef4444; --rainbow-soft: #fecaca; --rainbow-wash: #fff1f2; }
@@ -66,7 +73,7 @@ a { color: var(--rainbow); }
 .hue {
   width: 19px; height: 19px; padding: 0; cursor: pointer; border-radius: 50%;
   background: var(--sw); border: 2px solid rgba(255,255,255,.9);
-  box-shadow: 0 2px 7px rgba(23,32,51,.24); transition: transform .2s ease;
+  box-shadow: 0 2px 7px rgba(23,32,51,.24); transition: transform 180ms var(--ease-out);
 }
 .hue:hover { transform: scale(1.18); }
 .hue.is-on { transform: scale(1.25); box-shadow: 0 0 0 3px color-mix(in srgb, var(--sw) 40%, transparent); }
@@ -90,7 +97,7 @@ a { color: var(--rainbow); }
   padding: 12px clamp(20px, 4.5vw, 56px);
   background: rgba(255,255,255,.68); backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255,255,255,.92);
-  transition: box-shadow .3s ease, background .3s ease;
+  transition: box-shadow 260ms var(--ease-out), background 260ms var(--ease-out);
 }
 .topnav.stuck { background: rgba(255,255,255,.85); box-shadow: 0 12px 34px rgba(69,48,91,.10); }
 .brand { display: flex; align-items: center; gap: 11px; margin-right: auto; text-decoration: none; }
@@ -107,7 +114,8 @@ a { color: var(--rainbow); }
 .navlinks { display: flex; align-items: center; gap: 4px; }
 .navlinks a {
   padding: 8px 13px; border-radius: 9px; text-decoration: none;
-  font-size: 15px; font-weight: 600; color: #1c2636; transition: background .25s ease, color .25s ease;
+  font-size: 15px; font-weight: 600; color: #1c2636;
+  transition: background 180ms var(--ease-out), color 180ms var(--ease-out), transform var(--press);
 }
 .navlinks a:hover { background: color-mix(in srgb, var(--rainbow) 11%, transparent); }
 .navlinks a[aria-current="page"] {
@@ -153,7 +161,7 @@ a { color: var(--rainbow); }
   -webkit-backdrop-filter: blur(30px) saturate(125%);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.88), 0 18px 44px color-mix(in srgb, var(--rainbow) 12%, transparent);
   color: var(--ink-2);
-  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  transition: transform 260ms var(--ease-out), box-shadow 260ms var(--ease-out), border-color 260ms var(--ease-out);
 }
 .glass:hover {
   transform: translateY(-4px);
@@ -192,7 +200,7 @@ a { color: var(--rainbow); }
   display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 12px;
   background: var(--rainbow); color: #fff; text-decoration: none; font-weight: 700; font-size: 16px;
   box-shadow: 0 10px 26px color-mix(in srgb, var(--rainbow) 26%, transparent);
-  transition: transform .25s ease, box-shadow .25s ease;
+  transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
 }
 .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 32px color-mix(in srgb, var(--rainbow) 34%, transparent); }
 .cta-primary.sm { padding: 9px 17px; font-size: 14px; border-radius: 10px; }
@@ -200,7 +208,7 @@ a { color: var(--rainbow); }
   display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 12px;
   background: rgba(255,255,255,.86); border: 1px solid var(--glass-line); backdrop-filter: blur(12px);
   color: #26364c; text-decoration: none; font-weight: 700; font-size: 16px;
-  transition: transform .25s ease, box-shadow .25s ease;
+  transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
 }
 .cta-secondary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px color-mix(in srgb, var(--rainbow) 16%, transparent); }
 .hero-social { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 22px; font-size: 15px; font-weight: 600; }
@@ -276,7 +284,9 @@ a { color: var(--rainbow); }
   font-family: 'Share Tech Mono', monospace; font-size: 12.5px; cursor: pointer;
   padding: 9px 17px; border-radius: 999px; color: var(--muted);
   background: rgba(255,255,255,.7); border: 1px solid var(--glass-line);
-  transition: all .25s ease;
+  transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out),
+              background 200ms var(--ease-out), box-shadow 200ms var(--ease-out),
+              transform var(--press);
 }
 .filt:hover { color: var(--rainbow); border-color: color-mix(in srgb, var(--rainbow) 40%, white); }
 .filt.is-on { background: var(--rainbow); color: #fff; border-color: var(--rainbow); box-shadow: 0 8px 20px color-mix(in srgb, var(--rainbow) 26%, transparent); }
@@ -369,7 +379,7 @@ a { color: var(--rainbow); }
   display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
   background: var(--rainbow); color: #fff; text-decoration: none; font-size: 18px;
   box-shadow: 0 10px 26px color-mix(in srgb, var(--rainbow) 30%, transparent);
-  opacity: 0; pointer-events: none; transition: opacity .3s ease, transform .3s ease;
+  opacity: 0; pointer-events: none; transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out);
 }
 .totop.on { opacity: 1; pointer-events: auto; }
 .totop:hover { transform: translateY(-3px); }
@@ -390,7 +400,7 @@ a { color: var(--rainbow); }
   display: flex; flex-direction: column; align-items: center; gap: 2px;
   width: fit-content; margin: 8px auto 56px; padding: 16px 30px 12px;
   text-decoration: none; border-radius: 20px;
-  transition: background .25s ease, transform .25s ease;
+  transition: background 220ms var(--ease-out), transform 220ms var(--ease-out);
 }
 .nextpane:hover { background: color-mix(in srgb, var(--rainbow) 8%, transparent); transform: translateY(2px); }
 .np-sub {
@@ -413,14 +423,62 @@ a { color: var(--rainbow); }
 @keyframes nudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
 @media (prefers-reduced-motion: reduce) { .np-arrow { animation: none; } }
 
+
+/* Cards cascading back in after a filter change. Short, because the user
+   is scanning results, not watching a show. */
+.refilt { animation: refilt 300ms var(--ease-out) both; }
+@keyframes refilt {
+  from { opacity: 0; transform: translateY(10px) scale(.98); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .refilt { animation: none; } }
+
+/* ── Press feedback ─────────────────────────────────────────────────
+   Fourteen hover rules and not one press state: every control looked
+   alive under a mouse and dead under a thumb. A scale under the finger
+   is the cheapest possible confirmation that the interface heard you.
+   Kept subtle (0.96-0.98) and fast, because it fires on every tap. */
+.cta-primary:active,
+.cta-secondary:active,
+.filt:active,
+.nextpane:active,
+.totop:active,
+.lb-x:active,
+.form-submit:active { transform: scale(.97); transition: transform var(--press); }
+
+.navlinks a:active,
+.hero-social a:active,
+.footer-social a:active,
+.src:active,
+.brand:active { transform: scale(.975); transition: transform var(--press); }
+
+/* Cards are large, so they take a shallower press than a button would. */
+.proj:active,
+.skill:active,
+.cred:active,
+.letter:active { transform: scale(.99); transition: transform var(--press); }
+
+.hue:active { transform: scale(1.05); transition: transform var(--press); }
+
+/* Hover belongs to devices that can actually hover. On touch these fire on
+   tap and then stick until the next tap lands elsewhere. */
+@media (hover: none) {
+  .glass:hover { transform: none; box-shadow: inset 0 1px 0 rgba(255,255,255,.88), 0 18px 44px color-mix(in srgb, var(--rainbow) 12%, transparent); }
+  .cta-primary:hover, .cta-secondary:hover, .nextpane:hover { transform: none; }
+  .hue:hover { transform: none; }
+}
+
 /* ── Motion ─────────────────────────────────────────────────────── */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s cubic-bezier(.22,1,.36,1); }
+.reveal {
+  opacity: 0; transform: translateY(16px) scale(.985);
+  transition: opacity 420ms var(--ease-out), transform 520ms var(--ease-out);
+}
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .orbit, .node, .dot, .caret { animation: none; }
-  .glass:hover, .cta-primary:hover, .cta-secondary:hover { transform: none; }
+  .glass:hover, .cta-primary:hover, .cta-secondary:hover, .nextpane:hover { transform: none; }
 }
 
 /* ── Responsive ─────────────────────────────────────────────────── */
@@ -488,7 +546,7 @@ a { color: var(--rainbow); }
   width: 100%; padding: 11px 15px; border-radius: 11px; font: inherit; font-size: 15.5px;
   color: var(--ink-2); background: rgba(255,255,255,.78);
   border: 1px solid color-mix(in srgb, var(--rainbow) 18%, #d8dee7);
-  transition: border-color .25s ease, box-shadow .25s ease, background .25s ease;
+  transition: border-color 180ms var(--ease-out), box-shadow 180ms var(--ease-out), background 180ms var(--ease-out);
 }
 .fin::placeholder { color: #9aa6b6; }
 .fin:hover { border-color: color-mix(in srgb, var(--rainbow) 38%, #d8dee7); }
