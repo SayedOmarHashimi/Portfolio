@@ -32,7 +32,6 @@ try{var h=localStorage.getItem('hue');if(h)document.documentElement.setAttribute
     <a href="../experience/">Experience</a>
     <a href="../credentials/">Credentials</a>
     <a href="../recommendations/">Recommendations</a>
-    <a href="../resume/">Resume</a>
     <a class="nav-cta" href="../contact/">Contact</a>
   </div>
 </nav>
@@ -67,16 +66,16 @@ try{var h=localStorage.getItem('hue');if(h)document.documentElement.setAttribute
         <div class="proj-top"><span class="proj-ico" aria-hidden="true">&#9672;</span><span class="chip chip-live">Live</span></div>
         <h2>DONKI Space Weather Dashboard</h2>
         <p class="proj-focus">Data engineering &middot; Automated pipeline</p>
-        <p class="proj-text">An end-to-end, fully automated pipeline tracking solar flares, coronal mass ejections, and geomagnetic storms from NASA DONKI and NOAA SWPC. Python extraction, a DuckDB warehouse transformed with dbt, and a daily-refreshed public dashboard with aurora forecast and live Kp-index &mdash; all on free cloud infrastructure.</p>
+        <p class="proj-text">An end-to-end, fully automated pipeline tracking solar flares, coronal mass ejections, and geomagnetic storms from NASA DONKI and NOAA SWPC. Python extraction, a DuckDB warehouse transformed with dbt, and a daily-refreshed public dashboard with aurora forecast and live Kp-index, all on free cloud infrastructure.</p>
         <div class="tags"><span class="t">Python</span><span class="t">dbt</span><span class="t">DuckDB</span><span class="t">GitHub Actions</span></div>
-        <div class="proj-links"><a class="cta-primary sm" href="https://sayedomarhashimi.github.io/donki-space-weather/" target="_blank" rel="noopener">View project &#8599;</a></div>
+        <div class="proj-links"><a class="cta-primary sm" href="https://sayedomarhashimi.github.io/donki-space-weather/" target="_blank" rel="noopener">View project &#8599;</a><a class="src" href="https://github.com/SayedOmarHashimi/donki-space-weather" target="_blank" rel="noopener">Source &#8599;</a></div>
       </article>
       <article class="glass proj reveal" data-cat="ml data-eng">
         <div class="proj-top"><span class="proj-ico" aria-hidden="true">&#9670;</span><span class="chip chip-live">Live</span></div>
         <h2>California Wildfire Risk &amp; Spread Simulation</h2>
         <p class="proj-focus">Geospatial ML &middot; Butte County, CA</p>
         <p class="proj-text">A machine-learning ignition-risk model over a 1&nbsp;km grid, a cellular-automaton spread simulation calibrated against the 2018 Camp Fire, and a live NASA FIRMS thermal layer refreshed every 15 minutes. PR-AUC 0.226 under spatially blocked CV against a 0.048 baseline; spread IoU 0.595 with 11.1&nbsp;h arrival-time error.</p>
-        <p class="proj-note">Unofficial portfolio project &mdash; modelled demonstrations, not a source of real fire information.</p>
+        <p class="proj-note">Unofficial portfolio project. Modelled demonstrations, not a source of real fire information.</p>
         <div class="tags"><span class="t">Python</span><span class="t">scikit-learn</span><span class="t">geopandas</span><span class="t">Streamlit</span></div>
         <div class="proj-links"><a class="cta-primary sm" href="https://california-wildfire-risk.streamlit.app/" target="_blank" rel="noopener">View project &#8599;</a><a class="src" href="https://github.com/SayedOmarHashimi/california-wildfire-risk" target="_blank" rel="noopener">Source &#8599;</a></div>
       </article>
@@ -86,7 +85,7 @@ try{var h=localStorage.getItem('hue');if(h)document.documentElement.setAttribute
         <p class="proj-focus">Data platform &middot; 3,386 nuclides</p>
         <p class="proj-text">An interactive chart of every known nuclide, built on the IAEA Livechart API over ENSDF. A Python ingestion pipeline and layered dbt models on Neon Postgres reconcile the source data&rsquo;s quirks into a typed schema, verified to a relative tolerance of 1e-6. Rendered on Canvas 2D with d3-zoom behind a Zod-validated public JSON API.</p>
         <div class="tags"><span class="t">Next.js 16</span><span class="t">React 19</span><span class="t">dbt</span><span class="t">Postgres</span></div>
-        <div class="proj-links"><a class="cta-primary sm" href="https://nuclide-explorer.vercel.app/" target="_blank" rel="noopener">View project &#8599;</a></div>
+        <div class="proj-links"><a class="cta-primary sm" href="https://nuclide-explorer.vercel.app/" target="_blank" rel="noopener">View project &#8599;</a><a class="src" href="https://github.com/SayedOmarHashimi/nuclide-explorer" target="_blank" rel="noopener">Source &#8599;</a></div>
       </article>
       <article class="glass proj reveal" data-cat="bi db">
         <div class="proj-top"><span class="proj-ico" aria-hidden="true">&#9636;</span><span class="chip ">Coursework</span></div>
@@ -94,7 +93,7 @@ try{var h=localStorage.getItem('hue');if(h)document.documentElement.setAttribute
         <p class="proj-focus">Business intelligence &middot; 8 dashboards</p>
         <p class="proj-text">A Tableau BI solution covering billing analytics, appointment efficiency, treatment performance, patient density mapping, and no-show analysis. Built on a full ER diagram, relational schema, and ETL pipeline integrating 5 normalized tables.</p>
         <div class="tags"><span class="t">Tableau</span><span class="t">SQL</span><span class="t">ETL</span><span class="t">Data Modeling</span></div>
-        <div class="proj-links"><a class="cta-primary sm" href="https://sayedomarhashimi.github.io/hospital-management-systems/" target="_blank" rel="noopener">View project &#8599;</a></div>
+        <div class="proj-links"><a class="cta-primary sm" href="https://sayedomarhashimi.github.io/hospital-management-systems/" target="_blank" rel="noopener">View project &#8599;</a><a class="src" href="https://github.com/SayedOmarHashimi/hospital-management-systems" target="_blank" rel="noopener">Source &#8599;</a></div>
       </article>
       <article class="glass proj reveal" data-cat="fullstack">
         <div class="proj-top"><span class="proj-ico" aria-hidden="true">&#9678;</span><span class="chip chip-live">Live</span></div>
@@ -102,20 +101,26 @@ try{var h=localStorage.getItem('hue');if(h)document.documentElement.setAttribute
         <p class="proj-focus">Full-stack &middot; Open archive</p>
         <p class="proj-text">An open-access archive where researchers and space enthusiasts worldwide upload and download datasets, mission files, and research papers, completely free. Real cloud file storage, a searchable tag-filterable repository, and live contributor stats.</p>
         <div class="tags"><span class="t">Next.js 14</span><span class="t">TypeScript</span><span class="t">Supabase</span><span class="t">Vercel</span></div>
-        <div class="proj-links"><a class="cta-primary sm" href="https://united-space-data.vercel.app/" target="_blank" rel="noopener">View project &#8599;</a></div>
+        <div class="proj-links"><a class="cta-primary sm" href="https://united-space-data.vercel.app/" target="_blank" rel="noopener">View project &#8599;</a><a class="src" href="https://github.com/SayedOmarHashimi/UnitedSpaceData" target="_blank" rel="noopener">Source &#8599;</a></div>
       </article>
       <article class="glass proj reveal" data-cat="db">
         <div class="proj-top"><span class="proj-ico" aria-hidden="true">&#9638;</span><span class="chip ">Team project</span></div>
         <h2>Property Management Database System</h2>
         <p class="proj-focus">Database systems &middot; 5-member team</p>
-        <p class="proj-text">A relational MySQL system spanning the full database lifecycle &mdash; ER diagrams, a normalized schema of 10+ entities, and a complete data dictionary. Includes triggers that auto-update apartment occupancy and a stored procedure that assigns staff by workload.</p>
+        <p class="proj-text">A relational MySQL system spanning the full database lifecycle: ER diagrams, a normalized schema of 10+ entities, and a complete data dictionary. Includes triggers that auto-update apartment occupancy and a stored procedure that assigns staff by workload.</p>
         <div class="tags"><span class="t">MySQL</span><span class="t">ER Modeling</span><span class="t">Triggers</span><span class="t">Stored Procedures</span></div>
-        <div class="proj-links"><a class="cta-primary sm" href="https://sayedomarhashimi.github.io/Property-Database-Management-Systems/" target="_blank" rel="noopener">View project &#8599;</a></div>
+        <div class="proj-links"><a class="cta-primary sm" href="https://sayedomarhashimi.github.io/Property-Database-Management-Systems/" target="_blank" rel="noopener">View project &#8599;</a><a class="src" href="https://github.com/SayedOmarHashimi/Property-Database-Management-Systems" target="_blank" rel="noopener">Source &#8599;</a></div>
       </article>
     </div>
     <p class="empty" id="empty" hidden>No projects in that category yet.</p>
   </div>
 </section>
+
+<a class="nextpane" href="../experience/">
+  <span class="np-sub">Where I have worked</span>
+  <span class="np-label">Experience</span>
+  <span class="np-arrow" aria-hidden="true"></span>
+</a>
 
 </main>
 
@@ -125,7 +130,6 @@ try{var h=localStorage.getItem('hue');if(h)document.documentElement.setAttribute
     <span class="footer-social">
       <a href="https://github.com/SayedOmarHashimi" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/sayedhashimi12/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:omarhashimi12@gmail.com">Email</a>
     </span>
     <span>&copy; 2026</span>
   </div>

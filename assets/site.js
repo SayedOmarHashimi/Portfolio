@@ -229,7 +229,7 @@
       .then(function (r) {
         if (r.ok && r.data && r.data.success) {
           form.reset();
-          show('success', 'Thanks, ' + values.name.split(' ')[0] + " — your message has been sent. I'll be in touch soon.");
+          show('success', 'Thanks, ' + values.name.split(' ')[0] + ", your message has been sent. I'll be in touch soon.");
         } else {
           show('error', (r.data && r.data.message) ? r.data.message : 'Something went wrong sending your message. Please try again, or email me directly at omarhashimi12@gmail.com.');
         }
