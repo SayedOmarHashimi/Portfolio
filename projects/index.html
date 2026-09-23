@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Projects &middot; Sayed Hashimi</title>
-<meta name="description" content="Six shipped projects across data engineering, machine learning, business intelligence, and full-stack development.">
+<meta name="description" content="Eight shipped projects across data engineering, machine learning, business intelligence, and full-stack development.">
 <meta name="theme-color" content="#ffffff">
 <meta name="apple-mobile-web-app-title" content="Sayed Hashimi">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -52,7 +52,7 @@ try{var h=localStorage.getItem('hue');if(h)document.documentElement.setAttribute
   <div class="shell">
     <p class="eyebrow reveal">Recent work</p>
     <h1 class="sec-title reveal">My Recent <em>Works</em></h1>
-    <p class="sec-desc reveal">Six shipped projects across data engineering, machine learning, business intelligence, and full-stack development.</p>
+    <p class="sec-desc reveal">Eight shipped projects across data engineering, machine learning, business intelligence, and full-stack development.</p>
     <div class="filters reveal" role="group" aria-label="Filter projects">
       <button type="button" class="filt is-on" data-f="all" aria-pressed="true">All work</button>
       <button type="button" class="filt" data-f="data-eng" aria-pressed="false">Data Engineering</button>
@@ -62,6 +62,23 @@ try{var h=localStorage.getItem('hue');if(h)document.documentElement.setAttribute
       <button type="button" class="filt" data-f="db" aria-pressed="false">Databases</button>
     </div>
     <div class="proj-grid stagger" id="grid">
+      <article class="glass proj reveal" data-cat="data-eng bi fullstack">
+        <div class="proj-top"><span class="proj-ico" aria-hidden="true">&#9635;</span><span class="chip chip-live">Live</span></div>
+        <h2>Defense Contracts Dashboard</h2>
+        <p class="proj-focus">Data engineering &middot; FY2020 to FY2025</p>
+        <p class="proj-text">A public, statically generated dashboard of U.S. Department of Defense prime contract awards from USASpending.gov. A contractor leaderboard links to prerendered pages with yearly obligations, awarding sub-agency breakdowns, and competed vs. non-competed totals for top primes like Boeing, L3Harris, and Lockheed Martin. A dependency-free Python ETL pipeline refreshes the data every 6 hours on GitHub Actions.</p>
+        <div class="tags"><span class="t">Next.js</span><span class="t">TypeScript</span><span class="t">Python</span><span class="t">GitHub Actions</span></div>
+        <div class="proj-links"><a class="cta-primary sm" href="https://defense-contracts-dashboard.vercel.app/" target="_blank" rel="noopener">View project &#8599;</a><a class="src" href="https://github.com/SayedOmarHashimi/defense-contracts-dashboard" target="_blank" rel="noopener">Source &#8599;</a></div>
+      </article>
+      <article class="glass proj reveal" data-cat="data-eng bi">
+        <div class="proj-top"><span class="proj-ico" aria-hidden="true">&#9677;</span><span class="chip chip-live">Live</span></div>
+        <h2>Equity Ops Automation Toolkit</h2>
+        <p class="proj-focus">Stock administration &middot; RSU and ESPP</p>
+        <p class="proj-text">An end-to-end toolkit that automates RSU and ESPP reconciliation across HR, broker, and payroll records. Synthetic vest events with injected errors are reconciled, run through dbt business-rule controls, and scored against an answer key. Adds an ESPP purchase calculator on real yfinance prices, LLM triage for exceptions and employee equity FAQs, and a live readiness dashboard.</p>
+        <p class="proj-note">Portfolio project inspired by NVIDIA&rsquo;s Stock Administration Associate role. All employee data is synthetic.</p>
+        <div class="tags"><span class="t">Python</span><span class="t">dbt</span><span class="t">Streamlit</span><span class="t">LLM</span></div>
+        <div class="proj-links"><a class="cta-primary sm" href="https://equity-ops-automation-toolkit-vayckcw7r5w7lbdjcl3hmn.streamlit.app/" target="_blank" rel="noopener">View project &#8599;</a><a class="src" href="https://github.com/SayedOmarHashimi/equity-ops-automation-toolkit" target="_blank" rel="noopener">Source &#8599;</a></div>
+      </article>
       <article class="glass proj reveal" data-cat="data-eng bi">
         <div class="proj-top"><span class="proj-ico" aria-hidden="true">&#9672;</span><span class="chip chip-live">Live</span></div>
         <h2>DONKI Space Weather Dashboard</h2>
